@@ -1,0 +1,313 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,300,900,100);
+
+/*For ToolBar*/
+#toolbar{
+	background-color:#000000;
+	color:white;
+	height:40px;
+	width:100%;
+	position:fixed;
+	bottom:0;
+	font-style:sans-serif;
+	margin:0 auto;
+	right:0;
+	left:0;
+    -webkit-transition: all 0.25s; /* For Safari 3.1 to 6.0 */
+    transition: all 0.25s;
+	z-index:25;
+}
+#toolbartop{
+	background-color:#000000;
+	color:white;
+	height:75px;
+	width:100%;
+	position:fixed;
+	opacity:0.75;
+	top:0;
+	font-style:sans-serif;
+	margin:0px;
+	margin-bottom:0px;
+	right:0;
+	left:0;
+    -webkit-transition: all 0.25s; /* For Safari 3.1 to 6.0 */
+    transition: all 0.25s;
+}
+#toolSearch{
+	height:20px;
+	width:70%;
+	float:left;
+	padding:3px;
+	opacity:0.75;
+	color:white;
+	background-color:black;
+	font-size:18px;
+    -webkit-transition: all 0.25s; /* For Safari 3.1 to 6.0 */
+    transition: all 0.25s;
+}
+#searchButton{
+	padding:0;
+	margin:5px;
+	width:20px;
+	height:20px;
+	float:left;
+	opacity:0.75;
+	background-color:black;
+	background-image:url("Search.png");
+	background-size:35px;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+#searchButton:hover{
+	transition: all 500ms ease;
+	cursor:pointer;
+	opacity:0.35;
+}
+#title{
+	font-family: 'Lato', sans-serif;
+	color: white;
+	text-align: center;
+	margin: 0px 0px 0px 0px;
+	font-size:48px;
+	float:left;
+}
+#logo{
+    background-image: url("logo4.png");
+	background-size: 450px;
+    background-repeat: no-repeat;
+	background-position:center;
+	background-color:black;
+	border-radius:10px;
+	height:75px;
+	width:225px;
+	margin:0px 20px 0px 20px;
+	padding:0px;
+	float:left;
+    -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
+    transition: all 1s;
+}#logo:hover{
+	background-color:black;
+}
+.toolDiv{
+	margin:0px;
+	margin-top:23px;
+	margin-right:35px;
+	padding:0px;
+	float:right;
+	display:inline;
+	width:30%;
+	height:25px;
+	/*border:1px;
+	border-color:white;
+	border-style:solid;*/
+}
+
+.toolDivMid{
+    margin: 0 auto 0 auto;
+	width: 651px;
+}
+.toolIconRB{
+	font-family: 'Lato', sans-serif;
+	padding:5px 10px 5px 10px;
+	float:right;
+	margin:4px 2px 4px 2px;
+	font-size:15px;
+    -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
+    transition: all 1s;
+	z-index:20;
+	color: grey;
+	border-style: solid;
+	border-width: 2px;
+	border-color: grey;
+	opacity: 1.0;
+}
+.toolIconRB:hover{
+	color:#F62A00;
+	border-color:#F62A00;
+	transition: all 500ms ease;
+	cursor:pointer;
+}
+.toolIconLB{
+	padding:1px;
+	float:left;
+	margin:3px;
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:10px;
+	margin-bottom:10px;
+	border:0px;
+	border-top:1px;
+	border-style:solid;
+	border-color:white;
+	font-size:15px;
+    -webkit-transition: all 0.25s; /* For Safari 3.1 to 6.0 */
+    transition: all 0.25s;
+}
+.toolIconLB:hover{
+	padding:5px;
+	margin:1px;
+	border:2px;
+	border-style:solid;
+	border-color:white;
+	-moz-box-shadow: 0 0 5px rgba(0,0,0,1);
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,1);
+	cursor:pointer;
+	font-size:20px;
+}
+.toolButtons{
+	font-family: 'Lato', sans-serif;
+	font-size: 19px;
+	color: white;
+	float: right;
+	text-align: center;
+	margin: 23px 20px 23px 0px;
+	height: 28px;
+	width: 100px;
+}
+#logOut{
+	color: #F62A00;
+	margin-Left:0;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #F62A00;
+	opacity: 1.0;
+	float:right;
+}
+
+#logOut:hover{
+	color: white;
+	background-color: #F62A00;
+	transition: all 500ms ease;
+	cursor:pointer;
+}
+
+#hide{
+	width:100%;
+	height:50px;
+	position:fixed;
+	bottom:0;
+	margin:0;
+	left:0;
+	margin:0;
+	padding:0;
+	background-color:white;
+    -webkit-transition: all 0.25s; /* For Safari 3.1 to 6.0 */
+    transition: all 0.25s;
+	z-index:10;
+}
+#hideTop{
+	width:100%;
+	height:75px;
+	position:fixed;
+	top:0;
+	margin:0;
+	padding:0;
+	background-color:white;
+    -webkit-transition: all 0.25s; /* For Safari 3.1 to 6.0 */
+    transition: all 0.25s;
+	z-index:10;
+}
+#botDiv{
+	position:fixed;
+	bottom:58px;
+	width:605px;
+	height:80px;
+    -webkit-transition: all 0.25s; /* For Safari 3.1 to 6.0 */
+    transition: all 0.25s;
+	z-index:11;
+}
+#botIcon{
+	position:relative;
+	width:40px;
+	height:40px;
+	margin:9px;
+	margin-left:21px;
+	margin-right:21px;
+	top:30px;
+	border:2px;
+	border-style:solid;
+	border-color:black;
+	border-radius:21px;
+	background-color:black;
+	opacity:0.75;
+	float:left;
+    -webkit-transition: all 0.25s; /* For Safari 3.1 to 6.0 */
+    transition: all 0.25s;
+}
+#botIcon:hover{
+	height:80px;
+	width:80px;
+	border:0px;
+	border-radius:40px;
+	top:0px;
+	opacity:1;
+	z-index:13;
+	margin:0px;
+	cursor:pointer;
+}
+.double2{
+    background-image: url("events1.png");
+	background-size: 40px;
+    background-repeat: no-repeat;
+	background-position:center;
+}
+.double2:hover{
+	background-size: 80px;
+}
+.double3{
+    background-image: url("dp1.jpg");
+	background-size: 40px;
+    background-repeat: no-repeat;
+	background-position:center;
+}
+.double3:hover{
+	background-size: 80px;
+}
+
+.double4{
+    background-image: url("message1.png");
+	background-size: 40px;
+    background-repeat: no-repeat;
+	background-position:center;
+}
+.double4:hover{
+	background-size: 80px;
+}
+
+.double5{
+    background-image: url("trophy1.png");
+	background-size: 40px;
+    background-repeat: no-repeat;
+	background-position:center;
+}
+.double5:hover{
+	background-size: 80px;
+}
+
+.double6{
+    background-image: url("notifs1.png");
+	background-size: 40px;
+    background-repeat: no-repeat;
+	background-position:center;
+}
+.double6:hover{
+	background-size: 80px;
+}
+
+.double1{
+    background-image: url("whatsnew1.png");
+	background-size: 40px;
+    background-repeat: no-repeat;
+	background-position:center;
+}
+.double1:hover{
+	background-size: 80px;
+}
+.double7{
+    background-image: url("Gear1.png");
+	background-size: 40px;
+    background-repeat: no-repeat;
+	background-position:center;
+}
+.double7:hover{
+	background-size: 80px;
+}

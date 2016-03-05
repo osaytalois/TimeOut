@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Timeout </title>
+		<link rel="stylesheet" type="text/css" href="style_signup.css">
+		<script type="text/javascript" src= "jquery-2.2.0.js"></script>
+	</head>
+	<body>
+		<div id="main_container">
+			<div id="signup_dialog">
+			<div id="signup_space"> </div>
+			<div id="signup_form"> 
+				<br><br><br>
+					<div class="labels">First name: </div>
+					<span> <input id="fname" type="text" class="input_boxes"></input> </span>
+				<br><br><br>
+					<div class="labels">Last name: </div>
+					<span> <input id="lname" type="text" class="input_boxes"></input> </span>
+				<br><br><br>
+					<div class="labels">Username: </div>
+					<span> <input id="uname" type="text" class="input_boxes"></input> </span>
+				<br><br><br>
+					<div class="labels">Password: </div>
+					<span> <input id="pword" type="password" class="input_boxes"></input> </span>
+				<br><br><br>
+					<div class="labels">Re-type Password: </div>
+					<span> <input id="second_pword" type="password" class="input_boxes"></input> </span>
+				<br><br><br>
+					<div class="labels">Password: </div>
+					<span> <input id="pword" type="password" class="input_boxes"></input> </span>
+				<br><br><br>
+				<div class="input_boxes">
+				<select id="month">
+						<option value="month"> Month </option>
+						<option value="Jan"> January </option>
+						<option value="Feb"> February </option>
+						<option value="Mar"> March </option>
+						<option value="Apr"> April </option>
+						<option value="May"> May </option>
+						<option value="June"> June </option>
+						<option value="Jul"> July </option>
+						<option value="Aug"> Aug </option>
+						<option value="Sept"> September </option>
+						<option value="Oct"> October </option>
+						<option value="Nov"> November </option>
+						<option value="Dec"> December </option>
+				</select>
+				<select id="day">
+						<option value="day"> Day </option>
+						<option value="1"> 1 </option>
+						<option value="2"> 2 </option>
+						<option value="3"> 3 </option>
+						<option value="4"> 4 </option>
+						<option value="5"> 5 </option>
+						<option value="6"> 6 </option>
+						<option value="7"> 7 </option>
+						<option value="8"> 8 </option>
+						<option value="9"> 9 </option>
+						<option value="10"> 10 </option>
+						<option value="11"> 11 </option>
+						<option value="12"> 12 </option>
+						<option value="13"> 13 </option>
+						<option value="14"> 14 </option>
+						<option value="15"> 15 </option>
+						<option value="16"> 16 </option>
+						<option value="17"> 17 </option>
+						<option value="18"> 18 </option>
+						<option value="19"> 19 </option>
+						<option value="20"> 20 </option>
+						<option value="21"> 21 </option>
+						<option value="22"> 22 </option>
+						<option value="23"> 23 </option>
+						<option value="24"> 24 </option>
+						<option value="25"> 25 </option>
+						<option value="26"> 26 </option>
+						<option value="27"> 27 </option>
+						<option value="28"> 28 </option>
+						<option value="29"> 29 </option>
+						<option value="30"> 30 </option>
+						<option value="31"> 31 </option>
+				</select>
+				<select id="year">
+						<option value="year"> Year </option>
+				</select>
+				<br><br><br>
+				<input id="male" type="radio"> Male </input>
+				<input id="female" type="radio"> Female </input>
+			</div>
+				<br><br><br><br><br><br>
+					<div id="submit_button" onclick="signup()">
+						<div id="button_space"></div>
+						Submit
+					</div>
+			</div>
+		</div>
+		</div>
+		<script>
+			function signup(){
+				window.document.location.href = 'news.html';
+			}
+		</script>
+	</body>
+</html>

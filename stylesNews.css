@@ -1,0 +1,181 @@
+/*For General Links*/
+a:link{
+	color:white;
+}
+
+/* visited link */
+a:visited {
+    color: white;
+}
+
+/* mouse over link */
+a:hover {
+    color: lightgrey;
+}
+
+/* selected link */
+a:active {
+    color: lightgrey;
+}
+/*For Names*/
+a[class = "username anchor"]{
+	color:red;
+	text-decoration:none;
+	font-family:sans-serif;
+	font-size:25px;
+}
+a[class = "username anchor"]:link{
+	color:red;
+	text-decoration:none;
+	font-family:sans-serif;
+	font-size:25px;
+}
+
+/* visited link */
+a[class = "username anchor"]:visited {
+    color: Red;
+	text-decoration:none;
+	font-family:sans-serif;
+	font-size:25px;
+}
+
+/* mouse over link */
+a[class = "username anchor"]:hover {
+    color: Black;
+	text-decoration:none;
+	font-family:sans-serif;
+	font-size:25px;
+}
+
+/* selected link */
+a[class = "username anchor"]:active {
+    color: Black;
+	text-decoration:none;
+	font-family:sans-serif;
+	font-size:25px;
+}
+/*For Left Pane*/
+#leftPane{
+	font-style:sans-serif;
+	font-size:15px;
+	float:left;
+	background-color:#f9f9f9;
+	position:relative;
+	height:auto;
+	width:25%;
+	border:2px;
+	border-style:solid;
+	border-color:#000000;
+	border-radius:10px;
+	color:#000000;
+	opacity:0.65;
+	z-index:0;
+	margin-top:75px;
+}
+#leftPane:hover{
+	-moz-box-shadow: 0 0 5px rgba(0,0,0,1);
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,1);
+}
+.lPTitle{
+	margin:2px;
+	margin-top:10px;
+	margin-bottom:5px;
+	padding-left:10px;
+	font-style:sans-serif;
+	font-size:24px;
+	background-color:red;
+	color:white;
+	border-radius:5px;
+}
+.lPLink{
+	margin:2px;
+	margin-top:5px;
+	margin-bottom:0px;
+	padding-left:25px;
+}
+.lPLink:hover{
+	background-color:lightgrey;
+	cursor:pointer;
+}
+.lPSubTitle{
+	margin:2px;
+	margin-top:5px;
+	margin-bottom:0px;
+	font-size:20px;
+	padding-left:10px;
+	opacity:0.8;
+}
+/*Right Pane*/
+#rightPane{
+	float:right;
+	font-style:sans-serif;
+	font-size:15px;
+	background-color:#f9f9f9;
+	height:auto;
+	width:25%;
+	border:2px;
+	border-style:solid;
+	border-color:#000000;
+	border-radius:10px;
+	color:#000000;
+	opacity:0.65;
+	z-index:0;
+	margin-top:75px;
+}
+#rightPane:hover{
+	-moz-box-shadow: 0 0 5px rgba(0,0,0,1);
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,1);
+}
+/*For A News*/
+.news{
+	width:94%;
+	margin:3%;
+	margin-top:10px;
+	margin-bottom:7%;
+	height:auto;
+	border:1px;
+	border-style:solid;
+	border-color:#000000;
+	border-radius:10px;
+	opacity:0.65;
+	position:relative;
+	float:left;
+	background-color:#f9f9f9;
+}
+.news:hover{
+	-moz-box-shadow: 0 0 5px rgba(0,0,0,1);
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,1);
+}
+#midPane{
+    position: relative;
+	float:left;
+	top:65px;
+    left: 2%;/*Place it on 26% of the screen(since left pane occupies 25%*/
+    width: 46%;/*Occupy 48% of the screen (Since the other panes occupies 50%)*/
+    margin: 0 0 0 0;
+	z-index:0;
+}
+div[class = news]>p{
+	clear:both;
+	margin-left:15%;
+	margin-right:5%;
+}
+div[class = news] div[class = dp]{
+	position:absolute;
+	float:left;
+	height:50px;
+	width:50px;
+	margin:3%;
+	border:1px;
+	border-style:solid;
+	border-radius:10px;
+}
+div[class = news]>div[class = nameTime]{
+	position:relative;
+	float:right;
+	height:50px;
+	width:80%;
+	margin:3%;
+	margin-right:5%;
+	
+}

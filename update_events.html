@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Timeout </title>
+		<link rel="stylesheet" type="text/css" href="style_create_events.css">
+
+		<script src = "jquery-2.2.0.js"></script>
+		<link href="jquery-ui.css" rel="stylesheet" type="text/css">
+		<script src="jquery-ui.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+	</head>
+	<body>
+		<!--The whole top toolbar-->
+		<div id = hideTop>
+			<div id = toolbartop onmouseover = toolhovertop() onmouseout = toolouttop()>
+				<div class = "toolDiv">
+					<div class = "toolIconLATop">Search</div>
+					<form>
+						<input type="text" id = "toolSearch" placeholder = "Enter a name, username, or a club name" onFocus = "this.placeholder=''" onBlur = "this.placeholder = 'Enter a name, username, or a club name'">
+					</form>
+				</div>
+				<div class = "toolIconRATop" onclick="loadLanding()">Logout</div>
+			</div>
+		</div>
+			<!--The Whole Bottom Toolbar-->
+			<div id = hide>
+				<div id = toolbar onmouseover = toolhover() onmouseout = toolout()>
+					<div class="toolDivMid">
+						<div id = "double7" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadSettings()">Settings</div>
+						<div id = "double6" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadNotifs()">Notifications</div>
+						<div id = "double5" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadHoF()">Hall of Fame</div>
+						<div id = "double4" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadMess()">Messages</div>
+						<div id = "double3" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadProfile()">Profile</div>
+						<div id = "double2" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadEvent()">Events</div>
+						<div id = "double1" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadNews()">What's New</div>
+					</div>
+				</div>
+			</div>
+				<!--Icons-->
+			<div id = botDiv>
+				<div style="position:absolute;width:700px;margin-Left:0px;">
+					<div id = botIcon class = "double1" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadNews()"></div>
+					<div id = botIcon class = "double2" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadEvent()"></div>
+					<div id = botIcon class = "double3" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadProfile()"></div>
+					<div id = botIcon class = "double4" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadMess()"></div>
+					<div id = botIcon class = "double5" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadHoF()"></div>
+					<div id = botIcon class = "double6" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadNotifs()"></div>
+					<div id = botIcon class = "double7" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadSettings()"></div>
+				</div>
+			</div>
+			<!-- start of update events -->
+		<div id="main_container">
+			<div id="create_events_dialog">
+			<div id="create_events_space"> </div>
+			<div id="create_events_form"> 
+					<div id="display_photo"> 
+						<img src="lois.jpg" id="pic_box"> </img>
+					</div>
+					<div id="change_ep_button">Update Event Photo</div>
+				<br>
+					<div class="labels">Event Name: </div>
+					<span> <input id="eName" type="text" class="input_boxes"></input> </span>
+				<br><br>
+					<div class="labels">Location: </div>
+					<span> <input id="location" type="text" class="input_boxes"></input> </span>	
+				<br><br><br>
+				<div class="input_boxes">
+				<select id="month">
+						<option value="month"> Month </option>
+						<option value="Jan"> January </option>
+						<option value="Feb"> February </option>
+						<option value="Mar"> March </option>
+						<option value="Apr"> April </option>
+						<option value="May"> May </option>
+						<option value="June"> June </option>
+						<option value="Jul"> July </option>
+						<option value="Aug"> Aug </option>
+						<option value="Sept"> September </option>
+						<option value="Oct"> October </option>
+						<option value="Nov"> November </option>
+						<option value="Dec"> December </option>
+				</select>
+				<select id="day">
+						<option value="day"> Day </option>
+						<option value="1"> 1 </option>
+						<option value="2"> 2 </option>
+						<option value="3"> 3 </option>
+						<option value="4"> 4 </option>
+						<option value="5"> 5 </option>
+						<option value="6"> 6 </option>
+						<option value="7"> 7 </option>
+						<option value="8"> 8 </option>
+						<option value="9"> 9 </option>
+						<option value="10"> 10 </option>
+						<option value="11"> 11 </option>
+						<option value="12"> 12 </option>
+						<option value="13"> 13 </option>
+						<option value="14"> 14 </option>
+						<option value="15"> 15 </option>
+						<option value="16"> 16 </option>
+						<option value="17"> 17 </option>
+						<option value="18"> 18 </option>
+						<option value="19"> 19 </option>
+						<option value="20"> 20 </option>
+						<option value="21"> 21 </option>
+						<option value="22"> 22 </option>
+						<option value="23"> 23 </option>
+						<option value="24"> 24 </option>
+						<option value="25"> 25 </option>
+						<option value="26"> 26 </option>
+						<option value="27"> 27 </option>
+						<option value="28"> 28 </option>
+						<option value="29"> 29 </option>
+						<option value="30"> 30 </option>
+						<option value="31"> 31 </option>
+				</select>
+				<select id="year">
+						<option value="year"> Year </option>
+				</select>
+				<br><br>
+				<select id="Hour">
+						<option value="Hour"> Hour </option>
+						<option value="00"> 00 </option>
+						<option value="01"> 01 </option>
+						<option value="02"> 02 </option>
+						<option value="03"> 03 </option>
+						<option value="04"> 04 </option>
+						<option value="05"> 05 </option>
+						<option value="06"> 06 </option>
+						<option value="07"> 07 </option>
+						<option value="08"> 08 </option>
+						<option value="09"> 09 </option>
+						<option value="10"> 10 </option>
+						<option value="11"> 11 </option>
+						<option value="12"> 12 </option>
+						<option value="00"> 00 </option>
+						<option value="13"> 13 </option>
+						<option value="14"> 14 </option>
+						<option value="15"> 15 </option>
+						<option value="16"> 16 </option>
+						<option value="17"> 17 </option>
+						<option value="18"> 18 </option>
+						<option value="19"> 19 </option>
+						<option value="20"> 20 </option>
+						<option value="21"> 21 </option>
+						<option value="22"> 22 </option>
+						<option value="23"> 23 </option>
+						<option value="24"> 24 </option>
+				</select>
+				<select id="Minutes">
+						<option value="day"> Minutes </option>
+						<option value="1"> 1 </option>
+						<option value="2"> 2 </option>
+						<option value="3"> 3 </option>
+						<option value="4"> 4 </option>
+						<option value="5"> 5 </option>
+						<option value="6"> 6 </option>
+						<option value="7"> 7 </option>
+						<option value="8"> 8 </option>
+						<option value="9"> 9 </option>
+						<option value="10"> 10 </option>
+						<option value="11"> 11 </option>
+						<option value="12"> 12 </option>
+						<option value="13"> 13 </option>
+						<option value="14"> 14 </option>
+						<option value="15"> 15 </option>
+						<option value="16"> 16 </option>
+						<option value="17"> 17 </option>
+						<option value="18"> 18 </option>
+						<option value="19"> 19 </option>
+						<option value="20"> 20 </option>
+						<option value="21"> 21 </option>
+						<option value="22"> 22 </option>
+						<option value="23"> 23 </option>
+						<option value="24"> 24 </option>
+						<option value="25"> 25 </option>
+						<option value="26"> 26 </option>
+						<option value="27"> 27 </option>
+						<option value="28"> 28 </option>
+						<option value="29"> 29 </option>
+						<option value="30"> 30 </option>
+						<option value="31"> 31 </option>
+						<option value="32"> 32 </option>
+						<option value="33"> 33 </option>
+						<option value="34"> 34 </option>
+						<option value="35"> 35 </option>
+						<option value="36"> 36 </option>
+						<option value="37"> 37 </option>
+						<option value="38"> 38 </option>
+						<option value="39"> 39 </option>
+						<option value="40"> 40 </option>
+						<option value="41"> 41 </option>
+						<option value="42"> 42 </option>
+						<option value="43"> 43 </option>
+						<option value="44"> 44 </option>
+						<option value="45"> 45 </option>
+						<option value="46"> 46 </option>
+						<option value="47"> 47 </option>
+						<option value="48"> 48 </option>
+						<option value="49"> 49 </option>
+						<option value="50"> 50 </option>
+						<option value="51"> 51 </option>
+						<option value="52"> 52 </option>
+						<option value="53"> 53 </option>
+						<option value="55"> 54 </option>
+						<option value="55"> 55 </option>
+						<option value="56"> 56 </option>
+						<option value="57"> 57 </option>
+						<option value="58"> 58 </option>
+						<option value="59"> 59 </option>
+				</select>
+				</div>
+				<br><br><br><br><br>
+					<div class="labels">Description: </div>
+					<span> <textarea id="description" type="text" class="input_boxes"></textarea></span>
+				<br><br><br>
+					<div class="labels"> Invite Friends: </div>
+					<span> <textarea id="friends" type="text" class="input_boxes"></textarea></span>
+				<br><br><br>
+					<div id="create_event_button" onclick="update_event()">
+						<div id="button_space"></div>
+						Update Event
+					</div>
+			</div>
+		</div>
+		</div>
+		<script>
+			function update_event(){
+				window.document.location.href = 'events.html';
+			}
+		</script>
+
+		<script src="script.js"></script>	
+		<script>
+		function show(tabName){
+			var x = document.getElementsByClassName("tabs");
+			var i;
+			for (i = 0; i < x.length; i++) {
+				if(x[i].style.visibility == "visible")
+				  x[i].style.visibility = "hidden";
+			}
+			document.getElementById(tabName).style.visibility = "visible" ;
+		}
+		</script>
+	</body>
+</html>

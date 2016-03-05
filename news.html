@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>News Feed</title>
+		<script src = "jquery-2.2.0.js"></src>
+		<link href="jquery-ui.css" rel="stylesheet" type="text/css" />
+		<script src="jquery-ui.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link rel="stylesheet" type="text/css" href="stylesNews.css">
+	</head>
+	<body>
+			<!--The Whole Left Pane-->
+			<div id = "leftPane"> 
+					<div class = "lPLink" onclick = "loadProfile()">My Profile</div><!--The Links-->
+					<div class = "lPLink" onclick = "loadSettings()">Edit Profile</div>
+				<div class = "lPTitle" onclick = "loadClubs()">Clubs<!--The Titles-->
+					<div style = "float:right; font-size:15px; padding:5px;"> <a class = "anchor" href="">More</a></div>
+				</div> 
+					<div class = "lPLink">The Ringers</div>
+				<div class = "lPTitle" onclick = "loadEvent()">Events
+					<div style = "float:right; font-size:15px; padding:5px;"> <a class = "anchor" href="">More</a></div>
+				</div>
+					<div class = "lPSubTitle">Events Hosted</div><!--The Subtitles-->
+						<div class = "lPLink">The Loopers Vs The Ringers</div>
+					<div class = "lPSubTitle">Events Joined In</div>
+						<div class = "lPLink">The Great Stainz</div>
+				<div class = "lPTitle" onclick = "loadHoF()">Hall Of Fame
+					<div style = "float:right; font-size:15px; padding:5px;"> <a class = "anchor" href="">More</a></div>
+				</div>
+					<div class = "lPLink">Top 100 Scorers</div>
+					<div class = "lPLink">Top 100 Blockers</div>
+					<div class = "lPLink">Top 100 Playmakers</div>
+					<div class = "lPLink">Top 100 3-Point Shooters</div>
+					<div class = "lPLink">Top 100 Dunkers</div>
+			</div>
+			<!--The Whole Right Plane-->
+			<div id = "rightPane">
+					<div class = "lPLink">TLVTR is Happening Today</div>
+				<div class = "lPTitle">Sponsored
+					<div style = "float:right; font-size:15px; padding:5px;"> <a class = "anchor" href="">Create Ads</a></div>
+				</div>
+			</div>
+			<!--The News-->
+			<div id = "midPane"><!-- A single News in the Feed-->
+				<div class = "news">
+					<div class = "dp">Profile Picture</div>
+					<div class = "nameTime"><a class = "username anchor" href = "" onclick = "loadFriend()">John Adriel Benolirao</a></br>time posted</div>
+					<p>This is My Story </br> BLABLABLA LOOK AT ME</p>
+				</div>
+				<div class = "news">
+					<div class = "dp">Profile Picture</div>
+					<div class = "nameTime"><a class = "username anchor" href="">Jaimie Bringas</a></br>time posted</div>
+					<p>I am a woman. </br> I am CSE. </br> Aye!</p>
+				</div>
+				<div class = "news">
+					<div class = "dp">Profile Picture</div>
+					<div class = "nameTime"><a class = "username anchor" href="">Isaac Lim</a></br>time posted</div>
+					<p>This is a Post!</p>
+				</div>
+				<div class = "news">
+					<div class = "dp">Profile Picture</div>
+					<div class = "nameTime"><a class = "username anchor" href="">Lois Osayta</a></br>time posted</div>
+					<p>This is My Story </br> Optum Driving School</p>
+				</div>
+				<div class = "news">
+					<div class = "dp">Profile Picture</div>
+					<div class = "nameTime"><a class = "username anchor" href="">Anton de Joya</a></br>time posted</div>
+					<p>This is My Story </br> Be Like Me</p>
+				</div>
+				<div class = "news">
+					<div class = "dp">Profile Picture</div>
+					<div class = "nameTime"><a class = "username anchor" href="">Chudrac_Ace</a></br>time posted</div>
+					<p>This is My Story</p>
+				</div>
+			</div>
+		<script src="script.js"></script>
+		<script src="loadToolBar.js"></script>
+		<script>
+			$newNews = $("<div></div>");
+			$($newNews).addClass("news");//the whole news div has been created
+			$newDP = $("<div></div>");
+			$($newDP).addClass("dp");//DP div has been created
+			$newNamePost = $("<div></div>");
+			$($newNamePost).addClass("nameTime");//nameTime has been created
+			$newNameLink = $("<a href = ''></a>");
+			$($newNameLink).addClass("username");
+			$($newNameLink).addClass("anchor");
+			$($newNameLink).click(function(e){
+				// Special stuff to do when this link is clicked...
+				// Cancel the default action
+				e.preventDefault();
+			});
+			$($newNamePost).append($newNameLink);//link created, name post has been appended
+			$($newNameLink).append("name");
+			$($newNamePost).append($("</br>"));
+			$($newNamePost).append("time posted");
+			$($newNews).append($newDP);//append dp to the story
+			$($newNews).append($newNamePost);//append nameTime to the story
+			$story = $("<p></p>");//story will be appended here
+			$($story).append("Sample1\nSample2");//place the post inside this string
+			$($newNews).append($story);//append the post to the story
+			$("#midPane").append($newNews);//append the new Story
+			
+			
+			$("#midPane").append($("<div style = 'height:100px; clear:both;'>"));
+		</script>
+	</body>
+</html>

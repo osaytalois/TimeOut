@@ -1,0 +1,190 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,300,900,100);
+/*For Messaging*/
+
+.content{
+	font-family: 'Lato', sans-serif;
+	position: absolute;
+	left:30px;
+	right:30px;
+	top: 100px;
+	bottom:120px;
+	width:800px;
+}
+.personFilter{
+	float:left;
+	width:100%;
+	height:7%;
+	border:1px;
+	border-style:solid;
+	border-color:red;
+	background-color:lightgrey;
+}
+.personNav{
+	clear:both;
+	float:left;
+	width:100%;
+	height:90%;
+	border:0px;
+	border-right:1px;
+	border-left:1px;
+	border-style:solid;
+	border-color:black;
+	overflow-y:scroll;
+	margin:0;
+}
+.messNav{
+	float:right;
+	position:relative;
+	height:83%;
+	width:78%;
+	border:1px;
+	border-bottom:0px;
+	border-style:solid;
+	border-color:red;
+	overflow-y:scroll;
+}
+.message{
+	float:right;
+	padding:3px;
+	width:78%;
+	height:12%;
+}
+.toSend{
+	float:left;
+	height:100%;
+	width:85%;
+}
+.sendButton{
+	float:right;
+	background-color:red;
+	border:1px;
+	padding:0px;
+	width:10%;
+	text-align:center;
+	padding-top:15px;
+	padding-bottom:15px;
+	border-style:solid;
+	border-color:red;
+	border-radius:3px;
+	color:white;
+	margin-top:5px;
+	margin-right:2%;
+	cursor:pointer;
+    -webkit-transition: all 0.25s; /* For Safari 3.1 to 6.0 */
+    transition: all 0.25s;
+}
+.sendButton:hover{
+	opacity:0.7
+}
+.addButton{
+	float:right;
+	background-color:red;
+	border:1px;
+	padding:0px;
+	width:10%;
+	text-align:center;
+	padding-top:3px;
+	padding-bottom:3px;
+	border-style:solid;
+	border-color:red;
+	border-radius:3px;
+	color:white;
+	margin-top:2px;
+	margin-right:2%;
+	cursor:pointer;
+    -webkit-transition: all 0.25s; /* For Safari 3.1 to 6.0 */
+    transition: all 0.25s;
+}
+.addButton:hover{
+	opacity:0.7
+}
+.messageDisplay{
+	font-size:12px;
+	float:left;
+	position:relative;
+	border:1px;
+	padding:15px;
+	border-style:solid;
+	border-radius:10px;
+	color:white;
+	margin-top:5px;
+	height:auto;
+	width:auto;
+	cursor:pointer;
+}
+.sent{
+	background-color:red;
+	border-color:red;
+}
+.received{
+	background-color:black;
+	border-color:black;
+	border-radius:10px;
+}
+.who{
+	height:50px;
+	width:50px;
+	margin:4px;
+	border:1px;
+	border-color:red;
+	border-style:solid;
+	border-radius:10px;
+}
+.who2{
+	height:50px;
+	width:50px;
+	margin:4px;
+	border:1px;
+	border-color:black;
+	border-style:solid;
+	border-radius:10px;
+}
+.whohide{
+	height:52px;
+	width:52px;
+	margin:4px;
+	border:1px;
+}
+.messageDisplay  > span{
+	padding:0;
+	margin:0;
+	/*border:1px;
+	border-color:black;
+	border-style:solid;*/
+}
+.me{
+	float:left;
+	color:red;
+	font-size:24px;
+	padding:13px;
+}
+.them{
+	float:left;
+	color:black;
+	font-size:24px;
+	padding:13px;
+}
+.personSearch{
+	margin:5px;
+	width:75%;
+}
+.personHolder{
+	width:95%;
+	height:60px;
+	border:1px;
+	border-style:solid;
+	border-color:white;
+	background-color:black;
+	margin:2%;
+    -webkit-transition: all 0.25s; /* For Safari 3.1 to 6.0 */
+    transition: all 0.25s;
+	opacity:0.6;
+}
+.personHolder:hover{
+	opacity:0.75;
+	cursor:pointer;
+}
+.person{
+	color:white;
+	margin:5px;
+}

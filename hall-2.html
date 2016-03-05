@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	html   {
+		background:white;
+	}
+	#header{
+		font-family: Lobster;
+		text-align:center;
+		float: top; 
+		font-size: 14px; 
+		font-weight: bold; 
+		color: #555; 
+		width:100%;
+		height:10%;
+		top:50px;
+		position:fixed;
+	}
+
+	.fade{
+		opacity = 0.75;
+	}
+
+	#nav { 
+		list-style-type: none; 
+		text-align: center; 
+		border-bottom: 0px solid #dadada; ; 
+		position: fixed;
+		left: 0%;
+		top: 100px;
+		width: 100%;
+		height:8%;
+		opacity:0.8;
+	} 
+	.sel  {  
+		display: inline; 
+		padding:0px;
+		margin:0px;
+	} 
+	 
+	.sel a{ 
+		-webkit-transition: all 0.25s; /* For Safari 3.1 to 6.0 */
+		transition: all 0.25s;
+		text-decoration: none; 
+		 font-family: 'Dancing Script', Georgia, Times, serif;
+		font-size: 13.5px;
+		font-weight:bold;
+		padding: 16px 40px; 
+		color: white; 
+		opacity:0.8;
+		background-color: black; 
+		border:2px;
+		border-bottom:0px;
+		border-color:black;
+		border-style:solid;
+		border-top-left-radius:15px;
+		border-top-right-radius:15px;
+	} 
+	 
+	.sel a:hover { 
+		color: white; 
+		background-color: red; 
+		border:0px;
+		border-top:5px;
+		border-color:black;
+		border-style:solid;
+		border-radius:2px;
+	}
+	#content{
+		border: 2px;
+		position: fixed;
+		left: 0%;
+		right:0%;
+		top: 150px;
+		width: 90%;
+		height:68%;
+		margin-left:6.7%;
+	} 
+
+
+	#colnames  {  
+		padding:15px;
+		width:97%;
+		height:20px;
+		background-color:red;
+		opacity:0.7;
+		font-size:16px;
+		font-weight:bold;
+		color: white; 
+	} 
+
+	.award {  
+		visibility:hidden;
+		position:absolute;
+		padding:10px;
+		width:98%;
+		height:86%;
+		margin-right:5%;
+		overflow-y:scroll;
+	}
+
+	.r{
+		height:18px;
+		font-size:14px;
+		color: red; 
+		background-color:white;
+		margin-top:10px;
+		margin-bottom:10px;
+		padding:5px;
+		border:1px;
+		border-style:solid;
+		border-radius:5px;
+		border-color:black;
+		opacity:0.7;
+	}
+	.r:hover{
+		background-color:black;
+		color:white;
+		border-color:black;
+		-webkit-transition: all 0.25s; /* For Safari 3.1 to 6.0 */
+		transition: all 0.25s;
+		cursor:pointer;
+	}
+
+	.col1,.col2,.col3{
+		display:inline;
+		text-decoration: none; 
+	}
+
+	.col1 {
+		float:left;
+		width:80%;
+	}
+	.col2 {
+		float:left;
+		width:14%;
+		}
+	.col3 {
+		float: left;
+		width:6%;
+	}
+
+	.pname a:hover {
+		color:red;
+	}
+
+	</style>
+		<script src = "jquery-2.2.0.js"></src>
+		<link href="jquery-ui.css" rel="stylesheet" type="text/css" />
+		<script src="jquery-ui.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+			<!--The Whole Bottom Toolbar-->
+			<div id = hide>
+				<div id = toolbar onmouseover = toolhover() onmouseout = toolout()>
+					<div class="toolDivMid">
+						<div id = "double7" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadSettings()">Settings</div>
+						<div id = "double6" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadNotifs()">Notifications</div>
+						<div id = "double5" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadHoF()">Hall of Fame</div>
+						<div id = "double4" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadMess(0)">Messages</div>
+						<div id = "double3" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadProfile()">Profile</div>
+						<div id = "double2" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadEvent()">Events</div>
+						<div id = "double1" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadNews()">What's New</div>
+					</div>
+				</div>
+			</div>
+				<!--Icons-->
+			<div id = botDiv>
+				<div style="position:absolute;width:700px;margin-Left:0px;">
+					<div id = botIcon class = "double1" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadNews()"></div>
+					<div id = botIcon class = "double2" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadEvent()"></div>
+					<div id = botIcon class = "double3" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadProfile()"></div>
+					<div id = botIcon class = "double4" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadMess(0)"></div>
+					<div id = botIcon class = "double5" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadHoF()"></div>
+					<div id = botIcon class = "double6" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadNotifs()"></div>
+					<div id = botIcon class = "double7" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadSettings()"></div>
+				</div>
+			</div>		
+			<!--The whole top toolbar-->
+			<div id = hideTop>
+				<div id = toolbartop onmouseover = toolhovertop() onmouseout = toolouttop()>
+					<div class = "toolDiv">
+						<div class = "toolIconLATop">Search</div>
+						<form>
+							<input type="text" id = "toolSearch" placeholder = "Enter a name, username, or a club name" onFocus = "this.placeholder=''" onBlur = "this.placeholder = 'Enter a name, username, or a club name'">
+						</form>
+					</div>
+					<div class = "toolIconRATop" onclick="loadLanding()">Logout</div>
+				</div>
+			</div>		
+<section id = "header">
+	<div>
+	<h1>Hall of Fame</h1>
+	</div>
+	
+</section>
+
+<section id = "nav">
+		<ul>
+		<li class = "sel"><a href="#" onclick="show('scorer')">Top Scorers</a></li>
+		<li class = "sel"><a href="#" onclick="show('blocker')">Top Blockers</a></li>
+		<li class = "sel"><a href="#" onclick="show('playmaker')">Top Playmakers</a></li>
+		<li class = "sel"><a href="#" onclick="show('rebounder')">Top Rebounders</a></li>
+		<li class = "sel"><a href="#" onclick="show('sharpshooter')">Top Sharpshooters</a></li>
+		<li class = "sel"><a href="#" onclick="show('accurateplayer')">Most Accurate Players</a></li>
+		</ul>
+</section>
+
+<section id = "content">
+	<div id = "colnames">
+		<div class = "col1">Name</div>
+		<div class = "col2">Points</div>
+		<div class = "col3">Rank</div>
+	</div>
+	<div class = "award" id = "scorer" style = "visibility:visible">
+			<div class = "r">
+				<div class = "col1" onclick = "loadProfile()">Lois Osayta</div>
+				<div class = "col2">220</div>
+				<div class = "col3">#1</div>
+			</div>
+			<div class = "r">
+				<div class = "col1" onclick = "loadFriend()">John Adriel Benolirao</div>
+				<div class = "col2">101</div>
+				<div class = "col3">#2</div>
+			</div>
+			<div class = "r">
+				<div class = "col1">Anton de Joya</div>
+				<div class = "col2">220</div>
+				<div class = "col3">#3</div>
+			</div>
+			<div class = "r">
+				<div class = "col1">Kim Soo Hyun</div>
+				<div class = "col2">101</div>
+				<div class = "col3">#4</div>
+			</div><div class = "r">
+				<div class = "col1">Lois Osayta</div>
+				<div class = "col2">220</div>
+				<div class = "col3">#5</div>
+			</div>
+			<div class = "r">
+				<div class = "col1">Kim Soo Hyun</div>
+				<div class = "col2">101</div>
+				<div class = "col3">#6</div>
+			</div><div class = "r">
+				<div class = "col1">Lois Osayta</div>
+				<div class = "col2">220</div>
+				<div class = "col3">#7</div>
+			</div>
+			<div class = "r">
+				<div class = "col1">Kim Soo Hyun</div>
+				<div class = "col2">101</div>
+				<div class = "col3">#8</div>
+			</div><div class = "r">
+				<div class = "col1">Lois Osayta</div>
+				<div class = "col2">220</div>
+				<div class = "col3">#9</div>
+			</div>
+			<div class = "r">
+				<div class = "col1">Kim Soo Hyun</div>
+				<div class = "col2">101</div>
+				<div class = "col3">#10</div>
+			</div><div class = "r">
+				<div class = "col1">Lois Osayta</div>
+				<div class = "col2">220</div>
+				<div class = "col3">#11</div>
+			</div>
+			<div class = "r">
+				<div class = "col1">Kim Soo Hyun</div>
+				<div class = "col2">101</div>
+				<div class = "col3">#12</div>
+			</div><div class = "r">
+				<div class = "col1">Lois Osayta</div>
+				<div class = "col2">220</div>
+				<div class = "col3">#13</div>
+			</div>
+			<div class = "r">
+				<div class = "col1">Kim Soo Hyun</div>
+				<div class = "col2">101</div>
+				<div class = "col3">#14</div>
+			</div><div class = "r">
+				<div class = "col1">Lois Osayta</div>
+				<div class = "col2">220</div>
+				<div class = "col3">#15</div>
+			</div>
+			<div class = "r">
+				<div class = "col1">Kim Soo Hyun</div>
+				<div class = "col2">101</div>
+				<div class = "col3">#2</div>
+			</div><div class = "r">
+				<div class = "col1">Lois Osayta</div>
+				<div class = "col2">220</div>
+				<div class = "col3">#1</div>
+			</div>
+			<div class = "r">
+				<div class = "col1">Kim Soo Hyun</div>
+				<div class = "col2">101</div>
+				<div class = "col3">#2</div>
+			</div><div class = "r">
+				<div class = "col1">Lois Osayta</div>
+				<div class = "col2">220</div>
+				<div class = "col3">#1</div>
+			</div>
+			<div class = "r">
+				<div class = "col1">Kim Soo Hyun</div>
+				<div class = "col2">101</div>
+				<div class = "col3">#2</div>
+			</div><div class = "r">
+				<div class = "col1">Lois Osayta</div>
+				<div class = "col2">220</div>
+				<div class = "col3">#1</div>
+			</div>
+			<div class = "r">
+				<div class = "col1">Kim Soo Hyun</div>
+				<div class = "col2">101</div>
+				<div class = "col3">#2</div>
+			</div><div class = "r">
+				<div class = "col1">Lois Osayta</div>
+				<div class = "col2">220</div>
+				<div class = "col3">#1</div>
+			</div>
+			<div class = "r">
+				<div class = "col1">Kim Soo Hyun</div>
+				<div class = "col2">101</div>
+				<div class = "col3">#2</div>
+			</div><div class = "r">
+				<div class = "col1">Lois Osayta</div>
+				<div class = "col2">220</div>
+				<div class = "col3">#1</div>
+			</div>
+			<div class = "r">
+				<div class = "col1">Kim Soo Hyun</div>
+				<div class = "col2">101</div>
+				<div class = "col3">#2</div>
+			</div><div class = "r">
+				<div class = "col1">Lois Osayta</div>
+				<div class = "col2">220</div>
+				<div class = "col3">#1</div>
+			</div>
+			<div class = "r">
+				<div class = "col1">Kim Soo Hyun</div>
+				<div class = "col2">101</div>
+				<div class = "col3">#2</div>
+			</div><div class = "r">
+				<div class = "col1">Lois Osayta</div>
+				<div class = "col2">220</div>
+				<div class = "col3">#1</div>
+			</div>
+			<div class = "r">
+				<div class = "col1">John Benolirao</div>
+				<div class = "col2">101</div>
+				<div class = "col3">#2</div>
+			</div><div class = "r">
+				<div class = "col1">Anton de Joya</div>
+				<div class = "col2">220</div>
+				<div class = "col3">#1</div>
+			</div>
+			<div class = "r">
+				<div class = "col1">Kim Soo Hyun</div>
+				<div class = "col2">101</div>
+				<div class = "col3">#2</div>
+			</div>
+	</div>
+	
+	<div class = "award" id = "blocker">
+			<div class = "r">
+				<div class = "col1">Lee Min Ho</div>
+				<div class = "col2">1</div>
+				<div class = "col3">#11100</div>
+			</div>
+	</div>
+	
+	<div class = "award" id = "playmaker">
+	
+	</div>
+	
+	<div class = "award" id = "rebounder">
+		
+	</div>
+	
+	<div class = "award" id = "sharpshooter">
+	
+	</div>
+	
+	<div class = "award" id = "accurateplayer">
+	
+	</div>
+</section>
+<div style = "height:200px;"></div>
+<script>
+
+function show(awardName){
+	var x = document.getElementsByClassName("award");
+	var i;
+	for (i = 0; i < x.length; i++) {
+		if(x[i].style.visibility == "visible")
+		  x[i].style.visibility = "hidden";
+	}
+	document.getElementById(awardName).style.visibility = "visible" ;
+}
+</script>
+<script src="script.js"></script>
+</body>
+</html>

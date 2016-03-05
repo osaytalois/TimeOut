@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<head>
+<!--<link rel="stylesheet" type="text/css" href="styles.css" />-->
+<style>
+/* global.css styles */
+
+/* @group resets and elements */
+* { 
+	margin: 0; 
+	padding: 0; 
+}
+
+html { 
+	height: 101%; 
+	font-family: “Helvetica Neue”, Arial, Helvetica, sans-serif; 
+	background: white; 
+}
+
+body { 
+	font-size: 62.5%; 
+	font-family: Times New Roman, Arial, sans-serif; 
+
+	margin: 1%;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+img { 
+	border: 0px;
+}
+
+a { 
+	color: grey; 
+	text-decoration: none; 
+}
+
+a:hover { 
+	text-decoration: underline; 
+}
+
+ul { 
+	line-height: 120%; 
+}
+
+p { 
+	font-size: 1.2em; 
+	line-height: 1.4em; 
+	font-family: Arial, sans-serif; 
+	color: black; 
+	margin-bottom: 15px; 
+}
+
+h1 { 
+	font-family: Helvetica, Arial, Verdana, sans-serif; 
+	color: black; 
+	font-weight: bold; 
+	font-size: 1.7em; 
+	line-height: 2.0em; 
+}
+
+h3 { 
+	color: gray 
+	font-weight: normal; 
+	font-size: 1.3em; 
+	line-height: 1.6em;  
+}
+
+#content { 
+	display: block;
+	width:1000px;
+	margin: 0 140px; 
+	margin-top:50px;
+	height:75px;
+}
+
+#left { 
+	display: block; 
+	width: 700px; 
+	float: left; 
+	overflow: hidden; 
+	margin-right: 60px; 
+	
+}
+
+#right { 
+	display: block; 
+	width: 240px;
+	float: left; 
+	overflow: hidden;
+}
+
+
+/* @group left */
+#userStats { 
+	display: block; 
+	width: auto; 
+	background-color: #f9f9f9; 
+	border: 1px solid #ccc; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px;
+	border-radius: 5px; 
+	padding: 12px; 
+}
+
+#userStats .pic { 
+	float: left; 
+	display: block;
+	margin-right: 10px; 
+}
+
+#userStats .pic a img { 
+	padding: 7px; 
+	background: #fff; 
+	border: 1px solid #ccc; 
+}
+
+#userStats .data { 
+	float: left; 
+	display: block; 
+	position:  relative; 
+	width: 490px; 
+	height: 166px; 
+	padding: 4px; 
+	padding-left: 15px; 
+	background: #f9f9f9; 
+	border: 1px solid #ccc; 
+	overflow:  hidden; 
+	box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
+}
+
+#userStats .data h1 { 
+	color: red;
+	font-size:18px;
+	opacity:0.7;
+	line-height: 1.7em; 
+	text-shadow: 0px 1px 1px #fff; 
+}
+
+#userStats .data h3 { 
+	color: #666; 
+	line-height: 0.9em; 
+	margin-bottom: 5px; 
+}
+
+#userStats .data h4{ 
+	font-size: 12px; 
+	line-height: 1.3em;
+	color: #666;	
+}
+
+#userStats .data .pm { 
+	position: absolute; 
+	right: 6px;
+	top: 8px; 
+}
+
+#userStats .data .pm a{
+	color:#666;
+	font-size:1.2em;
+	text-decoration:underline;
+}
+
+#userStats .data .pm a img { 
+	margin-right: 5px; 
+}
+
+.pm:hover{
+	cursor:pointer;
+}
+
+#userStats .data .sep { 
+	clear: both; 
+	margin-top: 40px; 
+	width: 480px; 
+	height: 1px; 
+	border-bottom: 1px solid #ccc; 
+	margin-bottom: 0; 
+}
+
+#userStats .data ul.numbers { 
+	list-style: none; 
+	width: 470px; 
+	padding-top: 7px; 
+	margin-top: 0; 
+	border-top: 1px solid #fff; 
+	color: #676767; 
+}
+
+#userStats .data ul.numbers li { 
+	float: left; 
+	display: block; 
+	padding-left: 55px;
+	padding-right:50px;
+	height: 50px;
+	text-transform: uppercase; 
+}
+
+#userStats .data ul.numbers .withbrdr { 
+	border-right: 1px dotted #bbb; 
+}
+
+#userStats .data ul.numbers li strong { 
+	color: #434343; 
+	display: block; 
+	font-size: 3.4em; 
+	line-height: 1.1em; 
+	font-weight: bold; 
+}
+
+#about{
+	width:100%;
+}
+
+#about .head { 
+	background-color:red;
+	opacity:0.7;
+	border: 1px solid #e6e6e6; 
+	padding-left: 8px; 
+	margin-top:15px;
+}
+
+#about .head h1 { 
+	color: white; 
+	font-weight: bold; 
+	font-size: 1.4em; 
+}
+
+#about .boxy { 
+	border-radius: 0px 0px 5px 5px; 
+	border: 1px solid #ccc; 
+	border-top: 0px; 
+	background: #f9f9f9; 
+	height:300px;
+}
+
+#about .boxy .tabname{ 
+	float: left; 
+	display: block;  
+	background-color: #f9f9f9;
+	border-right:1px solid lightgrey;
+	width:180px;
+	height:290px;
+	list-style:none;
+	padding-top:8px;
+	padding-right:10px;
+
+	}
+
+#about .boxy .tabname li {  
+	padding:10px 0px;
+	margin:20px 0px;
+} 
+ 
+#about .boxy .tabname li a{ 
+	text-decoration: none; 
+	font-family: 'Dancing Script', Georgia, Times, serif;
+	font-size: 12px;
+	font-weight:bold;
+	color: grey; 
+	opacity:0.8;
+	padding:14px;
+	padding-right:18px;
+} 
+
+#about .boxy .tabname li a:hover{ 
+	text-decoration: none; 
+	font-family: 'Dancing Script', Georgia, Times, serif;
+	font-size: 12px;
+	font-weight:bold;
+	color: black; 
+	border-left:2px solid black;
+} 	
+	
+#about .boxy .tabs { 
+	visibility:hidden;
+	position:absolute;
+	display: block;
+	margin-left:200px;
+	margin-right: 10px; 
+	padding: 35px;
+	width: 420px; 
+	height: 200px
+	overflow:  hidden; 
+	box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
+}
+
+#about .boxy .tabs .tabdetail{ 
+	color:grey;
+	font-family: "Times New Roman", Georgia, Times, serif;
+	font-size:14px;
+}
+
+#about .boxy .tabs .tabdetail .company{ 
+	color:black;
+	font-family: "Times New Roman", Georgia, Times, serif;
+	font-size:14px;
+	padding-top:2px;
+	height:12px;
+	width:420px;
+}
+
+#about .boxy .tabs .tabdetail .position{ 
+	color:grey;
+	font-family: "Times New Roman", Georgia, Times, serif;
+	font-size:13px; 
+	padding:1px;
+	padding-bottom:12px;
+	height:14px;
+	width:420px;
+}
+
+
+/* @group right */
+#right .gcontent { 
+	display: block; 
+	margin-bottom: 20px; 
+}
+
+#right .gcontent .head { 
+	background-color:red;
+	opacity:0.7;
+	border: 1px solid #e6e6e6; 
+	padding-left: 8px; 
+}
+
+#right .gcontent .head h1 { 
+	color: white; 
+	font-weight: bold; 
+	font-size: 1.4em; 
+}
+
+#right .gcontent .boxy { 
+	border-radius: 0px 0px 5px 5px; 
+	border: 1px solid #ccc; 
+	border-top: 0px; 
+	padding: 8px; 
+	background: #f9f9f9; 
+}
+
+#right .gcontent .boxy .badgeCount { 
+	display: block; 
+	margin-bottom: 18px; 
+	height:40px;
+}
+
+#right .gcontent .boxy .badges{ 
+	float: left; 
+	height: 30px; 
+	width: 190px;
+	padding: 5px; 
+}
+
+#right .gcontent .boxy .badgeCount img { 
+	border: 1px solid #ccc; 
+	float: left; 
+	padding: 2px;
+	background: #fff;
+	margin-left: 15px;
+}
+
+#right .gcontent .boxy .friendslist, #right .gcontent .boxy .clubslist { 
+	display: block; 
+	margin-bottom: 15px; 
+	height:80px;
+}
+
+#right .gcontent .boxy .friend, #right .gcontent .boxy .club{ 
+	border-top: 1px solid #ccc; 
+	float: left; 
+	height: 40px; 
+	padding: 5px 5px 5px 4px; 
+	width: 100px; 
+}
+
+#right .gcontent .boxy .friend img, #right .gcontent .boxy .club img { 
+	border: 1px solid #ccc; 
+	float: left; 
+	padding: 2px;
+	background: #fff;
+	margin-right: 4px;
+}
+
+#right .gcontent .boxy .friend .friendly{ 
+	position: relative;
+	top: 12px;
+	font-size: 1.2em; 
+}
+
+#right .gcontent .boxy .club .fclub { 
+	position: relative;
+	top: 12px;
+	font-size: 1.2em; 
+}
+
+
+#right .gcontent .boxy span a{ 
+	font-size: 12px;
+	color:black;
+	display: block; 
+	margin-bottom: 1px; 
+}
+
+.clearfix:after { 
+	content: "."; 
+	display: block; 
+	clear: both; 
+	visibility: hidden; 
+	line-height: 0; 
+	height: 0; 
+}
+
+.clearfix { 
+	display: inline-block; 
+}
+ 
+html[xmlns] .clearfix { 
+	display: block; 
+}
+
+* html .clearfix { 
+	height: 1%; 
+}
+
+</style>
+		<script src = "jquery-2.2.0.js"></src>
+		<link href="jquery-ui.css" rel="stylesheet" type="text/css" />
+		<script src="jquery-ui.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>    
+		<!--The whole top toolbar-->
+		<div id = hideTop>
+			<div id = toolbartop onmouseover = toolhovertop() onmouseout = toolouttop()>
+				<div class = "toolDiv">
+					<div class = "toolIconLATop">Search</div>
+					<form>
+						<input type="text" id = "toolSearch" placeholder = "Enter a name, username, or a club name" onFocus = "this.placeholder=''" onBlur = "this.placeholder = 'Enter a name, username, or a club name'">
+					</form>
+				</div>
+				<div class = "toolIconRATop" onclick="loadLanding()">Logout</div>
+			</div>
+		</div>
+			<!--The Whole Bottom Toolbar-->
+			<div id = hide>
+				<div id = toolbar onmouseover = toolhover() onmouseout = toolout()>
+					<div class="toolDivMid">
+						<div id = "double7" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadSettings()">Settings</div>
+						<div id = "double6" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadNotifs()">Notifications</div>
+						<div id = "double5" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadHoF()">Hall of Fame</div>
+						<div id = "double4" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadMess(0)">Messages</div>
+						<div id = "double3" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadProfile()">Profile</div>
+						<div id = "double2" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadEvent()">Events</div>
+						<div id = "double1" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadNews()">What's New</div>
+					</div>
+				</div>
+			</div>
+				<!--Icons-->
+			<div id = botDiv>
+				<div style="position:absolute;width:700px;margin-Left:0px;">
+					<div id = botIcon class = "double1" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadNews()"></div>
+					<div id = botIcon class = "double2" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadEvent()"></div>
+					<div id = botIcon class = "double3" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadProfile()"></div>
+					<div id = botIcon class = "double4" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadMess(0)"></div>
+					<div id = botIcon class = "double5" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadHoF()"></div>
+					<div id = botIcon class = "double6" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadNotifs()"></div>
+					<div id = botIcon class = "double7" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadSettings()"></div>
+				</div>
+			</div>		
+    <div id="content" class="clearfix">
+        <section id="left">
+            <div id="userStats" class="clearfix">
+                <div class="pic">
+                    <a href="#"><img src="dp2.jpg" width="150" height="150" /></a>
+                </div>
+                 
+                <div class="data">
+                    <h1>John Adriel Benolirao</h1>
+                    <h3>Manila, Philippines</h3>
+                    <h4>Basketball</h4>
+					 <div class="pm">
+                        <a onclick = "loadMess2('John Benolirao')">Send a Message</a>
+                    </div>
+                    <div class="sep"></div>
+                    <ul class="numbers clearfix">
+                        <li class = "withbrdr">Total Games<strong>30</strong></li>
+                        <li class = "withbrdr">Wins<strong>0</strong></li>
+                        <li>Losses<strong>30</strong></li>
+                    </ul>
+                </div>
+            </div>
+				
+				<div id = "about" class = "clearfix">
+					<div class = "head"><h1>About Me</h1></div>				
+					<div class = "boxy">
+						<div class = "tabname">
+							<li><a href="#" onclick="show('basicinfo')">Basic Information</a></li>
+							<li><a href="#" onclick="show('contact')">Contact Details</a></li>
+							<li><a href="#" onclick="show('education')">Work and Education</a></li>
+							<li><a href="#" onclick="show('events')">Events attended</a></li>
+						</div>
+						<div class = "tabs" id = "basicinfo" style = "visibility:visible">
+							<div class = "tabdetail">Pangit ko.</div>
+						</div>
+						<div class = "tabs" id = "contact">
+							<div class = "tabdetail">My mama don't like you.</div>
+						</div>
+						<div class = "tabs" id = "education">
+							<div class = "tabdetail">
+								<div class = "company">De La Salle University</div>
+								<div class = "position">Student</div>
+							</div>	
+						</div>
+						<div class = "tabs" id = "events">
+							<div class = "tabdetail">I never liked to admit that I was wrong.</div>	
+						</div>
+					</div>
+				</div>
+        </section>
+         
+        <section id="right">
+		
+            <div class="gcontent">
+                <div class="head"><h1>Badges (3)</h1></div>
+                <div class="boxy">
+                    <div class="badgeCount clearfix">
+						<div class="badges">
+							<a href="#"><img src="" width="40" height="40"></a>
+							<a href="#"><img src="" width="40" height="40"></a>
+							<a href="#"><img src="" width="40" height="40"></a>
+						</div>
+                     </div>
+                    <span><a onclick = "loadAllBadges()">See all</a></span>
+                </div>
+            </div>
+           				
+			<div class="gcontent">
+				<div class="head"><h1>Clubs List (4)</h1></div>
+				<div class="boxy">
+				<p>Your clubs - 10 total</p>
+					<div class="clubslist clearfix">
+						<div class="club">
+							<a href="#"><img src="" width="30" height="30" alt="TND"/ ></a><span class="fclub"><a href="#">TnD</a></span>
+						</div>
+						
+						<div class="club">
+							<a href="#"><img src="" width="30" height="30" alt="Ahoy" /></a><span class="fclub"><a href="#">Ahoy</a></span>
+						</div>
+						
+						<div class="club">
+							<a href="#"><img src="" width="30" height="30" alt="CATCH" /></a><span class="fclub"><a href="#">CATCH</a></span>
+						</div>
+						
+						<div class="club">
+							<a href="#"><img src="" width="30" height="30" alt="PBB737" /></a><span class="fclub"><a href="#">PBB737</a></span>
+						</div>
+					</div>
+					 
+					<span><a onclick = "loadAllClubs()">See all</a></span>
+				</div>
+			</div>
+			 
+			<div class="gcontent">
+				<div class="head"><h1>Friends List (4)</h1></div>
+				<div class="boxy">
+					<p>Your friends - 106 total</p>
+					 
+					<div class="friendslist clearfix">
+						<div class="friend">
+							<a href="#"><img src="" width="30" height="30" alt="John B." /></a><span class="friendly"><a href="#">John B.</a></span>
+						</div>
+						 
+						<div class="friend">
+							<a href="#"><img src="" width="30" height="30" alt="Isaac L." /></a><span class="friendly"><a href="#">Isaac L..</a></span>
+						</div>
+						 
+						<div class="friend">
+							<a href="#"><img src="" width="30" height="30" alt="Anton D." /></a><span class="friendly"><a href="#">Anton D.</a></span>
+						</div>
+
+						<div class="friend">
+							<a href="#"><img src="" width="30" height="30" alt="Igie M." /></a><span class="friendly"><a href="#">Igie M.</a></span>
+						</div>
+
+					</div>
+					
+					<span><a onclick = "loadAllFriends()">See all</a></span>
+				</div>
+        </section>
+    </div>
+<script src="script.js"></script>	
+	<script>
+
+	function show(tabName){
+		var x = document.getElementsByClassName("tabs");
+		var i;
+		for (i = 0; i < x.length; i++) {
+			if(x[i].style.visibility == "visible")
+			  x[i].style.visibility = "hidden";
+		}
+		document.getElementById(tabName).style.visibility = "visible" ;
+	}
+	function loadMess2(a){
+		localStorage.setItem("fromName", a);
+		loadMess(1);
+	}
+	</script>
+
+</body>
+
+</html>

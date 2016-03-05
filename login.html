@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Timeout </title>
+		<link rel="stylesheet" type="text/css" href="style_login.css">
+		<script type="text/javascript" src= "jquery-2.2.0.js"></script>
+	</head>
+	<body>
+		<div id="main_signin">
+			<div id="dialog_signin">
+				<div class="dialog_space"></div>
+				<div id="dialog_form">
+					<br>
+					<br>
+					<br>
+					<br>
+					<div class="labels">Username: </div>
+					<span> <input id="uname" type="text" class="input_boxes"></input> </span>
+					<br>
+					<br>
+					<br>
+					<div class="labels">Password: </div>
+					<span> <input id="pword" type="password" class="input_boxes"></input> </span>
+					<br>
+					<br>
+					<br>
+					<br>
+					<div id="submit_button" onclick="signin()">
+						<div id="button_space"></div>
+						Submit
+					</div>
+				</div>
+			</div>
+		</div>
+	<script>
+		function signin(){
+			//alert("entered function");
+			var uname = $("#uname").val();
+			var pword = $("#pword").val();
+			if(uname == "admin" && pword == "12345"){
+				window.document.location.href = 'news.html';
+				//alert("here na me");
+			}
+			else{
+				//alert("entered else");
+				var error_message = $('<div>' + 'Wrong username or password.' + '</div>');
+				$(error_message).addClass("error_message");
+				$(error_message).css("color","red");
+				$(error_message).css("position","absolute");
+				$(error_message).css("left","28%");
+				var error_space = $('<div></div>');
+				error_space.addClass("error_space");
+				error_space.css("height","55px","width","100%");
+				if ($(".error_message")[0] && $(".error_space")[0]){
+					$(".error_message").remove();
+					$(".error_space").remove();
+				}
+				$("#dialog_form").append(error_space);
+				$("#dialog_form").append(error_message);
+				$(error_message).show("slow");
+			}
+		}
+	</script>
+	</body>
+</html>

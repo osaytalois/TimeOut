@@ -1,0 +1,390 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,300,900,100);
+*{
+	margin: 0;
+	padding: 0;
+}
+
+#sign_in{
+	background-image: url('img/basketball.jpg');
+	background-size: 100% 100%;
+	height: 668px;
+	width: 100%;
+}
+
+#sign_in_content{
+	width: 100%;
+	height: 100%;
+	opacity: 0.8;
+	background-color: black;
+}
+
+#toolbar{
+	width: 100%;
+	height: 100px;
+}
+
+div.toolbar_options{
+	font-family: 'Lato', sans-serif;
+	font-size: 19px;
+	color: white;
+	float: right;
+	text-align: center;
+	margin: 30px 20px 30px 20px;
+	height: 28px;
+	width: 100px;
+}
+
+#sign_in_toolbar{
+	color: #F62A00;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #F62A00;
+	opacity: 1.0;
+}
+
+#features_toolbar:hover{
+	color: #F62A00;
+	transition: all 500ms ease;
+}
+
+#features_a{
+	color: inherit;
+	text-decoration: none;
+}
+
+#aboutus_toolbar:hover{
+	color: #F62A00;
+	transition: all 500ms ease;
+}
+
+#aboutus_a{
+	color: inherit;
+	text-decoration: none;
+}
+
+#sign_in_toolbar:hover{
+	color: white;
+	background-color: #F62A00;
+	transition: all 500ms ease;
+}
+
+#timeout_statement{
+	width: 100%;
+	height: 400px;
+}
+
+#tagline1{
+	font-family: 'Lato', sans-serif;
+	font-size: 55px;
+	font-weight: 400;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	height: 60px;
+	width: 100%;
+}
+
+#tagline2{
+	font-family: 'Lato', sans-serif;
+	font-size: 38px;
+	font-weight: 300;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	height: 40px;
+	width: 100%;
+}
+
+div.statement_space{
+	width: 100%;
+	height: 150px;
+}
+
+#signup_button{
+	width: 100%;
+	height: 127px;
+}
+
+#sign_in_dialog{
+	height: 100%;
+	width: 200px;
+	float: right;
+	z-index: 10;
+	display:none;
+	background-color: #F62A00;
+}
+
+#getstarted{
+	font-family: 'Lato', sans-serif;
+	font-size: 19px;
+	color: white;
+	background-color:#F62A00;
+	text-align: center;
+	vertical-align: middle;
+	height: 50px;
+	width: 220px;
+	border-radius: 1px;
+	opacity: 0.5;
+}
+
+#getstarted:hover{
+	opacity: 1;
+	transition: all 500ms ease;
+}
+
+div.button_space{
+	width: 100%;
+	height: 12px;
+}
+
+div.space{
+	width: 100%;
+	height: 43.5px;
+}
+
+#arrow_button{
+	width: 100%;
+	height: 43px;
+}
+
+#arrow{
+	font-family: 'Lato', sans-serif;
+	font-size: 16px;
+	font-weight: 300;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	height: 19px;
+	width: 100%;
+}
+
+#arrow_space{
+	width: 100%;
+	height: 12px;
+}
+
+#know_more{
+	background-image: url('img/football.jpg');
+	background-size: 100% 100%;
+	height: 768px;
+	width: 100%;
+}
+
+#know_more_content{
+	height: 100%;
+	width: 100%;
+}
+
+div.know_more_elements{
+	height: 100%;
+	width: 665px;
+}
+
+
+#know_more_container{
+	float:right;
+}
+
+#know_more_image{
+	float: left;
+}
+
+#know_more_circle{
+	height: 300px;
+	width: 300px;
+	border-radius: 225px;
+	background-color: #00293c;
+	background-image: url('img/calendar_icon.png');
+	background-size: 100% 100%;
+	box-shadow: 0 8px 6px -5px black;
+}
+
+div.know_more_image_space{
+	width: 100%;
+	height: 234px;
+}
+
+p.features_text_title{
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	font-size: 34px;
+	color: white;
+	text-align: center;
+}
+
+p.features_text_body{
+	font-family: 'Lato', sans-serif;
+	font-weight: 100;
+	font-size: 21px;
+	color: white;
+	text-align: center;
+
+}
+
+div.know_more_text_space{
+	width: 100%;
+	height:350.5px;
+}
+
+#fact_1{
+	background-image: url('img/volleyball.jpg');
+	background-size: 100% 100%;
+	height: 768px;
+	width: 100%;
+}
+
+#fact_1_content{
+	height: 100%;
+	width: 100%;
+}
+
+div.fact_1_elements{
+	height: 100%;
+	width: 665px;
+}
+
+
+#fact_1_container{
+	float:right;
+}
+
+#fact_1_image{
+	float: left;
+}
+
+#fact_1_circle{
+	height: 300px;
+	width: 300px;
+	border-radius: 225px;
+	background-color: #f62a00;
+	background-image: url('img/clubs_icon.png');
+	background-size: 100% 100%;
+	box-shadow: 0 8px 6px -5px black;
+}
+
+div.fact_1_image_space{
+	width: 100%;
+	height: 234px;
+}
+
+
+div.fact_1_text_space{
+	width: 100%;
+	height:350.5px;
+}
+
+#fact_2{
+	background-image: url('img/tennis.jpg');
+	background-size: 100% 100%;
+	height: 768px;
+	width: 100%;
+}
+
+#fact_2_content{
+	height: 100%;
+	width: 100%;
+}
+
+div.fact_2_elements{
+	height: 100%;
+	width: 665px;
+}
+
+
+#fact_2_container{
+	float:right;
+}
+
+#fact_2_image{
+	float: left;
+}
+
+#fact_2_circle{
+	height: 300px;
+	width: 300px;
+	border-radius: 225px;
+	background-color: #1e656D;
+	background-image: url('img/trophy_icon.png');
+	background-size: 100% 100%;
+	box-shadow: 0 8px 6px -5px black;
+}
+
+div.fact_2_image_space{
+	width: 100%;
+	height: 234px;
+}
+
+
+div.fact_2_text_space{
+	width: 100%;
+	height:317px;
+}
+
+#aboutus{
+	width: 100%;
+	height: 475px;
+	background-color: #F1F3CE;
+}
+
+div.aboutus_space{
+	width: 100%;
+	height: 30px;
+}
+
+#our_team{
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	font-size: 32px;
+	color: #F62A00;
+	text-align: center;
+	height: 40px;
+	width: 100%;
+}
+
+div.aboutus_div{
+	width: 33.1%;
+	height: 375px;
+	display: inline-block;	
+}
+
+
+div.name_space{
+	width: 100%;
+	height: 50px;
+}
+
+div.name_space2{
+	width: 100%;
+	height: 35px;
+}
+
+p.name_text{
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	font-size: 28px;
+	color: #00293c;
+	text-align: center;
+	height: 20px;
+	width: 100%;
+}
+
+div.name_image{
+	height: 175px;
+	width: 175px;
+	border-radius: 87.5px;
+	//background-color: #1e656D;
+	background-size: 100% 100%;
+	box-shadow: 0 8px 6px -5px black;
+
+}
+#jb_image{
+	background-image: url('img/john_benolirao.jpg');
+}
+
+#ad_image{
+	background-image: url('img/anton_dejoya.jpg');
+}
+
+#lo_image{
+	background-image: url('img/lois_osayta.jpg');
+}

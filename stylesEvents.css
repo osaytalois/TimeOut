@@ -1,0 +1,224 @@
+
+
+/* CSS Styles for Events*/
+
+.eventIcon{
+	height:50px;
+	width:50px;
+	border:1px;
+	margin-top:5px;
+	margin-Left:25px;
+	margin-right:25px;
+	border-style:solid;
+	border-color:black;
+}
+.eventDescription{
+	color:lightgrey;
+	font-size: 24px;
+	border:0px;
+	margin:5px;
+	margin-top:10px;
+	width:47%;
+	height:95%;
+	float:right;
+}
+.members{
+	
+}
+.eventPic{
+	height:95%;
+	width:47%;
+	float:left;
+	margin:5px;
+	border:5px;
+	border-color:black;
+	border-style:solid;
+}
+.shadowDiv{
+	z-index:3;
+}
+.shadowDiv:hover{
+	-moz-box-shadow: 0 0 5px rgba(0,0,0,1);
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,1);
+}
+.smallDiv{
+	height:100px;
+	width:100px;
+	border:1px;
+	border-color:black;
+	border-style:solid;
+	float:left;
+	margin:20px;
+	margin-Top:40px;
+	margin-Left:26px;
+	font-size:13px;
+}
+.smallDiv:hover{
+	cursor:pointer;
+}
+.largeDiv{
+	height:200px;
+	width:750px;
+	border:1px;
+	border-color:black;
+	border-style:solid;
+	position:absolute;
+	left:250px;
+	top:30px;
+}
+.longDiv{
+	border:0px;
+	border-right:5px;
+	border-left:5px;
+	border-bottom:1px;
+	border-color:black;
+	opacity:0.67;
+	border-style:solid;
+	border-radius:5px;
+	width:1325px;
+	height:300px;
+	margin:0 auto;
+	margin-top:30px;
+}
+#addEvent{
+	margin-top:100px;
+}
+.eventButt{
+	height:15px;
+	width:100px;
+	padding:5px;
+	font-size:15px;
+	text-align:center;
+	color:lightgrey;
+	margin-right:10px;
+	background-color:red;
+	opacity:0.67;
+	border:2px;
+	border-style:solid;
+	border-color:lightgrey;
+	z-index:100;
+    -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
+    transition: all 1s;
+}
+.eventButt:hover{
+	cursor:pointer;
+	color:black;
+	color:white;
+	border-color:darkred;
+}
+#applyDateHost{
+	width:75px;
+}
+.updateEvents{
+	height:25px;
+	width:100px;
+	text-align:center;
+	margin:5px;
+	padding:5px;
+	border:5px;
+	border-style:solid;
+	border-color:black;
+	opacity:0.75;
+	color:white;
+	background-color:red;
+    -webkit-transition: all 0.25s; /* For Safari 3.1 to 6.0 */
+    transition: all 0.25s;
+}
+.updateEvents:hover{
+	border-color:red;
+	opacity:0.55;
+	background-color:black;
+	cursor:pointer;
+}
+.hidingContainer{
+	position:absolute;
+	margin-Left:37px;
+}
+.containerA{
+}
+.containerB{
+	display:none;
+}
+.simpleButton{
+	position:absolute;
+	opacity:0.5;
+	width:20px;
+	padding:5px;
+	padding-Left:15px;
+	font-size:18px;
+	font-style:sans-serif;
+	height:auto;
+	border:1px;
+	border-color:black;
+	border-style:solid;
+	background-color:black;
+	color:white;
+	margin-top:90px;
+}
+.simpleButton:hover{
+	opacity:0.8;
+	cursor:pointer;
+}
+
+.leftButton{
+	left:250px;
+}
+
+.rightButton{
+	left:1060px;
+}
+.title{
+	text-align:center;
+	width:100%;
+	margin-top:0px;
+	margin-bottom:5px;
+	font-size:20px;
+	background-color:red;
+	color:white;
+	font-style:sans-serif;
+}
+
+.drops{
+	margin-Left:42%;
+	margin-top:10px;
+}
+
+
+.eventDim{
+	position:fixed;
+	height:100%;
+	top:0;
+	bottom:0;
+	width:100%;
+	background-color:black;
+	opacity:0.7;
+	z-index:23;
+}
+
+.eventPop{
+	width:75%;
+	height:75%;
+	background-color:white;
+	opacity:1;
+	position:fixed;
+	margin:0;
+	top:12%;
+	left:12%;
+	z-index:24;
+}
+
+.popClose{
+	width:40px;
+	height:40px;
+	float:right;
+	right:30px;
+	margin-top:30px;
+	color:white;
+	font-size:18px;
+	font-style:sans-serif;
+}
+
+.popClose:hover{
+	opacity:0.55;
+	cursor:pointer;
+}

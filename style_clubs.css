@@ -1,0 +1,40 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,300,900,100);
+
+.clubs_news{
+	width:94%;
+	margin:3%;
+	margin-top:10px;
+	margin-bottom:7%;
+	height:auto;
+	border:1px;
+	border-style:solid;
+	border-color:grey;
+	opacity:0.65;
+	position:relative;
+	float:left;
+	background-color:#f9f9f9;
+}
+
+div[class = clubs_news]>p{
+	clear:both;
+	margin-left:15%;
+	margin-right:5%;
+}
+div[class = clubs_news] div[class = dp]{
+	position:absolute;
+	float:left;
+	height:50px;
+	width:50px;
+	margin:3%;
+	border:1px;
+	border-style:solid;
+	border-radius:10px;
+}
+div[class = clubs_news]>div[class = nameTime]{
+	position:relative;
+	float:right;
+	height:50px;
+	width:80%;
+	margin:3%;
+	margin-right:5%;
+}
