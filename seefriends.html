@@ -380,44 +380,6 @@ html[xmlns] .clearfix {
 		<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>    
-		<!--The whole top toolbar-->
-		<div id = hideTop>
-			<div id = toolbartop onmouseover = toolhovertop() onmouseout = toolouttop()>
-				<div class = "toolDiv">
-					<div class = "toolIconLATop">Search</div>
-					<form>
-						<input type="text" id = "toolSearch" placeholder = "Enter a name, username, or a club name" onFocus = "this.placeholder=''" onBlur = "this.placeholder = 'Enter a name, username, or a club name'">
-					</form>
-				</div>
-				<div class = "toolIconRATop" onclick="loadLanding()">Logout</div>
-			</div>
-		</div>
-			<!--The Whole Bottom Toolbar-->
-			<div id = hide>
-				<div id = toolbar onmouseover = toolhover() onmouseout = toolout()>
-					<div class="toolDivMid">
-						<div id = "double7" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadSettings()">Settings</div>
-						<div id = "double6" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadNotifs()">Notifications</div>
-						<div id = "double5" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadHoF()">Hall of Fame</div>
-						<div id = "double4" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadMess(0)">Messages</div>
-						<div id = "double3" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadProfile()">Profile</div>
-						<div id = "double2" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadEvent()">Events</div>
-						<div id = "double1" class = "toolIconRA" onmouseover = "botButtonDoubleH(this)" onmouseout = "botButtonDoubleO(this)" onclick = "loadNews()">What's New</div>
-					</div>
-				</div>
-			</div>
-				<!--Icons-->
-			<div id = botDiv>
-				<div style="position:absolute;width:700px;margin-Left:0px;">
-					<div id = botIcon class = "double1" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadNews()"></div>
-					<div id = botIcon class = "double2" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadEvent()"></div>
-					<div id = botIcon class = "double3" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadProfile()"></div>
-					<div id = botIcon class = "double4" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadMess(0)"></div>
-					<div id = botIcon class = "double5" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadHoF()"></div>
-					<div id = botIcon class = "double6" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadNotifs()"></div>
-					<div id = botIcon class = "double7" onmouseover = "botIconDoubleH(this)" onmouseout = "botIconDoubleO(this)" onclick = "loadSettings()"></div>
-				</div>
-			</div>		
     <div id="content" class="clearfix">
         <section id="left">
             <div id="userStats" class="clearfix">
@@ -537,6 +499,7 @@ html[xmlns] .clearfix {
         </section>
     </div>
 <script src="script.js"></script>	
+<script src="loadToolBar.js"></script>	
 	<script>
 
 	function show(tabName){
