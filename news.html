@@ -13,7 +13,7 @@
 			<div id = "leftPane"> 
 					<div class = "lPLink" onclick = "loadProfile()">My Profile</div><!--The Links-->
 					<div class = "lPLink" onclick = "loadSettings()">Edit Profile</div>
-				<div class = "lPTitle" onclick = "loadClubs()">Clubs<!--The Titles-->
+				<div id = "clubs" class = "lPTitle" onclick = "loadClubs()">Clubs<!--The Titles-->
 					<div style = "float:right; font-size:15px; padding:5px;"> <a class = "anchor" href="">More</a></div>
 				</div> 
 					<div class = "lPLink">The Ringers</div>
@@ -42,67 +42,62 @@
 			</div>
 			<!--The News-->
 			<div id = "midPane"><!-- A single News in the Feed-->
-				<div class = "news">
-					<div class = "dp">Profile Picture</div>
-					<div class = "nameTime"><a class = "username anchor" href = "" onclick = "loadFriend()">John Adriel Benolirao</a></br>time posted</div>
-					<p>This is My Story </br> BLABLABLA LOOK AT ME</p>
-				</div>
-				<div class = "news">
-					<div class = "dp">Profile Picture</div>
-					<div class = "nameTime"><a class = "username anchor" href="">Jaimie Bringas</a></br>time posted</div>
-					<p>I am a woman. </br> I am CSE. </br> Aye!</p>
-				</div>
-				<div class = "news">
-					<div class = "dp">Profile Picture</div>
-					<div class = "nameTime"><a class = "username anchor" href="">Isaac Lim</a></br>time posted</div>
-					<p>This is a Post!</p>
-				</div>
-				<div class = "news">
-					<div class = "dp">Profile Picture</div>
-					<div class = "nameTime"><a class = "username anchor" href="">Lois Osayta</a></br>time posted</div>
-					<p>This is My Story </br> Optum Driving School</p>
-				</div>
-				<div class = "news">
-					<div class = "dp">Profile Picture</div>
-					<div class = "nameTime"><a class = "username anchor" href="">Anton de Joya</a></br>time posted</div>
-					<p>This is My Story </br> Be Like Me</p>
-				</div>
-				<div class = "news">
-					<div class = "dp">Profile Picture</div>
-					<div class = "nameTime"><a class = "username anchor" href="">Chudrac_Ace</a></br>time posted</div>
-					<p>This is My Story</p>
-				</div>
 			</div>
 		<script src="script.js"></script>
 		<script src="loadToolBar.js"></script>
 		<script>
-			$newNews = $("<div></div>");
-			$($newNews).addClass("news");//the whole news div has been created
-			$newDP = $("<div></div>");
-			$($newDP).addClass("dp");//DP div has been created
-			$newNamePost = $("<div></div>");
-			$($newNamePost).addClass("nameTime");//nameTime has been created
-			$newNameLink = $("<a href = ''></a>");
-			$($newNameLink).addClass("username");
-			$($newNameLink).addClass("anchor");
-			$($newNameLink).click(function(e){
-				// Special stuff to do when this link is clicked...
-				// Cancel the default action
-				e.preventDefault();
+			addNews("lois.jpg", "John Cena", "6:45 pm", "JOHN CENAAA!!!! IN DA HAUS!!!");
+			addNews("dp2.jpg", "John Adriel Benolirao", "6:55 pm", "Won the battle against CHINA");
+			addNews("dp1.jpg", "Lois Osayta", "6:56 pm", "Lost againt the Phils...");
+			$extra = $("<div style = 'height:100px; clear:both;'>");
+			$("#midPane").append($extra);
+			$($extra).remove();
+			addNews("profile1.png", "Isaac Lim", "7:00 pm", "I don t know which side to choose");
+			addNews("profile1.png", "Jaimie Bringas", "7:02 pm", "GO ARCHERS!!!");
+			addNews("profile1.png", "Anton de Joya", "7:05 pm", "Way to go pacers!!!");
+			addNews("profile1.png", "Macario Cordel", "7:07 pm", "Gonna play some game later.\nWishing I have some time to start some warm-ups.");
+			$("#midPane").append($extra);
+			function addNews(image, name, time, story){
+				$newNews = $("<div></div>");
+				$($newNews).addClass("news");//the whole news div has been created
+				$newDP = $("<div></div>");
+				$($newDP).addClass("dp");//DP div has been created
+				$($newDP).css("background-image", "url("+image+")");
+				$($newDP).css("background-size", "50px");
+				$($newDP).css("background-repeat", "no-repeat");
+				$($newDP).css("background-position", "center");
+				$($newDP).css("background-color", "black");
+				$newNamePost = $("<div></div>");
+				$($newNamePost).addClass("nameTime");//nameTime has been created
+				$newNameLink = $("<a href = ''></a>");
+				$($newNameLink).addClass("username");
+				$($newNameLink).addClass("anchor");
+				$($newNameLink).click(function(){loadFriend();});
+				$($newNameLink).click(function(e){
+					// Special stuff to do when this link is clicked...
+					// Cancel the default action
+					e.preventDefault();
+				});
+				$($newNamePost).append($newNameLink);//link created, name post has been appended
+				$($newNameLink).append(name);
+				$($newNamePost).append($("</br>"));
+				$($newNamePost).append(time);
+				$($newNews).append($newDP);//append dp to the story
+				$($newNews).append($newNamePost);//append nameTime to the story
+				$story = $("<p></p>");//story will be appended here
+				story = story.replace("\n", "</br>");
+				$($story).append(story);//place the post inside this string
+				$($newNews).append($story);//append the post to the story
+				$("#midPane").append($newNews);//append the new Story
+			}
+			$(window).load(function(){
+				$("#leftPane").css("width", (screen.width*0.25|0)+"px");
+				$("#rightPane").css("width", (screen.width*0.25|0)+"px");
+				$("#rightPane").css("left", (screen.width*0.73|0)+"px");
+				$("#midPane").css("width", (screen.width*0.46|0)+"px");
+				$("#midPane").css("left", (screen.width*0.26|0)+"px");
+				//console.log(screen.width*0.95|0);
 			});
-			$($newNamePost).append($newNameLink);//link created, name post has been appended
-			$($newNameLink).append("name");
-			$($newNamePost).append($("</br>"));
-			$($newNamePost).append("time posted");
-			$($newNews).append($newDP);//append dp to the story
-			$($newNews).append($newNamePost);//append nameTime to the story
-			$story = $("<p></p>");//story will be appended here
-			$($story).append("Sample1\nSample2");//place the post inside this string
-			$($newNews).append($story);//append the post to the story
-			$("#midPane").append($newNews);//append the new Story
-			
-			
-			$("#midPane").append($("<div style = 'height:100px; clear:both;'>"));
 		</script>
 	</body>
 </html>
