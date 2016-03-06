@@ -60,9 +60,8 @@ a[class = "username anchor"]:active {
 	font-size:15px;
 	float:left;
 	background-color:#f9f9f9;
-	position:relative;
 	height:auto;
-	width:25%;
+	width:25px;
 	border:2px;
 	border-style:solid;
 	border-color:#000000;
@@ -71,6 +70,7 @@ a[class = "username anchor"]:active {
 	opacity:0.65;
 	z-index:0;
 	margin-top:75px;
+	position:absolute;
 }
 #leftPane:hover{
 	-moz-box-shadow: 0 0 5px rgba(0,0,0,1);
@@ -112,7 +112,7 @@ a[class = "username anchor"]:active {
 	font-size:15px;
 	background-color:#f9f9f9;
 	height:auto;
-	width:25%;
+	width:25px;
 	border:2px;
 	border-style:solid;
 	border-color:#000000;
@@ -121,6 +121,7 @@ a[class = "username anchor"]:active {
 	opacity:0.65;
 	z-index:0;
 	margin-top:75px;
+	position:absolute;
 }
 #rightPane:hover{
 	-moz-box-shadow: 0 0 5px rgba(0,0,0,1);
@@ -137,7 +138,7 @@ a[class = "username anchor"]:active {
 	border-style:solid;
 	border-color:#000000;
 	border-radius:10px;
-	opacity:0.65;
+	opacity:1;
 	position:relative;
 	float:left;
 	background-color:#f9f9f9;
@@ -147,11 +148,11 @@ a[class = "username anchor"]:active {
 	-webkit-box-shadow: 0 0 5px rgba(0,0,0,1);
 }
 #midPane{
-    position: relative;
+    position: absolute;
 	float:left;
-	top:65px;
+	top:75px;
     left: 2%;/*Place it on 26% of the screen(since left pane occupies 25%*/
-    width: 46%;/*Occupy 48% of the screen (Since the other panes occupies 50%)*/
+    width: 46px;/*Occupy 48% of the screen (Since the other panes occupies 50%)*/
     margin: 0 0 0 0;
 	z-index:0;
 }
