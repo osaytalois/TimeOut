@@ -16,7 +16,6 @@
 				<div id = "clubs" class = "lPTitle">Clubs<!--The Titles-->
 					<div style = "float:right; font-size:15px; padding:5px;"> <a class = "anchor" href="" onclick = "loadClubs()">More</a></div>
 				</div> 
-					<div class = "lPLink">The Ringers</div>
 				<div class = "lPTitle">Events
 					<div style = "float:right; font-size:15px; padding:5px;"> <a class = "anchor" href="" onclick = "loadEvent()">More</a></div>
 				</div>
@@ -26,11 +25,12 @@
 				<div class = "lPTitle">Hall Of Fame
 					<div style = "float:right; font-size:15px; padding:5px;"> <a class = "anchor" href="" onclick = "loadHoF()">More</a></div>
 				</div>
-					<div class = "lPLink">Top 100 Scorers</div>
-					<div class = "lPLink">Top 100 Blockers</div>
-					<div class = "lPLink">Top 100 Playmakers</div>
-					<div class = "lPLink">Top 100 3-Point Shooters</div>
-					<div class = "lPLink">Top 100 Dunkers</div>
+					<div class = "lPLink" onclick = "loadHoFSel(1)">Top 100 Scorers</div>
+					<div class = "lPLink" onclick = "loadHoFSel(2)">Top 100 Blockers</div>
+					<div class = "lPLink" onclick = "loadHoFSel(3)">Top 100 Playmakers</div>
+					<div class = "lPLink" onclick = "loadHoFSel(3)">Top 100 Rebounders</div>
+					<div class = "lPLink" onclick = "loadHoFSel(4)">Top 100 3-Point Shooters</div>
+					<div class = "lPLink" onclick = "loadHoFSel(5)">Top 100 Marksmen (Accurate)</div>
 			</div>
 			<!--The Whole Right Plane-->
 			<div id = "rightPane">
@@ -60,6 +60,8 @@
 			addHosted("Alpha vs Omega");
 			addJoined("The Great Stainz");
 			addInvited("Great Wall Shall Fall");
+			addClubs("The Ringers");
+			
 			function addNews(image, name, time, story){
 				$newNews = $("<div></div>");
 				$($newNews).addClass("news");//the whole news div has been created
@@ -92,6 +94,14 @@
 				$($story).append(story);//place the post inside this string
 				$($newNews).append($story);//append the post to the story
 				$("#midPane").append($newNews);//append the new Story
+			}
+			function addClubs(clubName){
+				$temp = $("<div></div>");
+				$($temp).addClass("lPLink");
+				$($temp).html(clubName);
+				$($temp).click(function(){
+				});
+				$("#clubs").after($temp);
 			}
 			function addHosted(eventName){
 				$temp = $("<div></div>");
