@@ -34,7 +34,7 @@
 			var justSent = true;
 			var justReced = true;
 			var x = 0;
-			for(var i = 0; i < 2; i++){
+			for(var i = 0; i < 2; i++){ //add Person1 and Person2 and load their messages
 				$newPH = $("<div></div>");
 				$($newPH).addClass("personHolder");
 				$newP = $("<div></div>");
@@ -61,7 +61,7 @@
 			}
 			$("#person0").css("borderColor", "red");
 			$("#person0").css("backgroundColor", "grey");
-			if(parseInt(localStorage.getItem("fromProfile")) == 1){
+			if(parseInt(localStorage.getItem("fromProfile")) == 1){//add the person in nav if from profile
 				$newPH = $("<div></div>");
 				$($newPH).addClass("personHolder");
 				$newP = $("<div></div>");
@@ -137,11 +137,10 @@
 				//fix message
 				//fix /Ns here
 				message = message.replace("\n", "</br>");
-				$message = $("<span></span>").html(message);
 				$newMess = $("<div></div>");
 				$($newMess).addClass("sent");
 				$($newMess).addClass("messageDisplay");
-				$($newMess).append($message);
+				$($newMess).html(message);
 				$container = $("<div style = 'width:100%;clear:both;'></div>");
 				$($container).addClass("pattern1");
 				$($container).addClass("sender");
@@ -172,11 +171,11 @@
 				}
 				if($($newMess).width()>($(".messNav").width()*0.85|0)){
 					$newMess.css("width", $(".messNav").width()*0.85|0+"px");
-					$($message).css("width", $($newMess).width()*0.99|0+"px");
+					//$($message).css("width", $($newMess).width()*0.99|0+"px");
 				}
 				console.log($($newMess).width());
 				console.log($($newMess).width()*0.9|0);
-				console.log($($message).width());
+				//console.log($($message).width());
 				$($dp).css("float", "left");
 				$(".toSend").val("");
 				
@@ -187,11 +186,12 @@
 					else
 						justReced = false;
 					var message2 = "abhdnsiafmsjm";
-					$message2 = $("<span></span>").html(message2.replace("\n", "</br>"));
+					//$message2 = $("<span></span>").html(message2.replace("\n", "</br>"));
+					message2 = message2.replace("\n", "</br>");
 					$newMess2 = $("<div></div>");
 					$($newMess2).addClass("received");
 					$($newMess2).addClass("messageDisplay");
-					$($newMess2).append($message2);
+					$($newMess2).append(message2);
 					$container3 = $("<div style = 'width:100%;clear:both;'></div>");
 					$($container3).addClass("pattern1");
 					$($container3).addClass("receiver");
@@ -222,7 +222,7 @@
 					}
 					if($($newMess2).width()>($(".messNav").width()*0.85|0)){
 						$newMess2.css("width", $(".messNav").width()*0.85|0+"px");
-						$($message2).css("width", $($newMess2).width()*0.99|0+"px");
+						//$($message2).css("width", $($newMess2).width()*0.99|0+"px");
 					}
 					$($dp3).css("float", "left");
 				}
