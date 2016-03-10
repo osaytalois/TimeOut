@@ -1,0 +1,525 @@
+
+* { 
+	margin: 0; 
+	padding: 0; 
+}
+
+html { 
+	height: 100%; 
+	font-family: sans-serif; 
+	background: white; 
+}
+
+body { 
+	font-size: 62.5%; 
+	font-family: sans-serif; 
+	margin: 1%;
+}
+
+html, body {
+    width: 100%;
+    height: 90%;
+}
+
+img { 
+	border: 0px;
+}
+
+a { 
+	color: grey; 
+	text-decoration: none; 
+}
+
+a:hover { 
+	text-decoration: underline; 
+}
+
+ul { 
+	line-height: 120%; 
+}
+
+p { 
+	font-size: 1.2em; 
+	line-height: 1.4em; 
+	font-family: sans-serif; 
+	color: black; 
+	margin-bottom: 15px; 
+}
+
+h1 { 
+	font-family: sans-serif; 
+	color: black; 
+	font-weight: bold; 
+	font-size: 1.7em; 
+	line-height: 2.0em; 
+}
+
+h3 { 
+	color: gray 
+	font-weight: normal; 
+	font-size: 1.3em; 
+	line-height: 1.6em;  
+}
+
+#content { 
+	display: block;
+	width:1000px;
+	margin: 0 140px; 
+	margin-top:50px;
+
+}
+
+#left { 
+	display: block; 
+	width: 700px; 
+	float: left; 
+	overflow: hidden; 
+	margin-right: 60px; 
+	margin-top:40px;
+}
+
+#right { 
+	display: block; 
+	width: 240px;
+	float: left; 
+	overflow: hidden;
+	margin-top:40px;
+}
+
+
+/* @group left */
+#userStats { 
+	display: block; 
+	width: auto; 
+	background-color: #f9f9f9; 
+	border: 1px solid #ccc; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px;
+	border-radius: 5px; 
+	padding: 12px; 
+}
+
+#userStats .pic { 
+	float: left; 
+	display: block;
+	margin-right: 10px; 
+}
+
+#userStats .pic a img { 
+	padding: 7px; 
+	background: #fff; 
+	border: 1px solid #ccc; 
+}
+
+#userStats .data { 
+	float: left; 
+	display: block; 
+	position:  relative; 
+	width: 490px; 
+	height: 166px; 
+	padding: 4px; 
+	padding-left: 15px; 
+	background: #f9f9f9; 
+	border: 1px solid #ccc; 
+	overflow:  hidden; 
+	box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
+}
+
+#userStats .data h1 { 
+	color: red;
+	font-size:18px;
+	opacity:0.7;
+	line-height: 1.7em; 
+	text-shadow: 0px 1px 1px #fff; 
+}
+
+#userStats .data h3 { 
+	color: #666; 
+	line-height: 0.9em; 
+	margin-bottom: 5px; 
+}
+
+#userStats .data h4{ 
+	font-size: 12px; 
+	line-height: 1.3em;
+	color: #666;	
+}
+
+#userStats .data .pm { 
+	position: absolute; 
+	right: 6px;
+	top: 8px; 
+}
+
+#userStats .data .pm a{
+	color:#666;
+	font-size:1.2em;
+	text-decoration:underline;
+}
+
+#userStats .data .pm a img { 
+	margin-right: 5px; 
+}
+
+#userStats .data .sep { 
+	clear: both; 
+	margin-top: 40px; 
+	width: 480px; 
+	height: 1px; 
+	border-bottom: 1px solid #ccc; 
+	margin-bottom: 0; 
+}
+
+#userStats .data ul.numbers { 
+	list-style: none; 
+	width: 470px; 
+	padding-top: 7px; 
+	margin-top: 0; 
+	border-top: 1px solid #fff; 
+	color: #676767; 
+}
+
+#userStats .data ul.numbers li { 
+	float: left; 
+	display: block; 
+	padding-left: 55px;
+	padding-right:50px;
+	height: 50px;
+	text-transform: uppercase; 
+}
+
+#userStats .data ul.numbers .withbrdr { 
+	border-right: 1px dotted #bbb; 
+}
+
+#userStats .data ul.numbers li strong { 
+	color: #434343; 
+	display: block; 
+	font-size: 3em; 
+	line-height: 1.1em; 
+	font-weight: bold; 
+}
+
+
+#about{
+	width:100%;
+}
+
+#about .head { 
+	background-color:red;
+	opacity:0.7;
+	border: 1px solid #e6e6e6; 
+	padding-left: 8px; 
+	margin-top:15px;
+}
+
+#about .head h1 { 
+	color: white; 
+	font-weight: bold; 
+	font-size: 1.4em; 
+}
+
+#about .boxy { 
+	border-radius: 0px 0px 5px 5px; 
+	border: 1px solid #ccc; 
+	border-top: 0px; 
+	background: #f9f9f9; 
+	height:240px;
+}
+
+#about .boxy .tabname{ 
+	float: left; 
+	display: block;  
+	background-color: #f9f9f9;
+	border-right:1px solid lightgrey;
+	width:180px;
+	list-style:none;
+	padding-right:10px;
+	height:230px;
+	}
+
+#about .boxy .tabname li {  
+	padding:10px 0px;
+	margin:20px 0px;
+} 
+ 
+#about .boxy .tabname li a{ 
+	text-decoration: none; 
+	font-family: sans-serif;
+	font-size: 12px;
+	font-weight:bold;
+	color: grey; 
+	opacity:0.8;
+	padding:14px;
+	padding-right:18px;
+} 
+
+#about .boxy .tabname li a:hover{ 
+	text-decoration: none; 
+	font-family: sans-serif;
+	font-size: 12px;
+	font-weight:bold;
+	color: black; 
+	border-left:2px solid black;
+} 	
+	
+#about .boxy .tabs { 
+	visibility:hidden;
+	position:absolute;
+	display: block;
+	margin-left:200px;
+	margin-right: 10px; 
+	padding: 35px;
+	padding-top:25px;
+	width: 420px; 
+	height: 200px
+	overflow:  hidden; 
+	box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
+}
+
+#about .boxy .tabs .tabdetail{ 
+	color:grey;
+	font-family: sans-serif;
+	font-size:14px;
+}
+
+#about .boxy .tabs .tabdetail .company{ 
+	color:black;
+	font-family: sans-serif;
+	font-size:14px;
+	height:12px;
+	width:420px;
+}
+
+#about .boxy .tabs .tabdetail .position{ 
+	color:grey;
+	font-family: sans-serif;
+	font-size:13px; 
+	padding-top:5px;
+	padding-bottom:12px;
+	height:14px;
+	width:420px;
+}
+
+/* @group right */
+#right .gcontent { 
+	display: block; 
+	margin-bottom: 20px; 
+}
+
+#right .gcontent .head { 
+	background-color:red;
+	opacity:0.7;
+	border: 1px solid #e6e6e6; 
+	padding-left: 8px; 
+}
+
+#right .gcontent .head h1 { 
+	color: white; 
+	font-weight: bold; 
+	font-size: 1.4em; 
+}
+
+#right .gcontent .boxy { 
+	border-radius: 0px 0px 5px 5px; 
+	border: 1px solid #ccc; 
+	border-top: 0px; 
+	padding: 8px; 
+	background: #f9f9f9; 
+}
+
+#right .gcontent .boxy .badgeCount { 
+	display: block; 
+	margin-bottom: 18px; 
+	height:30px;
+}
+
+#right .gcontent .boxy .badges{ 
+	float: left; 
+	width: 190px;
+	padding: 5px; 
+}
+
+#right .gcontent .boxy .badgeCount img { 
+	border: 1px solid #ccc; 
+	float: left; 
+	padding: 2px;
+	background: #fff;
+	margin-left: 15px;
+}
+
+#right .gcontent .boxy .friendslist, #right .gcontent .boxy .clubslist { 
+	display: block; 
+	margin-bottom: 15px; 
+	height:80px;
+}
+
+#right .gcontent .boxy .friend, #right .gcontent .boxy .club{ 
+	border-top: 1px solid #ccc; 
+	float: left; 
+	height: 40px; 
+	padding: 5px 5px 5px 4px; 
+	width: 100px; 
+}
+
+#right .gcontent .boxy .friend img, #right .gcontent .boxy .club img { 
+	border: 1px solid #ccc; 
+	float: left; 
+	padding: 2px;
+	background: #fff;
+	margin-right: 4px;
+}
+
+#right .gcontent .boxy .friend .friendly{ 
+	position: relative;
+	top: 12px;
+	font-size: 1.2em; 
+}
+
+#right .gcontent .boxy .club .fclub { 
+	position: relative;
+	top: 12px;
+	font-size: 1.2em; 
+}
+
+
+#right .gcontent .boxy span a{ 
+	font-size: 12px;
+	color:black;
+	display: block; 
+	margin-bottom: 1px; 
+}
+
+.clearfix:after { 
+	content: "."; 
+	display: block; 
+	clear: both; 
+	visibility: hidden; 
+	line-height: 0; 
+	height: 0; 
+}
+
+.clearfix { 
+	display: inline-block; 
+}
+ 
+html[xmlns] .clearfix { 
+	display: block; 
+}
+
+* html .clearfix { 
+	height: 1%; 
+}
+
+#listname{
+	width:100%;
+}
+
+#listname .head { 
+	background-color:red;
+	opacity:0.7;
+	border: 1px solid #e6e6e6; 
+	padding-left: 8px; 
+	margin-top:15px;
+}
+
+#listname .head h1 { 
+	color: white; 
+	font-weight: bold; 
+	font-size: 1.4em; 
+}
+
+#listname .boxy { 
+	border-radius: 0px 0px 5px 5px; 
+	border: 1px solid #ccc; 
+	border-top: 0px; 
+	background: #f9f9f9; 
+	height:240px;
+	overflow-y:scroll;
+}
+
+#listname .boxy .abadge { 
+	border: 1px solid #ccc; 
+	float: left; 
+	padding: 2px;
+	background: #fff;
+	margin: 15px;
+	margin-left:19px;
+	background: #f9f9f9; 
+	width:300px;
+	height:65px;
+}
+
+#listname .boxy .abadge .mybadge img { 
+	border: 1px solid #ccc; 
+	float: left; 
+	padding: 2px;
+	margin:4px;
+	width:50px;
+	height:50px;
+}
+
+#listname .boxy .abadge .mybadge a{ 
+	font-size:14px;
+	color:red;
+	float:left;
+	margin:22px 10px;
+}
+
+#listname .boxy .aclub { 
+	border: 1px solid #ccc; 
+	float: left; 
+	padding: 2px;
+	background: #fff;
+	margin: 15px;
+	margin-left:19px;
+	background: #f9f9f9; 
+	width:300px;
+	height:65px;
+}
+
+#listname .boxy .aclub .myclub img { 
+	border: 1px solid #ccc; 
+	float: left; 
+	padding: 2px;
+	margin:4px;
+	width:50px;
+	height:50px;
+}
+
+#listname .boxy .aclub .myclub a{ 
+	font-size:14px;
+	color:red;
+	float:left;
+	margin:22px 10px;
+}
+
+#listname .boxy .afriend { 
+	border: 1px solid #ccc; 
+	float: left; 
+	padding: 2px;
+	background: #fff;
+	margin: 15px;
+	margin-left:19px;
+	background: #f9f9f9; 
+	width:300px;
+	height:65px;
+}
+
+#listname .boxy .afriend .myfriend img { 
+	border: 1px solid #ccc; 
+	float: left; 
+	padding: 2px;
+	margin:4px;
+	width:50px;
+	height:50px;
+}
+
+#listname .boxy .afriend .myfriend a{ 
+	font-size:14px;
+	color:red;
+	float:left;
+	margin:22px 10px;
+}
