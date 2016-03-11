@@ -11,16 +11,48 @@
 	margin-right:25px;
 	border-style:solid;
 	border-color:black;
+	background-color:black;
+    background-image: url("eventicon.jpg");
+	background-size: 50px;
+    background-repeat: no-repeat;
+	background-position:center;
+}
+.eventDescElem{
+	border:0px;
+	border-top:1px;
+	border-style:solid;
+	border-color:black;
+	width:95%;
+	height:auto;
+	float:left;
 }
 .eventDescription{
 	color:black;
-	font-size: 24px;
+	font-size: 15px;
 	border:0px;
 	margin:5px;
 	margin-top:10px;
-	width:47%;
-	height:95%;
-	float:right;
+	width:72%;
+	height:auto;
+	float:left;
+}
+.eventTitles{
+	color:black;
+	font-size: 15px;
+	margin:5px;
+	margin-top:10px;
+	width:20%;
+	height:auto;
+	float:left;
+}
+.descriptionTitle{
+	color:red;
+	opacity:0.7;
+}
+.descriptionInfo{
+	font-size:15px;
+	opacity:0.8;
+	word-wrap:break-word;
 }
 .members{
 	
@@ -30,10 +62,21 @@
 	width:47%;
 	float:left;
 	margin:5px;
-	background-color:lightgrey;
+	background-color:black;
 	border:1px;
 	border-color:red;
 	border-style:solid;
+    background-image: url("eventicon.jpg");
+	background-size: 100%;
+    background-repeat: no-repeat;
+	background-position:center;
+}
+.eventDetails{
+	height:95%;
+	width:47%;
+	float:left;
+	margin:5px;
+	overflow-y:scroll;
 }
 .shadowDiv{
 	z-index:3;

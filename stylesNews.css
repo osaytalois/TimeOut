@@ -144,6 +144,7 @@ a[class = "username anchor"]:active {
 	position:relative;
 	float:left;
 	background-color:#f9f9f9;
+	word-wrap:break-word;
 }
 .news:hover{
 	-moz-box-shadow: 0 0 5px rgba(0,0,0,1);
