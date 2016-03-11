@@ -66,7 +66,12 @@
 	function loadNews(){
 		window.location.href = "news.html";
 	}
+	function loadHoFSel(a){
+		localStorage.setItem("hallSelected", a);
+		window.location.href = "hall-2.html";
+	}
 	function loadHoF(){
+		localStorage.setItem("hallSelected", 0);
 		window.location.href = "hall-2.html";
 	}
 	function loadProfile(){

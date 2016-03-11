@@ -343,6 +343,54 @@ function show(awardName){
 	}
 	document.getElementById(awardName).style.visibility = "visible" ;
 }
+$(window).load(function(){
+	var index = parseInt(localStorage.getItem("hallSelected"));
+	var x = document.getElementsByClassName("award");
+	switch(index){
+		case 1: $("#scorer").css("visibility", "visible");
+				$("#blocker").css("visibility", "hidden");
+				$("#playmaker").css("visibility", "hidden");
+				$("#rebounder").css("visibility", "hidden");
+				$("#sharpshooter").css("visibility", "hidden");
+				$("#accurateplayer").css("visibility", "hidden");
+				break;
+		case 2 :$("#scorer").css("visibility", "hidden");
+				$("#blocker").css("visibility", "visible");
+				$("#playmaker").css("visibility", "hidden");
+				$("#rebounder").css("visibility", "hidden");
+				$("#sharpshooter").css("visibility", "hidden");
+				$("#accurateplayer").css("visibility", "hidden");
+				break;
+		case 3:	$("#scorer").css("visibility", "hidden");
+				$("#blocker").css("visibility", "hidden");
+				$("#playmaker").css("visibility", "visible");
+				$("#rebounder").css("visibility", "hidden");
+				$("#sharpshooter").css("visibility", "hidden");
+				$("#accurateplayer").css("visibility", "hidden");
+				break;
+		case 4: $("#scorer").css("visibility", "hidden");
+				$("#blocker").css("visibility", "hidden");
+				$("#playmaker").css("visibility", "hidden");
+				$("#rebounder").css("visibility", "visible");
+				$("#sharpshooter").css("visibility", "hidden");
+				$("#accurateplayer").css("visibility", "hidden");
+				break;
+		case 5: $("#scorer").css("visibility", "hidden");
+				$("#blocker").css("visibility", "hidden");
+				$("#playmaker").css("visibility", "hidden");
+				$("#rebounder").css("visibility", "hidden");
+				$("#sharpshooter").css("visibility", "visible");
+				$("#accurateplayer").css("visibility", "hidden");
+				break;
+		case 6: $("#scorer").css("visibility", "hidden");
+				$("#blocker").css("visibility", "hidden");
+				$("#playmaker").css("visibility", "hidden");
+				$("#rebounder").css("visibility", "hidden");
+				$("#sharpshooter").css("visibility", "hidden");
+				$("#accurateplayer").css("visibility", "visible");
+				break;
+	}
+});
 </script>
 <script src="script.js"></script>
 <script src="loadToolBar.js"></script>	

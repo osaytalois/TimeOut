@@ -110,7 +110,7 @@
 	margin-top:5px;
 	height:auto;
 	width:auto;
-	cursor:pointer;
+	word-wrap:break-word;
 }
 .sent{
 	background-color:red;
@@ -144,13 +144,6 @@
 	width:52px;
 	margin:4px;
 	border:1px;
-}
-.messageDisplay  > span{
-	padding:0;
-	margin:0;
-	/*border:1px;
-	border-color:black;
-	border-style:solid;*/
 }
 .me{
 	float:left;
