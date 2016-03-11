@@ -11,16 +11,48 @@
 	margin-right:25px;
 	border-style:solid;
 	border-color:black;
+	background-color:black;
+    background-image: url("eventicon.jpg");
+	background-size: 50px;
+    background-repeat: no-repeat;
+	background-position:center;
+}
+.eventDescElem{
+	border:0px;
+	border-top:1px;
+	border-style:solid;
+	border-color:black;
+	width:95%;
+	height:auto;
+	float:left;
 }
 .eventDescription{
-	color:lightgrey;
-	font-size: 24px;
+	color:black;
+	font-size: 15px;
 	border:0px;
 	margin:5px;
 	margin-top:10px;
-	width:47%;
-	height:95%;
-	float:right;
+	width:72%;
+	height:auto;
+	float:left;
+}
+.eventTitles{
+	color:black;
+	font-size: 15px;
+	margin:5px;
+	margin-top:10px;
+	width:20%;
+	height:auto;
+	float:left;
+}
+.descriptionTitle{
+	color:red;
+	opacity:0.7;
+}
+.descriptionInfo{
+	font-size:15px;
+	opacity:0.8;
+	word-wrap:break-word;
 }
 .members{
 	
@@ -30,9 +62,21 @@
 	width:47%;
 	float:left;
 	margin:5px;
-	border:5px;
-	border-color:black;
+	background-color:black;
+	border:1px;
+	border-color:red;
 	border-style:solid;
+    background-image: url("eventicon.jpg");
+	background-size: 100%;
+    background-repeat: no-repeat;
+	background-position:center;
+}
+.eventDetails{
+	height:95%;
+	width:47%;
+	float:left;
+	margin:5px;
+	overflow-y:scroll;
 }
 .shadowDiv{
 	z-index:3;
@@ -109,27 +153,6 @@
 #applyDateHost{
 	width:75px;
 }
-.updateEvents{
-	height:25px;
-	width:100px;
-	text-align:center;
-	margin:5px;
-	padding:5px;
-	border:5px;
-	border-style:solid;
-	border-color:black;
-	opacity:0.75;
-	color:white;
-	background-color:red;
-    -webkit-transition: all 0.25s; /* For Safari 3.1 to 6.0 */
-    transition: all 0.25s;
-}
-.updateEvents:hover{
-	border-color:red;
-	opacity:0.55;
-	background-color:black;
-	cursor:pointer;
-}
 .hidingContainer{
 	position:absolute;
 	margin-Left:37px;
@@ -161,11 +184,11 @@
 }
 
 .leftButton{
-	left:250px;
+	visibility:hidden;
 }
 
 .rightButton{
-	left:1060px;
+	visibility:hidden;
 }
 .title{
 	text-align:center;
@@ -190,6 +213,8 @@
 	top:0;
 	bottom:0;
 	width:100%;
+	margin:0;
+	left:0;
 	background-color:black;
 	opacity:0.7;
 	z-index:23;

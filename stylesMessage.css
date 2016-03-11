@@ -3,6 +3,7 @@
 
 .content{
 	font-family: 'Lato', sans-serif;
+	visibility:hidden;
 	position: absolute;
 	left:30px;
 	right:30px;

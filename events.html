@@ -348,7 +348,72 @@
 					$("."+input+"1").show("slide", { direction: "left" }, 1000);
 				}
 			}
-			
+			function eventClicked(){
+				$dimDiv = $("<div></div>");
+				$($dimDiv).addClass("eventDim");
+				$($dimDiv).click(function(){
+					this.remove();
+					$(".eventPop").remove();
+				});
+				$close = $("<div></div>");
+				$close.html("X");
+				$($close).addClass("popClose");
+				$($dimDiv).append($close);
+				$eventShow = $("<div></div>");
+				$($eventShow).addClass("eventPop");
+				$eventPic = $("<div></div>");
+				$($eventPic).addClass("eventPic");
+				$($eventShow).append($eventPic);
+				$eventDet = $("<div></div>");
+				$($eventDet).addClass("eventDetails");
+				addDescription("Game Title:", "Ringers vs. Loopers", $eventDet);
+				addDescription("Hosted By:", "John Benolirao", $eventDet);
+				addDescription("Venue:", "Cuneta Astrodome", $eventDet);
+				addDescription("Date and Time:", "03/11/2016 3:00pm", $eventDet);
+				addDescription("Remarks:", "League V6", $eventDet);
+				
+				$update = $("<div></div>");
+				$($update).addClass("eventButt");
+				$($update).html("Update");
+				$($update).on('click',loadUpdateEvents);
+				$descElem1 = $("<div></div>");
+				$($descElem1).addClass("eventDescElem");
+				$($descElem1).append($update);
+				$($eventDet).append($descElem1);
+				
+				$($eventShow).append($eventDet);
+				$("body").append($dimDiv);
+				$("body").append($eventShow);
+			}
+			function addDescription(description,info, $eventShow){
+				$eventTitles = $("<div></div>");
+				$($eventTitles).addClass("eventTitles");
+				$who = $("<span></span>");
+				$($who).addClass("descriptionTitle");
+				$($who).html(description);
+				$($eventTitles).append($who);
+				$description = $("<div></div>");
+				$($description).addClass("eventDescription");
+				$whoInfo = $("<div></div>");
+				$($whoInfo).addClass("descriptionInfo");
+				$($whoInfo).html(info);
+				$($description).append($whoInfo);
+				$descElem1 = $("<div></div>");
+				$($descElem1).addClass("eventDescElem");
+				$($descElem1).append($eventTitles);
+				$($descElem1).append($description);
+				$($eventShow).append($descElem1);
+			}
+			$(window).load(function(){
+				leftLB = parseInt($(".largeDiv").css("left"), 10);
+				leftRB = parseInt($(".largeDiv").css("width"), 10);
+				leftRB+=leftLB+60;
+				$(".leftButton").css("left", leftLB+"px");
+				$(".leftButton").css("visibility", "visible");
+				$(".rightButton").css("left", leftRB+"px");
+				$(".rightButton").css("visibility", "visible");
+				console.log(leftLB+" "+leftRB);
+			});
 		</script>
 		<script src="script.js"></script>
 		<script src="loadToolBar.js"></script>
