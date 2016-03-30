@@ -65,6 +65,7 @@
 		$botDiv.append($botIcon7);
 		$("body").append($botDiv);
 		resizeBotDiv();
+		$botDiv.css("visibility", "visible");
 	});
 	window.onresize = resizeBotDiv;
 	function resizeBotDiv(){

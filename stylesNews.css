@@ -64,13 +64,14 @@ a[class = "username anchor"]:active {
 	width:25px;
 	border:2px;
 	border-style:solid;
-	border-color:#000000;
+	border-color:lightgrey;
 	border-radius:10px;
 	color:#000000;
 	opacity:0.65;
 	z-index:0;
 	margin-top:75px;
 	position:absolute;
+	visibility:hidden;
 }
 #leftPane:hover{
 	-moz-box-shadow: 0 0 5px rgba(0,0,0,1);
@@ -115,13 +116,14 @@ a[class = "username anchor"]:active {
 	width:25px;
 	border:2px;
 	border-style:solid;
-	border-color:#000000;
+	border-color:lightgrey;
 	border-radius:10px;
 	color:#000000;
 	opacity:0.65;
 	z-index:0;
 	margin-top:75px;
 	position:absolute;
+	visibility:hidden;
 }
 #rightPane:hover{
 	-moz-box-shadow: 0 0 5px rgba(0,0,0,1);
@@ -136,12 +138,13 @@ a[class = "username anchor"]:active {
 	height:auto;
 	border:1px;
 	border-style:solid;
-	border-color:#000000;
+	border-color:lightgrey;
 	border-radius:10px;
 	opacity:1;
 	position:relative;
 	float:left;
 	background-color:#f9f9f9;
+	word-wrap:break-word;
 }
 .news:hover{
 	-moz-box-shadow: 0 0 5px rgba(0,0,0,1);
@@ -149,6 +152,7 @@ a[class = "username anchor"]:active {
 }
 #midPane{
     position: absolute;
+	visibility:hidden;
 	float:left;
 	top:75px;
     left: 2%;/*Place it on 26% of the screen(since left pane occupies 25%*/

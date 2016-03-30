@@ -66,7 +66,12 @@
 	function loadNews(){
 		window.location.href = "news.html";
 	}
+	function loadHoFSel(a){
+		localStorage.setItem("hallSelected", a);
+		window.location.href = "hall-2.html";
+	}
 	function loadHoF(){
+		localStorage.setItem("hallSelected", 0);
 		window.location.href = "hall-2.html";
 	}
 	function loadProfile(){
@@ -105,34 +110,6 @@
 	}
 	function loadAllBadges(){
 		window.location.href = 'seebadges.html';
-	}
-	function eventClicked(){
-		$dimDiv = $("<div></div>");
-		$($dimDiv).addClass("eventDim");
-		$($dimDiv).click(function(){
-			this.remove();
-			$(".eventPop").remove();
-		});
-		$close = $("<div></div>");
-		$close.html("X");
-		$($close).addClass("popClose");
-		$($dimDiv).append($close);
-		$eventShow = $("<div></div>");
-		$($eventShow).addClass("eventPop");
-		$eventPic = $("<div></div>");
-		$($eventPic).addClass("eventPic");
-		$($eventShow).append($eventPic);
-		$who = $("<div></div>");
-		$($who).addClass("eventDescription");
-		$($who).html("Who: RINGERS VS. LOOPERS </br> What: 5v5 </br> When: mm/dd/yy </br> Where: Sta. Rosa, Laguna </br> Why: All-Star League");
-		$update = $("<div></div>");
-		$($update).addClass("updateEvents");
-		$($update).html("Update");
-		$($update).on('click',loadUpdateEvents);
-		$($who).append($update);
-		$($eventShow).append($who);
-		$("body").append($dimDiv);
-		$("body").append($eventShow);
 	}
 	
 

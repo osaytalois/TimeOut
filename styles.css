@@ -208,6 +208,7 @@
 }
 #botDiv{
 	position:fixed;
+	visibility:hidden;
 	bottom:58px;
 	width:605px;
 	height:80px;
