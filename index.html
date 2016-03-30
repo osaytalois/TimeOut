@@ -137,14 +137,14 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12 text-center">
                     <h3> Log in </h3>
-                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                    <form class="form" role="form" method="post" action="LoginServlet" accept-charset="UTF-8" id="login-nav">
                         <center><div class="form-group">
-                            <label class="sr-only" for="login_email">Email address</label>
-                            <input type="email" class="form-control textfield" id="login_email" placeholder="Email address" required="">
+                            <label class="sr-only" for="login_username">username</label>
+                            <input type="text" class="form-control textfield" id="login_username" placeholder="Username" required="" name="username">
                         </div>
                         <div class="form-group">
                             <label class="sr-only" for="login_password">Password</label>
-                            <input type="password" class="form-control textfield" id="login_password" placeholder="Password" required="">
+                            <input type="password" class="form-control textfield" id="login_password" placeholder="Password" required="" name="password">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block textfield">Sign in</button>

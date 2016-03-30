@@ -91,7 +91,7 @@
 		window.location.href = "seefriends.html"
 	}
 	function loadLanding(){
-		window.document.location.href = "landing_page.html";
+		window.document.location.href = "index.html";
 	}
 	function loadSettings(){
 		window.location.href = "settings.html";
