@@ -41,8 +41,8 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
+		String username = request.getParameter("username_login");
+		String password = request.getParameter("password_login");
 		
 		LoginService loginService = new LoginService();
 		boolean result = loginService.authenticate(username, password);

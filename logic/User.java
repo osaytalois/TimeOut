@@ -11,9 +11,10 @@ public class User {
 	private Date dob;
 	private String position;
 	
-	public User(){
-		
+	public User(String username){
+		this.username = username;
 	}
+	
 	public User(int idUser, String username, String password, String firstName, String middleName, String surName, String email, Date dob, String position){
 		this.idUser = idUser;
 		this.username = username;
@@ -25,6 +26,18 @@ public class User {
 		this.dob = dob;
 		this.position = position;
 	}
+	
+	public User(int idUser, String username, String password, String firstName, String middleName, String surName, String email, String position){
+		this.idUser = idUser;
+		this.username = username;
+		this.password = password;
+		this.firstName = firstName;
+		this.middleName = middleName;
+		this.surName = surName;
+		this.email = email;
+		this.position = position;
+	}
+	
 	public int getIdUser() {
 		return idUser;
 	}
@@ -67,7 +80,7 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Date getDob() {
+	public  Date getDob() {
 		return dob;
 	}
 	public void setDob(Date dob) {

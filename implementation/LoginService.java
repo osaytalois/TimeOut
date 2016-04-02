@@ -3,13 +3,13 @@ package implementation;
 import logic.User;
 public class LoginService {
 
-	public boolean authenticate(String email, String password){
+	public boolean authenticate(String username, String password){
 		
 		UserDAO dao = new UserDAO();
 		
-		User user = dao.getUserByEmail(email);
+		User user = dao.getUserByUsernameAndPassword(username,password);
 		
-		if(user == null)
+		if(user.getUsername().equals("null"))
 			return false;
 		else
 			return true;
@@ -17,8 +17,8 @@ public class LoginService {
 	
 	public User getUserDetails(String email){
 		
-		UserDAO dao = new UserDAO();
-		User user = dao.getUserByID(email);
+		UserDAO d = new UserDAO();
+		User user = d.getUserByID(email);
 		
 		return user;
 	}

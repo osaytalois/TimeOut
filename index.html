@@ -140,11 +140,11 @@
                     <form class="form" role="form" method="post" action="LoginServlet" accept-charset="UTF-8" id="login-nav">
                         <center><div class="form-group">
                             <label class="sr-only" for="login_username">username</label>
-                            <input type="text" class="form-control textfield" id="login_username" placeholder="Username" required="" name="username">
+                            <input type="text" class="form-control textfield" id="login_username" placeholder="Username" required="" name="username_login">
                         </div>
                         <div class="form-group">
                             <label class="sr-only" for="login_password">Password</label>
-                            <input type="password" class="form-control textfield" id="login_password" placeholder="Password" required="" name="password">
+                            <input type="password" class="form-control textfield" id="login_password" placeholder="Password" required="" name="password_login">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block textfield">Sign in</button>
@@ -154,33 +154,37 @@
                 <!-- Signup -->
                 <div class="col-lg-6 col-md-12 text-center">
                     <h3> Sign Up </h3>
-                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                    <form class="form" role="form" method="post" action="SignupServlet" accept-charset="UTF-8" id="login-nav">
                         <center><div class="form-group">
                             <label class="sr-only" for="signup_firstname">First Name</label>
-                            <input type="text" class="form-control textfield" id="signup_firstname" placeholder="First Name" required="">
+                            <input type="text" class="form-control textfield" id="signup_firstname" placeholder="First Name" required="" name="firstName">
+                        </div>
+                        <div class="form-group">    
+                            <label class="sr-only" for="signup_lastname">Middle Name</label>
+                            <input type="text" class="form-control textfield" id="signup_middlename" placeholder="Middle Name" required="" name="middleName">
                         </div>
                         <div class="form-group">    
                             <label class="sr-only" for="signup_lastname">Last Name</label>
-                            <input type="text" class="form-control textfield" id="signup_lastname" placeholder="Last Name" required="">
+                            <input type="text" class="form-control textfield" id="signup_lastname" placeholder="Last Name" required="" name="lastName">
                         </div>
                         <div class="form-group">
-                            <label class="sr-only" for="signup_email">Email</label>
-                            <input type="email" class="form-control textfield" id="signup_email" placeholder="Email" required="">
+                            <label class="sr-only" for="signup_username">Username</label>
+                            <input type="text" class="form-control textfield" id="signup_email" placeholder="Username" required="" name="userName_signup">
                         </div>
                         <div class="form-group">    
                             <label class="sr-only" for="signup_position">Position</label>
-                            <input type="text" class="form-control textfield" id="signup_position" placeholder="Position (e.g. Guard, Forward)" required="">
+                            <input type="text" class="form-control textfield" id="signup_position" placeholder="Position (e.g. Guard, Forward)" required="" name="position">
                         </div>
                         <div class="form-group">
                             <label class="sr-only" for="signup_password1">Password</label>
-                            <input type="password" class="form-control textfield" id="signup_password1" placeholder="Password" required="">
+                            <input type="password" class="form-control textfield" id="signup_password1" placeholder="Password" required="" name="password_signup">
                         </div>
                         <div class="form-group">    
                             <label class="sr-only" for="signup_password2">Re-type your Password</label>
-                            <input type="password" class="form-control textfield" id="signup_password2" placeholder="Re-type Password" required="">
+                            <input type="password" class="form-control textfield" id="signup_password2" placeholder="Re-type Password" required="" name="password1_signup">
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-block textfield">Sign in</button>
+                            <button type="submit" class="btn btn-primary btn-block textfield">Sign Up</button>
                         </div></center>
                     </form>
                 </div>
