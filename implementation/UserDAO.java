@@ -74,7 +74,7 @@ public class UserDAO {
 		try{
 			String query = "select * from user where username=? AND password=?";
 			PreparedStatement preparedStatement = conn.prepareStatement( query );
-			preparedStatement.setString(1,username);
+			preparedStatement.setString(1, username);
 			preparedStatement.setString(2,password);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			if(resultSet.next()){
