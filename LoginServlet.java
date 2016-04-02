@@ -1,6 +1,8 @@
 
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -49,7 +51,8 @@ public class LoginServlet extends HttpServlet {
 		if(result){
 			User user = loginService.getUserDetails(username);
 			request.getSession().setAttribute("user",user);
-			response.sendRedirect("news.html");
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/news.jsp");
+			rd.forward(request, response);
 		}
 		else{
 			response.sendRedirect("index.html");

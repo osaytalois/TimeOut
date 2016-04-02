@@ -31,12 +31,12 @@ public class UserDAO {
 		return u;
 	}
 	
-	public User getUserByID(String userID){
+	public User getUserByID(int userID){
 		User u = new User("null");
 		try{
-			String query = "select * from user where userID=?";
+			String query = "select * from user where idUser=?";
 			PreparedStatement preparedStatement = conn.prepareStatement( query );
-			preparedStatement.setString(1, "idUser");
+			preparedStatement.setInt(1, userID);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			if(resultSet.next()){
 				 u = new User(resultSet.getInt("idUser"),resultSet.getString("username"),resultSet.getString("password"),resultSet.getString("firstName"),resultSet.getString("middleName"),resultSet.getString("surName"),resultSet.getString("email"),resultSet.getDate("dob"),resultSet.getString("position"));
@@ -55,7 +55,7 @@ public class UserDAO {
 		try{
 			String query = "select * from user where username=?";
 			PreparedStatement preparedStatement = conn.prepareStatement( query );
-			preparedStatement.setString(1, "username");
+			preparedStatement.setString(1, username);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			if(resultSet.next()){
 				 u = new User(resultSet.getInt("idUser"),resultSet.getString("username"),resultSet.getString("password"),resultSet.getString("firstName"),resultSet.getString("middleName"),resultSet.getString("surName"),resultSet.getString("email"),resultSet.getDate("dob"),resultSet.getString("position"));
@@ -74,8 +74,8 @@ public class UserDAO {
 		try{
 			String query = "select * from user where username=? AND password=?";
 			PreparedStatement preparedStatement = conn.prepareStatement( query );
-			preparedStatement.setString(1, "username");
-			preparedStatement.setString(2,"password");
+			preparedStatement.setString(1,username);
+			preparedStatement.setString(2,password);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			if(resultSet.next()){
 				 u = new User(resultSet.getInt("idUser"),resultSet.getString("username"),resultSet.getString("password"),resultSet.getString("firstName"),resultSet.getString("middleName"),resultSet.getString("surName"),resultSet.getString("email"),resultSet.getDate("dob"),resultSet.getString("position"));

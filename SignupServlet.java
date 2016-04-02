@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -48,10 +49,10 @@ public class SignupServlet extends HttpServlet {
 		String firstName = request.getParameter("firstName");
 		String middleName = request.getParameter("middleName");
 		String lastName = request.getParameter("lastName");
-		String userName = request.getParameter("userName");
+		String userName = request.getParameter("userName_signup");
 		String position = request.getParameter("position");
-		String password = request.getParameter("password");
-		String password1 = request.getParameter("password1");
+		String  password = request.getParameter("password_signup");
+		String password1 = request.getParameter("password1_signup");
 
 		User user = new User(-99 , userName, password, firstName, middleName, lastName, "null", position);
 		SignupService signupService = new SignupService();		
@@ -69,7 +70,8 @@ public class SignupServlet extends HttpServlet {
 				System.out.println("user added beh");
 				HttpSession session = request.getSession();
 				session.setAttribute("user",user);
-				response.sendRedirect("news.html");
+				RequestDispatcher rd = getServletContext().getRequestDispatcher("/news.jsp");
+				rd.forward(request, response);
 			}else{
 				response.sendRedirect("index.html");
 			}

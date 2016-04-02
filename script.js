@@ -64,7 +64,7 @@
 		window.location.href = "events.html";
 	}
 	function loadNews(){
-		window.location.href = "news.html";
+		window.location.href = "news.jsp";
 	}
 	function loadHoFSel(a){
 		localStorage.setItem("hallSelected", a);
@@ -82,7 +82,7 @@
 	}
 	function loadMess(a){
 		localStorage.setItem("fromProfile",a);
-		window.location.href = "messages.html";
+		window.location.href = "messages.jsp";
 	}
 	function loadNotifs(){
 		window.location.href = "notifs.html";
