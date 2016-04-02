@@ -15,10 +15,10 @@ public class LoginService {
 			return true;
 	}
 	
-	public User getUserDetails(String email){
+	public User getUserDetails(String username){
 		
 		UserDAO d = new UserDAO();
-		User user = d.getUserByID(email);
+		User user = d.getUserByUsername(username);
 		
 		return user;
 	}
