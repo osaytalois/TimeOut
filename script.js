@@ -75,7 +75,7 @@
 		window.location.href = "hall-2.html";
 	}
 	function loadProfile(){
-		window.location.href = "profile3.html";
+		window.location.href = "profile.jsp";
 	}
 	function loadFriend(){
 		window.location.href = "profilefriend.html";

@@ -11,6 +11,10 @@ public class User {
 	private Date dob;
 	private String position;
 	
+	public User(){
+		
+	}
+	
 	public User(String username){
 		this.username = username;
 	}
