@@ -88,7 +88,7 @@
 		window.location.href = "notifs.html";
 	}
 	function loadAllFriends(){
-		window.location.href = "seefriends.jsp"
+		window.location.href = "seefriends.jsp";
 	}
 	function loadLanding(){
 		window.document.location.href = "index.html";
