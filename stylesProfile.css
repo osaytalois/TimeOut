@@ -353,7 +353,7 @@ h3 {
 #right .gcontent .boxy .friendslist, #right .gcontent .boxy .clubslist { 
 	display: block; 
 	margin-bottom: 15px; 
-	height:80px;
+	height:200px;
 }
 
 #right .gcontent .boxy .friend, #right .gcontent .boxy .club{ 
@@ -361,7 +361,7 @@ h3 {
 	float: left; 
 	height: 40px; 
 	padding: 5px 5px 5px 4px; 
-	width: 100px; 
+	width: 200px;
 }
 
 #right .gcontent .boxy .friend img, #right .gcontent .boxy .club img { 

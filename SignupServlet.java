@@ -70,7 +70,7 @@ public class SignupServlet extends HttpServlet {
 				System.out.println("user added beh");
 				HttpSession session = request.getSession();
 				session.setAttribute("user",user);
-				RequestDispatcher rd = getServletContext().getRequestDispatcher("/news.jsp");
+				RequestDispatcher rd = getServletContext().getRequestDispatcher("/profile.jsp");
 				rd.forward(request, response);
 			}else{
 				response.sendRedirect("index.html");

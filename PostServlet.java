@@ -17,8 +17,6 @@ import implementation.PostService;
 import implementation.UserDAO;
 import logic.Post;
 import logic.User;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 /**
  * Servlet implementation class PostServlet
