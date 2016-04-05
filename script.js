@@ -78,7 +78,7 @@
 		window.location.href = "profile.jsp";
 	}
 	function loadFriend(){
-		window.location.href = "profilefriend.html";
+		window.location.href = "trial.jsp";
 	}
 	function loadMess(a){
 		localStorage.setItem("fromProfile",a);

@@ -11,7 +11,7 @@ public abstract class DBconnection {
     private String driverName = "com.mysql.jdbc.Driver";
     private String url = "jdbc:mysql://localhost:3306/timeout_schema"; 
     private String username = "root";
-    private String password = "23243Ts$";
+    private String password = "Id112s11!";
     
      public static DBconnectionImpl getInstance(){
 

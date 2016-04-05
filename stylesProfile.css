@@ -212,6 +212,20 @@ h3 {
 	border: 1px solid #e6e6e6; 
 	padding-left: 8px; 
 	margin-top:15px;
+
+}
+#about a{
+	color:white;
+	text-decoration:underline;
+	float:right;
+	padding-right:10px;
+}
+
+#about a:hover{
+	color:black;
+	float:right;
+	text-decoration:none;
+	padding-right:10px;
 }
 
 #about .head h1 { 
@@ -225,7 +239,7 @@ h3 {
 	border: 1px solid #ccc; 
 	border-top: 0px; 
 	background: #f9f9f9; 
-	height:240px;
+	height:200px;
 }
 
 #about .boxy .tabname{ 
@@ -236,7 +250,7 @@ h3 {
 	width:180px;
 	list-style:none;
 	padding-right:10px;
-	height:230px;
+	height:200px;
 	}
 
 #about .boxy .tabname li {  
@@ -353,7 +367,15 @@ h3 {
 #right .gcontent .boxy .friendslist, #right .gcontent .boxy .clubslist { 
 	display: block; 
 	margin-bottom: 15px; 
-	height:200px;
+	height:auto;
+	max-height:100px;
+}
+#right .gcontent .boxy .allfriendslist{ 
+	display: block; 
+	margin-bottom: 15px; 
+	height:auto;
+	max-height:400px;
+	overflow-y:scroll;
 }
 
 #right .gcontent .boxy .friend, #right .gcontent .boxy .club{ 
@@ -361,7 +383,7 @@ h3 {
 	float: left; 
 	height: 40px; 
 	padding: 5px 5px 5px 4px; 
-	width: 200px;
+	width: 170px;
 }
 
 #right .gcontent .boxy .friend img, #right .gcontent .boxy .club img { 
@@ -422,7 +444,7 @@ html[xmlns] .clearfix {
 	opacity:0.7;
 	border: 1px solid #e6e6e6; 
 	padding-left: 8px; 
-	margin-top:15px;
+	margin-top:15px; 
 }
 
 #listname .head h1 { 

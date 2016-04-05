@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
 		if(result){
 			User user = loginService.getUserDetails(username);
 			request.getSession().setAttribute("user",user);
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/ProfileServlet");
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/trial.jsp");
 			rd.forward(request, response);
 		}
 		else{

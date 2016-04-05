@@ -1,17 +1,17 @@
 package implementation;
 import logic.User;
-import logic.Friends;
+import logic.Friend;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProfileService {
 	
 		public List<User> getFriends(User user){
-			FriendsDAO f = new FriendsDAO();
+			FriendDAO f = new FriendDAO();
 			UserDAO d = new UserDAO();
 			List<User> friendslist = new ArrayList<User>();
 			
-			List<Friends> friends = f.getFriends(user);
+			List<Friend> friends = f.getFriends(user);
 			for(int i = 0; i < friends.size(); i++){
 				if(friends.get(i).getUserID1() != user.getIdUser())
 					friendslist.add(d.getUserByID(friends.get(i).getUserID1()));
