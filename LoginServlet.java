@@ -1,6 +1,7 @@
 
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import implementation.LoginService;
+import implementation.UserInfoService;
 import logic.User;
+import logic.UserInfo;
 
 /**
  * Servlet implementation class LoginServlet
@@ -51,8 +54,16 @@ public class LoginServlet extends HttpServlet {
 		if(result){
 			User user = loginService.getUserDetails(username);
 			request.getSession().setAttribute("user",user);
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/trial.jsp");
+			UserInfoService infoservice = new UserInfoService();
+			UserInfo myinfo = infoservice.getUserInfo(user.getIdUser());
+			if(myinfo == null){
+				myinfo = new UserInfo(user.getIdUser(), "You have not added any description.", "You have not added any contact details.", "", "You have not added any work information", "");
+				infoservice.addInfo(myinfo);
+			}
+			request.getSession().setAttribute("myinfo", myinfo);
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/ProfileServlet");
 			rd.forward(request, response);
+			
 		}
 		else{
 			response.sendRedirect("index.html");

@@ -5,19 +5,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-Basic Information: <textarea rows="4" cols="50" name="basicinfo" form="infoform" placeholder="Write something about yourself."></textarea>
-<form name = "infoform">
+Basic Information: <textarea rows="4" cols="50" name="upbasicinfo" placeholder="Write something about yourself."></textarea>
+<form action = "UserInfoServlet" method = "post">
 	<br>
-	Contact Details: <span><input type = "text" name = "contactnum" placeholder="Contact Number"> 
-	<select id="contacttype">
+	Contact Details: <span><input type = "text" name = "upcontactnum" placeholder="Contact Number"> 
+	<select name = "upcontacttype">
        <option value='home'>Home</option>
        <option value='mobile'>Mobile</option>
        <option value='office'>Office</option>
     </select></span>
     <br><br>
-    Work and Education: <span><input type = "text" name = "position" placeholder="Position (e.g. Student, Manager)"> <input type = "text" name = "company" placeholder="Insitution (e.g. DLSU, Citibank)"></span>
+    Work and Education: <span><input type = "text" name = "upworkposition" placeholder="Position (e.g. Student, Manager)"> <input type = "text" name = "upinstitution" placeholder="Insitution (e.g. DLSU, Citibank)"></span>
     <br><br>
-    <input type = "submit" value="Update">
+    <input type = "submit" name = "infoform" value="Update">
     
 </form>
 

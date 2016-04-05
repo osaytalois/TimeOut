@@ -77,9 +77,7 @@
 	function loadProfile(){
 		window.location.href = "profile.jsp";
 	}
-	function loadFriend(){
-		window.location.href = "trial.jsp";
-	}
+
 	function loadMess(a){
 		localStorage.setItem("fromProfile",a);
 		window.location.href = "messages.jsp";
@@ -110,6 +108,9 @@
 	}
 	function loadAllBadges(){
 		window.location.href = 'seebadges.html';
+	}
+	function loadFriends(){
+		window.location.href = 'trials.jsp';
 	}
 	
 
