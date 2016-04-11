@@ -26,4 +26,16 @@ public class FriendService {
 		return friendslist;
 	}
 	
+	public boolean checkIfFriend(int IdUser, int IdFriend){
+		FriendDAO f = new FriendDAO();
+		boolean isfriend = f.checkIfFriend(IdUser, IdFriend);
+		return isfriend;
+	}
+	
+	public boolean addFriend(int IdUser, int IdFriend){
+		FriendDAO f = new FriendDAO();
+		boolean success = f.addFriend(IdUser, IdFriend);
+		return success;
+	}
+	
 }

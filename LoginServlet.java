@@ -54,13 +54,7 @@ public class LoginServlet extends HttpServlet {
 		if(result){
 			User user = loginService.getUserDetails(username);
 			request.getSession().setAttribute("user",user);
-			UserInfoService infoservice = new UserInfoService();
-			UserInfo myinfo = infoservice.getUserInfo(user.getIdUser());
-			if(myinfo == null){
-				myinfo = new UserInfo(user.getIdUser(), "You have not added any description.", "You have not added any contact details.", "", "You have not added any work information", "");
-				infoservice.addInfo(myinfo);
-			}
-			request.getSession().setAttribute("myinfo", myinfo);
+	
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/ProfileServlet");
 			rd.forward(request, response);
 			

@@ -15,7 +15,9 @@ import javax.servlet.http.HttpSession;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 import implementation.SignupService;
+import implementation.UserInfoService;
 import logic.User;
+import logic.UserInfo;
 
 /**
  * Servlet implementation class SignupServlet
@@ -70,6 +72,7 @@ public class SignupServlet extends HttpServlet {
 				System.out.println("user added beh");
 				HttpSession session = request.getSession();
 				session.setAttribute("user",user);
+				
 				RequestDispatcher rd = getServletContext().getRequestDispatcher("/profile.jsp");
 				rd.forward(request, response);
 			}else{

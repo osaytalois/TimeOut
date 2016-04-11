@@ -41,29 +41,24 @@
             </div>
 				
 				<div id = "about" class = "clearfix">
-					<div class = "head"><h1>About Me</h1></div>				
 					<div class = "boxy">
 						<div class = "tabname">
 							<li><a href="#" onclick="show('basicinfo')">Basic Information</a></li>
 							<li><a href="#" onclick="show('contact')">Contact Details</a></li>
 							<li><a href="#" onclick="show('education')">Work and Education</a></li>
-							<li><a href="#" onclick="show('events')">Events attended</a></li>
 						</div>
 						<div class = "tabs" id = "basicinfo" style = "visibility:visible">
-							<div class = "tabdetail">Pangit ko.</div>
+							<div class = "tabdetail"><c:out value="${friendinfo.basicInfo}" /></div>
 						</div>
 						<div class = "tabs" id = "contact">
-							<div class = "tabdetail">My mama don't like you.</div>
+							<div class = "tabdetail"><c:out value="${friendinfo.contactType}" /></div>
+							<div class = "tabdetail"><c:out value="${friendinfo.contactNum}" /></div>
 						</div>
 						<div class = "tabs" id = "education">
-							<div class = "tabdetail">
-								<div class = "company">De La Salle University</div>
-								<div class = "position">Student</div>
-							</div>	
+							<div class = "tabdetail"><c:out value="${friendinfo.workPosition}" /></div>
+							<div class = "tabdetail"><c:out value="${friendinfo.institution}" /></div>
 						</div>
-						<div class = "tabs" id = "events">
-							<div class = "tabdetail">I never liked to admit that I was wrong.</div>	
-						</div>
+						
 					</div>
 				</div>
         </div>
@@ -74,11 +69,13 @@
 				<div class="head"><h1>Friends List (${fn:length(friendslist2)})</h1></div>
 				<div class="boxy">
 					<div class="allfriendslist clearfix">
-						<c:forEach items="${friendslist2}" var="afriend2" begin="0" end="${fn:length(friendslist2)}">
-							<div class = "friend" onclick = "loadFriend()">
-						   		<a href="#"><img src="" width="30" height="30"/></a><span class="friendly"><a href="#"><c:out value="${afriend2.firstName}" /> <c:out value="${afriend2.surName}" /></a></span>
+						<c:forEach items="${friendslist2}" var="afriend" begin="0" end="${fn:length(friendslist2)}">
+							<div class = "friend">
+						   		<a href="#"><img src="" width="30" height="30"/></a><span class="friendly"><a href="FriendServlet?param1=${afriend.username}"><c:out value="${afriend.firstName}"/> 
+						   							<c:out value="${afriend.surName}" /></a></span>
 						    </div>			    	    
-						</c:forEach>
+						</c:forEach>	
+						
 					</div>
 					
 					<span><a onclick = "loadAllFriends()">See all</a></span>

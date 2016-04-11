@@ -15,12 +15,12 @@ public class FriendDAO {
 		conn = DbServices.getConnection();
 	}
 	
-	public boolean addFriends(User user1, User user2){
+	public boolean addFriend(int IdUser, int IdFriend){
 			try{
 				String query = "insert into friends(UserID1, UserID2) values(?,?)";
 				PreparedStatement preparedStatement = conn.prepareStatement( query );
-				preparedStatement.setInt(1, user1.getIdUser());
-				preparedStatement.setInt(2, user2.getIdUser());
+				preparedStatement.setInt(1, IdUser);
+				preparedStatement.setInt(2, IdFriend);
 				preparedStatement.executeUpdate();
 				conn.close();
 			} catch(SQLException e){
@@ -29,7 +29,7 @@ public class FriendDAO {
 			}
 		return true;
 	}
-	public boolean removeFriends(User user1, User user2){
+	public boolean removeFriend(User user1, User user2){
 			try{
 				String query = "delete from friends(UserID1, UserID2) where userid1=? and userid2=?";
 				PreparedStatement preparedStatement = conn.prepareStatement( query );
@@ -60,5 +60,24 @@ public class FriendDAO {
 				return null;
 			}
 		return friendslist;
+	}
+	
+	public boolean checkIfFriend(int IdUser, int IdFriend){
+		try{
+			String query = "select * from friends where UserID1=? and UserID2=? OR UserID1=? and UserID2=?";
+			PreparedStatement preparedStatement = conn.prepareStatement( query );
+			preparedStatement.setInt(1, IdUser);
+			preparedStatement.setInt(2, IdFriend);
+			preparedStatement.setInt(3, IdFriend);
+			preparedStatement.setInt(4, IdUser);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			if(resultSet.next()){
+				return true;
+			}
+		} catch(SQLException e){
+			e.printStackTrace();
+			return false;
+		}
+		return false;
 	}
 }

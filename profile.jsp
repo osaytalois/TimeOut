@@ -40,7 +40,7 @@
             </div>
 				
 				<div id = "about" class = "clearfix">
-					<div class = "head"><h1>About Me <a href = "info.html">Update</a></h1></div>
+					<div class = "head"><h1>About Me <a href = "info.html">Edit Profile</a></h1></div>
 					<div class = "boxy">
 						<div class = "tabname">
 							<li><a href="#" onclick="show('basicinfo')">Basic Information</a></li>
@@ -72,9 +72,9 @@
 			
 					<div class="allfriendslist clearfix">
 						<c:forEach items="${friendslist}" var="afriend" begin="0" end="${fn:length(friendslist)}">
-							<div class = "friend" onclick = "loadFriend()">
-						   		<a href="#"><img src="" width="30" height="30"/></a><span class="friendly"><a href="#"><c:out value="${afriend.firstName}"/> <c:out value="${afriend.surName}" /></a></span>
-						   		<c:set var="chingoo" scope="session" value="${afriend.username}"/>
+							<div class = "friend">
+						   		<a href="#"><img src="" width="30" height="30"/></a><span class="friendly"><a href="FriendServlet?param1=${afriend.username}"><c:out value="${afriend.firstName}"/> 
+						   							<c:out value="${afriend.surName}" /></a></span>
 						    </div>			    	    
 						</c:forEach>	
 						

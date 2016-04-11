@@ -32,17 +32,17 @@ public class UserInfoDAO {
 		}
 	}
 	
-	public void updateUserInfo(UserInfo info, int userid) {
+	public void updateUserInfo(UserInfo info) {
 		// TODO Auto-generated method stub
 		try{
-			String query = "update userinfo set IdUser=?,basicInfo=?,contactNum=?,contactType=?,workposition=?,institution=? where IdUser=userid";
+			String query = "update userinfo set basicInfo=?,contactNum=?,contactType=?,workposition=?,institution=? WHERE IdUser=?";
 			PreparedStatement preparedStatement = conn.prepareStatement( query );
-			preparedStatement.setInt(1, info.getIdUser());
-			preparedStatement.setString(2, info.getBasicInfo());
-			preparedStatement.setString(3, info.getContactNum());
-			preparedStatement.setString(4, info.getContactType());
-			preparedStatement.setString(5, info.getWorkPosition());
-			preparedStatement.setString(6, info.getInstitution());
+			preparedStatement.setString(1, info.getBasicInfo());
+			preparedStatement.setString(2, info.getContactNum());
+			preparedStatement.setString(3, info.getContactType());
+			preparedStatement.setString(4, info.getWorkPosition());
+			preparedStatement.setString(5, info.getInstitution());
+			preparedStatement.setInt(6, info.getIdUser());
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
 		} catch(SQLException e){
@@ -66,4 +66,21 @@ public class UserInfoDAO {
 		//DbServices.closeConnection(conn);
 		return u;
 	}
+	
+	public boolean checkInfo(int IdUser){
+		try{
+			String query = "select * from userinfo where IdUser=?";
+			PreparedStatement preparedStatement = conn.prepareStatement( query );
+			preparedStatement.setInt(1, IdUser);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			if(resultSet.next()){
+				return true;
+			}
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
+		//DbServices.closeConnection(conn);
+		return false;
+	}
+	
 }
