@@ -11,6 +11,13 @@ public class FriendService {
 		User friend = d.getUserByUsername(userName);
 		return friend;
 	}
+	
+	public User getUserById(int id){
+		UserDAO d = new UserDAO();
+		User friend = d.getUserByID(id);
+		return friend;
+	}
+	
 	public List<User> getFriends(User user){
 		FriendDAO f = new FriendDAO();
 		UserDAO d = new UserDAO();

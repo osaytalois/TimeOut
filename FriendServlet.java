@@ -27,17 +27,8 @@ public class FriendServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String username = "leeminho";
 		//String username = request.getParameter("param1");
-		
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String username = "johnb";
 		FriendService friendservice = new FriendService();
 		User friendaccount = friendservice.getUserByUserName(username);
 		request.getSession().setAttribute("friend",friendaccount);
@@ -60,6 +51,16 @@ public class FriendServlet extends HttpServlet {
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/profilefriend.jsp");
 			rd.forward(request, response);
 		}
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
+			
+		doGet(request, response);
 	}
 
 }
