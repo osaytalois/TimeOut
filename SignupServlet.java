@@ -16,7 +16,9 @@ import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 import implementation.SignupService;
 import implementation.UserDAO;
+import implementation.UserInfoService;
 import logic.User;
+import logic.UserInfo;
 
 /**
  * Servlet implementation class SignupServlet
@@ -73,6 +75,7 @@ public class SignupServlet extends HttpServlet {
 				UserDAO uD = new UserDAO();
 				user = uD.getUserByUsername(user.getUsername());
 				session.setAttribute("user",user);
+				
 				RequestDispatcher rd = getServletContext().getRequestDispatcher("/profile.jsp");
 				rd.forward(request, response);
 			}else{

@@ -17,7 +17,7 @@ import logic.UserInfo;
 /**
  * Servlet implementation class UserInfo
  */
-@WebServlet("/UserInfo")
+@WebServlet("/UserInfoServlet")
 public class UserInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -34,28 +34,22 @@ public class UserInfoServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		String upbasicinfo = request.getParameter("upbasicinfo");
 		String upcontactnum = request.getParameter("upcontactnum");
 		String upcontacttype = request.getParameter("upcontacttype");
 		String upworkposition = request.getParameter("upworkposition");
 		String upinstitution = request.getParameter("upinstitution");
-		/*
-		PrintWriter out = response.getWriter();
-		out.println(upbasicinfo);
-		out.println(upcontactnum);
-		out.println(upcontacttype);
-		out.println(upworkposition);
-		out.println(upinstitution);*/
 		
 		User useraccount = (User)request.getSession().getAttribute("user");
 		int IdUser = useraccount.getIdUser();
 		
-		UserInfoService infoservice = new UserInfoService();
 		UserInfo userinfo = new UserInfo(IdUser, upbasicinfo, upcontactnum, upcontacttype, upworkposition, upinstitution);
+		UserInfoService infoservice = new UserInfoService();
 		infoservice.updateInfo(userinfo);
 		
 		request.getSession().setAttribute("myinfo", infoservice.getUserInfo(useraccount.getIdUser()));
-		RequestDispatcher rd = getServletContext().getRequestDispatcher("/ProfileServlet");
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/profile.jsp");
 		rd.forward(request, response);
 		
 	}

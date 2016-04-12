@@ -11,7 +11,7 @@ public class UserInfoService {
 	
 	public void updateInfo(UserInfo info){
 		UserInfoDAO u = new UserInfoDAO();
-		u.updateUserInfo(info, info.getIdUser());
+		u.updateUserInfo(info);
 	}
 	
 	public UserInfo getUserInfo(int userid){
@@ -19,5 +19,12 @@ public class UserInfoService {
 
 		UserInfo thisinfo = u.getUserInfo(userid);
 		return thisinfo;
+	}
+	
+	public boolean checkInfo(int userid){
+		UserInfoDAO u = new UserInfoDAO();
+
+		boolean infoavail = u.checkInfo(userid);
+		return infoavail;
 	}
 }

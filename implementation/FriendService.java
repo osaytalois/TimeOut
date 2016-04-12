@@ -11,6 +11,13 @@ public class FriendService {
 		User friend = d.getUserByUsername(userName);
 		return friend;
 	}
+	
+	public User getUserById(int id){
+		UserDAO d = new UserDAO();
+		User friend = d.getUserByID(id);
+		return friend;
+	}
+	
 	public List<User> getFriends(User user){
 		FriendDAO f = new FriendDAO();
 		UserDAO d = new UserDAO();
@@ -24,6 +31,18 @@ public class FriendService {
 				friendslist.add(d.getUserByID(friends.get(i).getUserID2()));
 		}
 		return friendslist;
+	}
+	
+	public boolean checkIfFriend(int IdUser, int IdFriend){
+		FriendDAO f = new FriendDAO();
+		boolean isfriend = f.checkIfFriend(IdUser, IdFriend);
+		return isfriend;
+	}
+	
+	public boolean addFriend(int IdUser, int IdFriend){
+		FriendDAO f = new FriendDAO();
+		boolean success = f.addFriend(IdUser, IdFriend);
+		return success;
 	}
 	
 }

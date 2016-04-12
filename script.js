@@ -77,13 +77,12 @@
 	function loadProfile(){
 		window.location.href = "profile.jsp";
 	}
-
 	function loadMess(a){
 		localStorage.setItem("fromProfile",a);
 		window.location.href = "messages.jsp";
 	}
 	function loadNotifs(){
-		window.location.href = "notifs.html";
+		window.location.href = "notifs.jsp";
 	}
 	function loadAllFriends(){
 		window.location.href = "seefriends.jsp";

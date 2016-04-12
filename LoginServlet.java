@@ -61,7 +61,7 @@ public class LoginServlet extends HttpServlet {
 				infoservice.addInfo(myinfo);
 			}
 			request.getSession().setAttribute("myinfo", myinfo);
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/news.jsp");
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/ProfileServlet");
 			rd.forward(request, response);
 			
 		}
