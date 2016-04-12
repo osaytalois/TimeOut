@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 import implementation.SignupService;
+import implementation.UserDAO;
 import logic.User;
 
 /**
@@ -69,6 +70,8 @@ public class SignupServlet extends HttpServlet {
 				signupService.setUserDetails(user);
 				System.out.println("user added beh");
 				HttpSession session = request.getSession();
+				UserDAO uD = new UserDAO();
+				user = uD.getUserByUsername(user.getUsername());
 				session.setAttribute("user",user);
 				RequestDispatcher rd = getServletContext().getRequestDispatcher("/profile.jsp");
 				rd.forward(request, response);

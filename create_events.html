@@ -15,19 +15,20 @@
 			<div id="create_events_dialog">
 			<div id="create_events_space"> </div>
 			<div id="create_events_form"> 
+				<form name = "addForm" method = "POST">
 					<div id="display_photo"> 
 						<img src="lois.jpg" id="pic_box"> </img>
 					</div>
 					<div id="change_ep_button">Add Event Photo</div>
 				<br>
 					<div class="labels">Event Name: </div>
-					<span> <input id="eName" type="text" class="input_boxes"></input> </span>
+					<span> <input name = "eName" id="eName" type="text" class="input_boxes"></input> </span>
 				<br><br>
 					<div class="labels">Location: </div>
-					<span> <input id="location" type="text" class="input_boxes"></input> </span>	
+					<span> <input name = "loc" id="location" type="text" class="input_boxes"></input> </span>	
 				<br><br><br>
 				<div class="input_boxes">
-				<select id="month">
+				<select name = "month" id="month">
 						<option value="month"> Month </option>
 						<option value="Jan"> January </option>
 						<option value="Feb"> February </option>
@@ -42,7 +43,7 @@
 						<option value="Nov"> November </option>
 						<option value="Dec"> December </option>
 				</select>
-				<select id="day">
+				<select name = "day" id="day">
 						<option value="day"> Day </option>
 						<option value="1"> 1 </option>
 						<option value="2"> 2 </option>
@@ -76,8 +77,13 @@
 						<option value="30"> 30 </option>
 						<option value="31"> 31 </option>
 				</select>
-				<select id="year">
+				<select name = "year" id="year">
 						<option value="year"> Year </option>
+						<option value="2016"> 2016 </option>
+						<option value="2017"> 2017 </option>
+						<option value="2018"> 2018 </option>
+						<option value="2019"> 2019 </option>
+						<option value="2020"> 2020 </option>
 				</select>
 				<br><br>
 				<select id="Hour">
@@ -173,7 +179,7 @@
 				</select>
 				</div>
 				<br><br><br><br><br>
-					<div class="labels">Description: </div>
+					<div name = "desc" class="labels">Description: </div>
 					<span> <textarea id="description" type="text" class="input_boxes"></textarea></span>
 				<br><br><br>
 					<div class="labels"> Invite Friends: </div>
@@ -183,6 +189,7 @@
 						<div id="button_space"></div>
 						Create Event
 					</div>
+				</form>
 			</div>
 		</div>
 		</div>

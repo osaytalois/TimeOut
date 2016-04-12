@@ -76,7 +76,33 @@ public class PostService {
             return null;
         }
     }
+
     
+    public ArrayList<Post> getAllPosts(String uname) {
+        try {
+            dBConnection = DBconnection.getInstance();
+            connection = dBConnection.getConnection();
+            //String query = "select * from posts where userID = ? and fOrder by date_posted asc;";
+            String query = "SELECT * FROM posts INNER JOIN friends ON (posts.userId=friends.UserID1) or (posts.userId=friends.UserID2) where posts.userId=friends.UserID1;";
+            UserDAO b = new UserDAO();
+            if(b.getUserByUsername(uname) == null)
+            	return null;
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, b.getUserByUsername(uname).getIdUser());
+            ResultSet rs = preparedStatement.executeQuery();
+            ArrayList<Post> posts = new ArrayList<Post>();
+            while(rs.next()){
+            	java.util.Date d;
+            	Timestamp timestamp = rs.getTimestamp("date_posted");
+            	d = new java.util.Date(timestamp.getTime());
+            	posts.add(new Post(d, rs.getString("post"), Integer.parseInt(rs.getString("userID").toString())));
+            }
+            connection.close();
+            return posts;
+        } catch (SQLException ex) {
+            return null;
+        }
+    }
 
     @SuppressWarnings("deprecation")
 	public ArrayList<Post> getAllPost(String uname) {

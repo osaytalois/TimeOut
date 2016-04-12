@@ -5,7 +5,7 @@
 <%@page import="java.util.List"%>
 <%@page import="logic.UserInfo"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -43,9 +43,9 @@
 					<div class = "head"><h1>About Me <a href = "info.html">Update</a></h1></div>
 					<div class = "boxy">
 						<div class = "tabname">
-							<li><a href="#" onclick="show('basicinfo')">Basic Information</a></li>
-							<li><a href="#" onclick="show('contact')">Contact Details</a></li>
-							<li><a href="#" onclick="show('education')">Work and Education</a></li>
+							<a href="#" onclick="show('basicinfo')">Basic Information</a>
+							<a href="#" onclick="show('contact')">Contact Details</a>
+							<a href="#" onclick="show('education')">Work and Education</a>
 						</div>
 						<div class = "tabs" id = "basicinfo" style = "visibility:visible">
 							<div class = "tabdetail"><c:out value="${myinfo.basicInfo}" /></div>

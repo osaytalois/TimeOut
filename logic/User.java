@@ -10,7 +10,30 @@ public class User {
 	private String email;
 	private Date dob;
 	private String position;
+	private String dp;
 	
+	public User(int idUser, String username, String password, String firstName, String middleName, String surName,
+			String email, Date dob, String position, String dp) {
+		this.idUser = idUser;
+		this.username = username;
+		this.password = password;
+		this.firstName = firstName;
+		this.middleName = middleName;
+		this.surName = surName;
+		this.email = email;
+		this.dob = dob;
+		this.position = position;
+		this.dp = dp;
+	}
+
+	public String getDp() {
+		return dp;
+	}
+
+	public void setDp(String dp) {
+		this.dp = dp;
+	}
+
 	public User(){
 		
 	}

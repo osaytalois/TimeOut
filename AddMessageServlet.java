@@ -1,8 +1,6 @@
 
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
@@ -13,24 +11,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import implementation.PostService;
+import implementation.MessageService;
 import implementation.UserDAO;
-import logic.Post;
 import logic.User;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 /**
- * Servlet implementation class PostServlet
+ * Servlet implementation class AddMessageServlet
  */
-@WebServlet("/PostServlet")
-public class PostServlet extends HttpServlet {
+@WebServlet("/AddMessageServlet")
+public class AddMessageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PostServlet() {
+    public AddMessageServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -48,16 +43,17 @@ public class PostServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		PrintWriter pw = response.getWriter();
-		PostService p = new PostService();
+		String message = request.getParameter("tempMessageSend");
 		UserDAO uD = new UserDAO();
+		MessageService mS = new MessageService();
 		HttpSession session = request.getSession();
-		String uname = ((User)session.getAttribute("user")).getUsername();
-		if(uD.getUserByUsername(uname)!=null){
-			p.addPost(new Post(new Date(), request.getParameter("toPost"), uD.getUserByUsername(uname).getIdUser()), uname);
-			//pw.println(uD.getUserByName(uname).getUsername()+" "+uD.getUserByName("loisO").getIdUser());
-		}
-		RequestDispatcher rd = getServletContext().getRequestDispatcher("/news.jsp");
+		User user = (User)session.getAttribute("user");
+		if(((User)session.getAttribute("talkingWith"))!=null)
+			if(uD.getUserByUsername(((User)session.getAttribute("talkingWith")).getUsername())!=null){
+				User talking = (User)session.getAttribute("talkingWith");
+				mS.addMessage(user.getIdUser(), talking.getIdUser(), message, new java.sql.Date(new Date().getTime()));
+			}
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/messages.jsp");
 		rd.forward(request, response);
 	}
 

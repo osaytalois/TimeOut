@@ -9,6 +9,8 @@
 		<link rel="stylesheet" type="text/css" href="stylesNews.css">
 	</head>
 	<body>
+		<script src="script.js"></script>
+		<script src="loadToolBar.js"></script>
 		<%@ page import="java.util.ArrayList,logic.User,logic.Post,implementation.PostService,implementation.UserDAO" %>
 		<%!	UserDAO uD = new UserDAO();
 			PostService p = new PostService();
@@ -26,29 +28,20 @@
 			%>
 			<!--The Whole Left Pane-->
 			<div id = "leftPane"> 
-					<div class = "lPLink" onclick = "loadProfile()">My Profile</div><!--The Links-->
-					<div class = "lPLink" onclick = "loadSettings()">Edit Profile</div>
 				<div class = "lPTitle">Events
 					<div style = "float:right; font-size:15px; padding:5px;"> <a class = "anchor" href="" onclick = "loadEvent()">More</a></div>
 				</div>
 					<div id = "host" class = "lPSubTitle">Games Hosted</div><!--The Subtitles-->
 					<div id = "join" class = "lPSubTitle">Games Joined In</div>
 					<div id = "invite" class = "lPSubTitle">Games Invited To</div>
-				<div class = "lPTitle">Hall Of Fame
-					<div style = "float:right; font-size:15px; padding:5px;"> <a class = "anchor" href="" onclick = "loadHoF()">More</a></div>
-				</div>
-					<div class = "lPLink" onclick = "loadHoFSel(1)">Top 100 Scorers</div>
-					<div class = "lPLink" onclick = "loadHoFSel(2)">Top 100 Blockers</div>
-					<div class = "lPLink" onclick = "loadHoFSel(3)">Top 100 Playmakers</div>
-					<div class = "lPLink" onclick = "loadHoFSel(3)">Top 100 Rebounders</div>
-					<div class = "lPLink" onclick = "loadHoFSel(4)">Top 100 3-Point Shooters</div>
-					<div class = "lPLink" onclick = "loadHoFSel(5)">Top 100 Marksmen (Accurate)</div>
+
 			</div>
 			<!--The Whole Right Plane-->
 			<div id = "rightPane">
 				<form name = "myForm" method = 'POST'>
-					<textArea id = "textPostArea" name = 'toPost' cols = "80" rows = "20" style = 'width:95%;height:300px;margin:5px;border-radius:3px;'></textArea></BR>
-					<div class = "rPLink" onClick = "postToServlet()">Post</div>
+					<div class = "toolButtons postButton" style = "color:lightgrey;background-color:red;width:90%;margin:5%;" onClick = "reload">Load New Posts</div>
+					<textArea id = "textPostArea" name = 'toPost' cols = "40" rows = "10" style = 'width:95%;height:100px;margin:3px;border-radius:3px;'></textArea></BR>
+					<div class = "toolButtons postButton" style = "color:lightgrey;background-color:red;margin:5px;" onClick = "postToServlet()">Post</div>
 				</form>
 			</div>
 			<!--The News-->
@@ -56,7 +49,7 @@
 			<%
 				for(int i = aLP.size()-1; i>=0; i--){
 					out.println("<div class = 'news'>");
-					out.println("<div class = 'dp' style='background-image: url(\"lois.jpg\"); background-color: black; background-size: 50px; background-position: 50% 50%; background-repeat: no-repeat;'>");
+					out.println("<div class = 'dp' style='background-image: url(\""+uname.getDp()+"\"); background-color: black; background-size: 50px; background-position: 50% 50%; background-repeat: no-repeat;'>");
 					out.println("</div>");
 					out.println("<div class='nameTime'>");
 					out.println("<a href class = 'username anchor'>"+uD.getUserByID(aLP.get(i).getUserID()).getUsername()+"</a></br>");
@@ -69,23 +62,21 @@
 				}
 				%>
 			</div>
-		<script src="script.js"></script>
-		<script src="loadToolBar.js"></script>
 		<script>
 			
 			//var aLP = ${aLP};
 			
-			addNews("lois.jpg", "John Cena", "6:45 pm", "JOHN CENAAA!!!! IN DA HAUS!!!");
+			/*addNews("lois.jpg", "John Cena", "6:45 pm", "JOHN CENAAA!!!! IN DA HAUS!!!");
 			addNews("dp2.jpg", "John Adriel Benolirao", "6:55 pm", "Won the battle against CHINA");
-			addNews("dp1.jpg", "Lois Osayta", "6:56 pm", "Lost againt the Phils...");
+			addNews("dp1.jpg", "Lois Osayta", "6:56 pm", "Lost againt the Phils...");*/
 			$extra = $("<div style = 'height:100px; clear:both;'>");
 			$("#midPane").append($extra);
 			$($extra).remove();
-			addNews("profile1.png", "Isaac Lim", "7:00 pm", "I don t know which side to choose");
+			/*addNews("profile1.png", "Isaac Lim", "7:00 pm", "I don t know which side to choose");
 			addNews("profile1.png", "Jaimie Bringas", "7:02 pm", "GO ARCHERS!!!");
 			addNews("profile1.png", "Anton de Joya", "7:05 pm", "Way to go pacers!!!");
 			addNews("profile1.png", "Macario Cordel", "7:07 pm", "Gonna play some game later.\nWishing I have some time to start some warm-ups.");
-			$("#midPane").append($extra);
+			*/$("#midPane").append($extra);
 			addHosted("Loopers Vs The Ringers");
 			addHosted("Alpha vs Omega");
 			addJoined("The Great Stainz");
@@ -144,6 +135,9 @@
 				});
 				$("#join").after($temp);
 			}
+			function reload(){
+				window.location.href = "news.jsp";
+			}
 			function addInvited(eventName){
 				$temp = $("<div></div>");
 				$($temp).addClass("lPLink");
@@ -164,5 +158,7 @@
 				//console.log(screen.width*0.95|0);
 			});
 		</script>
+		<script src="loadDP.js"></script>
+		<%	out.println("<script> $(document).ready(function(){setDP(\""+uname.getDp()+"\");}) </script>");%>
 	</body>
 </html>

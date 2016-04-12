@@ -9,6 +9,22 @@ public class Event {
 	private String title;
 	private Date date;
 	private String desc;
+	private String imgPath;
+	public Event(int id, int userID, String location, String title, Date date, String desc, String imgPath) {
+		this.id = id;
+		this.userID = userID;
+		this.location = location;
+		this.title = title;
+		this.date = date;
+		this.desc = desc;
+		this.imgPath = imgPath;
+	}
+	public String getImgPath() {
+		return imgPath;
+	}
+	public void setImgPath(String imgPath) {
+		this.imgPath = imgPath;
+	}
 	public Event(){
 		
 	}

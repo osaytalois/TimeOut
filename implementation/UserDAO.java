@@ -22,7 +22,7 @@ public class UserDAO {
 			preparedStatement.setString(1, email);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			if(resultSet.next()){
-				 u = new User(resultSet.getInt("idUser"),resultSet.getString("username"),resultSet.getString("password"),resultSet.getString("firstName"),resultSet.getString("middleName"),resultSet.getString("surName"),resultSet.getString("email"),resultSet.getDate("dob"),resultSet.getString("position"));
+				 u = new User(resultSet.getInt("idUser"),resultSet.getString("username"),resultSet.getString("password"),resultSet.getString("firstName"),resultSet.getString("middleName"),resultSet.getString("surName"),resultSet.getString("email"),resultSet.getDate("dob"),resultSet.getString("position"),resultSet.getString("dp"));
 			}
 		} catch(SQLException e){
 			e.printStackTrace();
@@ -32,14 +32,14 @@ public class UserDAO {
 	}
 	
 	public User getUserByID(int userID){
-		User u = new User("null");
+		User u = null;
 		try{
 			String query = "select * from user where idUser=?";
 			PreparedStatement preparedStatement = conn.prepareStatement( query );
 			preparedStatement.setInt(1, userID);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			if(resultSet.next()){
-				 u = new User(resultSet.getInt("idUser"),resultSet.getString("username"),resultSet.getString("password"),resultSet.getString("firstName"),resultSet.getString("middleName"),resultSet.getString("surName"),resultSet.getString("email"),resultSet.getDate("dob"),resultSet.getString("position"));
+				 u = new User(resultSet.getInt("idUser"),resultSet.getString("username"),resultSet.getString("password"),resultSet.getString("firstName"),resultSet.getString("middleName"),resultSet.getString("surName"),resultSet.getString("email"),resultSet.getDate("dob"),resultSet.getString("position"),resultSet.getString("dp"));
 			}
 			resultSet.close();
 			preparedStatement.close();
@@ -51,14 +51,14 @@ public class UserDAO {
 	}
 	
 	public User getUserByUsername(String username){
-		User u = new User("null");
+		User u = null;
 		try{
 			String query = "select * from user where username=?";
 			PreparedStatement preparedStatement = conn.prepareStatement( query );
 			preparedStatement.setString(1, username);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			if(resultSet.next()){
-				 u = new User(resultSet.getInt("idUser"),resultSet.getString("username"),resultSet.getString("password"),resultSet.getString("firstName"),resultSet.getString("middleName"),resultSet.getString("surName"),resultSet.getString("email"),resultSet.getDate("dob"),resultSet.getString("position"));
+				 u = new User(resultSet.getInt("idUser"),resultSet.getString("username"),resultSet.getString("password"),resultSet.getString("firstName"),resultSet.getString("middleName"),resultSet.getString("surName"),resultSet.getString("email"),resultSet.getDate("dob"),resultSet.getString("position"),resultSet.getString("dp"));
 			}
 			resultSet.close();
 			preparedStatement.close();
@@ -73,12 +73,12 @@ public class UserDAO {
 		User u = new User("null");
 		try{
 			String query = "select * from user where username=? AND password=?";
-			PreparedStatement preparedStatement = conn.prepareStatement(query);
-			preparedStatement.setString(1, username);
+			PreparedStatement preparedStatement = conn.prepareStatement( query );
+			preparedStatement.setString(1,username);
 			preparedStatement.setString(2,password);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			if(resultSet.next()){
-				 u = new User(resultSet.getInt("idUser"),resultSet.getString("username"),resultSet.getString("password"),resultSet.getString("firstName"),resultSet.getString("middleName"),resultSet.getString("surName"),resultSet.getString("email"),resultSet.getDate("dob"),resultSet.getString("position"));
+				 u = new User(resultSet.getInt("idUser"),resultSet.getString("username"),resultSet.getString("password"),resultSet.getString("firstName"),resultSet.getString("middleName"),resultSet.getString("surName"),resultSet.getString("email"),resultSet.getDate("dob"),resultSet.getString("position"), resultSet.getString("dp"));
 			}
 			resultSet.close();
 			preparedStatement.close();
@@ -92,7 +92,7 @@ public class UserDAO {
 	public void addUser(User user) {
 		// TODO Auto-generated method stub
 		try{
-			String query = "insert into user(username, password, firstName, middleName, surName, email,position) values (?,?,?,?,?,?,?)";
+			String query = "insert into user(username, password, firstName, middleName, surName, email,position,dp) values (?,?,?,?,?,?,?,?)";
 			PreparedStatement preparedStatement = conn.prepareStatement( query );
 			preparedStatement.setString(1, user.getUsername());
 			preparedStatement.setString(2, user.getPassword());
@@ -102,6 +102,7 @@ public class UserDAO {
 			preparedStatement.setString(6, user.getEmail());
 			//preparedStatement.setDate(7, new java.sql.Date(user.getDob().getTime()));
 			preparedStatement.setString(7, user.getPosition());
+			preparedStatement.setString(8, "profile1.png");
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
 			System.out.println("success adding dude");

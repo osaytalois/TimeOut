@@ -10,256 +10,153 @@
 		<script src="loadToolBar.js"></script>
 	</head>
 	<body>
-		<%@ page import="java.util.ArrayList,logic.User,logic.Message,implementation.MessageService,implementation.UserDAO" %>
+		<%@ page import="java.util.ArrayList,logic.User,logic.Message,logic.Recent,implementation.MessageService,implementation.UserDAO" %>
 		<%!	UserDAO uD = new UserDAO();
 			MessageService p = new MessageService();
 			ArrayList<Message> mssgs = new ArrayList<Message>();
 			ArrayList<User> users = new ArrayList<User>();
+			ArrayList<Recent> recents = new ArrayList<Recent>();
 			int pTCtr;
+			int justSent = 0;
+			int justReced = 0;
 			String uname; 
 			String others;
-			User myUser;%>
-		<% 	myUser = uD.getUserByUsername(session.getAttribute("user").toString());
-			if(session.getAttribute("talkingWith")==null)
-				session.setAttribute("talkingWith", p.getTop(myUser.getIdUser()));
-			mssgs = p.getAllMessages(myUser.getIdUser(), uD.getUserByUsername(session.getAttribute("talkingWith").toString()).getIdUser());
-			//users = p.getAllUserTalked(myUser.getIdUser());%>
+			User myUser;
+			User other;%>
+		<% 	myUser = ((User)session.getAttribute("user"));
+			recents = p.getAllRecent(myUser.getIdUser());%>
 		<div class = "content">
 			<div style = "float:left;height:100%;width:20%;margin:0;padding:0;">
-				<div class = "personFilter">
-					<form action = "javascript:search()">
-						<input type = "text" class = "personSearch" placeholder = "Enter a name/username" onFocus = "this.placeholder='Enter a name/username'" onBlur = "this.placeholder = 'Enter a name/username'"> </text>
-						<div class = "addButton" onclick = "addPerson()">+</div>
+					<form class = "personFilter" name = "messageAddForm" method = "GET">
+						<input type = "text" class = "personSearch" style = 'float:left;' placeholder = "Enter a username" onFocus = "this.placeholder='Enter a username'" onBlur = "this.placeholder = 'Enter a username'"> </input>
+						<div id = "refresh" class = "addButton" onclick = "refreshPNavForm()"></div>
+						<div class = "addButton" style = 'float:left;' onclick = "addPersonForm()">+</div>
+						<input type = "hidden" name = "tempMessageSearch" id = "hidemssgsearch"></input>
 					</form>
-				</div>
 				<div class = "personNav">
-			<%
-			for(int i = 0; i < users.size(); i++){
-				out.println("<div class = 'personHolder' onclick = 'personClick()'>");
-				out.println("<div class = 'who' style = 'float:left;'></div>");
-				out.println("<div class = 'person'>");
-				out.println(users.get(i).getUsername());
-				out.println("</div></div>");
-			}%>
+					<form name = "choosePerson" method = "GET" class = "persons">
+						<%
+						for(int i = 0; i < recents.size(); i++){
+							if(session.getAttribute("talkingWith")!=null){
+								int talkingWith = ((User)session.getAttribute("talkingWith")).getIdUser();
+								if(recents.get(i).getRecipient() == talkingWith)
+									out.println("<div id = 'person"+i+"' class = 'personHolder' style = 'border-color:red; background-color: grey;' onclick = 'personClick("+recents.get(i).getRecipient()+")'>");
+								else
+									out.println("<div id = 'person"+i+"' class = 'personHolder' style = 'border-color:black; background-color: black;' onclick = 'personClick("+recents.get(i).getRecipient()+")'>");
+								out.println("<div class = 'who' style = 'float:left;background-image:url(\""+uD.getUserByID(recents.get(i).getRecipient()).getDp()+"\");'></div>");
+								out.println("<div class = 'person'>");
+								out.println(uD.getUserByID(recents.get(i).getRecipient()).getUsername());
+								out.println("</div></div>");
+							} else{
+								if(i == 0){
+									out.println("<div id = 'person"+i+"' class = 'personHolder' style = 'border-color:red; background-color: grey;' onclick = 'personClick("+recents.get(i).getRecipient()+")'>");
+									session.setAttribute("talkingWith", uD.getUserByID(recents.get(i).getRecipient()));
+								}else
+									out.println("<div id = 'person"+i+"' class = 'personHolder' style = 'border-color:black; background-color: black;' onclick = 'personClick("+recents.get(i).getRecipient()+")'>");
+								out.println("<div class = 'who' style = 'float:left;background-image:url(\""+uD.getUserByID(recents.get(i).getRecipient()).getDp()+"\")''></div>");
+								out.println("<div class = 'person'>");
+								out.println(uD.getUserByID(recents.get(i).getRecipient()).getUsername());
+								out.println("</div></div>");
+							}
+						}%>
+						<input type = "hidden" name = "tempPersonClick" id = "hidePersonClick"></input>
+					</form>
 				</div>
 			</div>
 			<div class = "messNav">
+				<%	if((User)session.getAttribute("talkingWith")!=null){
+						mssgs = p.getAllMessages(myUser.getIdUser(), ((User)session.getAttribute("talkingWith")).getIdUser());
+						other = (User)session.getAttribute("talkingWith");
+						if(mssgs!=null){
+							for(int i = 0; i < mssgs.size(); i++){
+								if((i!=0)&&(mssgs.get(i).getUserID() != mssgs.get(i-1).getUserID()))
+									justSent = 1;
+								else if(i==0)
+									justSent = 1;
+								else
+									justSent = 0;
+								if((i!=0)&&(mssgs.get(i).getReceiveID() != mssgs.get(i-1).getReceiveID()))
+									justReced = 1;
+								else if(i==0)
+									justReced = 1;
+								else
+									justReced = 0;
+								if(mssgs.get(i).getUserID() ==  myUser.getIdUser()){
+									if(justSent == 1){
+										out.println("<div class = 'pattern1 sender' style = 'width:100%;clear:both;'>");
+											out.println("<div class = 'who' style = 'float:left;background-image:url(\""+uD.getUserByID(mssgs.get(i).getUserID()).getDp()+"\");'>");
+											out.println("</div>");
+											out.println("<div class = 'me'>me</div>");
+										out.println("</div>");
+									}
+									out.println("<div class = 'pattern1 sender' style = 'width:100%;clear:both;'>");
+										out.println("<div style = 'float:left;' class = 'whohide'>");
+										out.println("</div>");
+										out.println("<div class = 'sent messageDisplay'>"+mssgs.get(i).getMessage()+"</div>");
+									out.println("</div>");
+								}
+								else{
+									if(justReced == 1){
+										out.println("<div class = 'pattern1 receiver' style = 'width:100%;clear:both;'>");
+											out.println("<div class = 'who2' style = 'float:left;background-image:url(\""+uD.getUserByID(mssgs.get(i).getReceiveID()).getDp()+"\");'>");
+											out.println("</div>");
+											out.println("<div class = 'them'>"+uD.getUserByID(mssgs.get(i).getUserID()).getUsername()+"</div>");
+										out.println("</div>");
+									}
+									out.println("<div class = 'pattern1 receiver' style = 'width:100%;clear:both;'>");
+										out.println("<div style = 'float:left;' class = 'whohide'>");
+										out.println("</div>");
+										out.println("<div class = 'received messageDisplay'>"+mssgs.get(i).getMessage()+"</div>");
+									out.println("</div>");
+								}
+							}
+						}
+					}
+				%>
 			</div>
-			<form action = "javascript:send()" class = "message">
-				<textarea class = "toSend" value = "" placeholder = "Send a Message">
-				</textarea>
+			<div id = "refresh" class = "addButton" style = "width:50px; height:50px; z-index:10; position:absolute; right:0;" onclick = "refreshForm()"></div>			
+			<form name = "messageSendForm" method = "POST" class = "message">
+				<textarea class = "toSend" value = "" placeholder = "Send a Message"></textarea>
 				<div class = "sendButton" onclick = "send()">Send</div>
+				<input type = "hidden" name = "tempMessageSend" id = "hidemssgsend"></input>
 			</form>
 		</div>
 		<script>
-			$(".toSend").val("");
+			$(".personSearch").val("");
 			var justSent = true;
 			var justReced = true;
 			var x = 0;
-			for(var i = 0; i < 2; i++){ //add Person1 and Person2 and load their messages
-				$newPH = $("<div></div>");
-				$($newPH).addClass("personHolder");
-				$newP = $("<div></div>");
-				$($newP).addClass("person");
-				$($newP).html("Person"+(i+1));
-				$personDP = $("<div></div>");
-				$($personDP).addClass("who");
-				$($personDP).css("float", "left");
-				$($newPH).append($personDP);
-				$($newPH).append($newP);
-				$($newPH).attr("id", "person"+(i));
-				$(".personNav").append($newPH);
-				$($newPH).click(function(){
-					localStorage.setItem("person"+x, $(".messNav").html());
-					$("#person"+x).css("borderColor", "black");
-					$("#person"+x).css("backgroundColor", "black");
-					$(".messNav").empty();
-					$(".messNav").append(localStorage.getItem($(this).attr("id")));
-					x = parseInt($(this).attr("id").replace( /^\D+/g, ''));
-					$(this).css("borderColor", "red");
-					$(this).css("backgroundColor", "grey");
-					toBottom(".messNav");
-				});
+			$(document).keypress(
+				    function(event){
+				        if (event.which == '13') {
+				           event.preventDefault();
+				         }
+				   });
+			function personClick(a){
+				$("#hidePersonClick").val(a);
+				document.choosePerson.action = "PersonClickServlet";
+				document.choosePerson.submit();
 			}
-			$("#person0").css("borderColor", "red");
-			$("#person0").css("backgroundColor", "grey");
-			if(parseInt(localStorage.getItem("fromProfile")) == 1){//add the person in nav if from profile
-				$newPH = $("<div></div>");
-				$($newPH).addClass("personHolder");
-				$newP = $("<div></div>");
-				$($newP).addClass("person");
-				$($newP).html(localStorage.getItem("fromName"));
-				$personDP = $("<div></div>");
-				$($personDP).addClass("who");
-				$($personDP).css("float", "left");
-				$($newPH).append($personDP);
-				$($newPH).append($newP);
-				$($newPH).attr("id", "person"+($( ".personNav .personHolder" ).last().index()+1));
-				$($newPH).css("borderColor", "red");
-				$($newPH).css("backgroundColor", "grey");
-				localStorage.setItem("person"+x, $(".messNav").html());
-				$("#person"+x).css("borderColor", "black");
-				$("#person"+x).css("backgroundColor", "black");
-				$(".messNav").empty();
-				$(".messNav").append(localStorage.getItem($(this).attr("id")));
-				x = $( ".personNav .personHolder" ).last().index()+1;
-				$(".personNav").prepend($newPH);
-				$($newPH).click(function(){
-					localStorage.setItem("person"+x, $(".messNav").html());
-					$("#person"+x).css("borderColor", "black");
-					$("#person"+x).css("backgroundColor", "black");
-					$(".messNav").empty();
-					$(".messNav").append(localStorage.getItem($(this).attr("id")));
-					x = parseInt($(this).attr("id").replace( /^\D+/g, ''));
-					$(this).css("borderColor", "red");
-					$(this).css("backgroundColor", "grey");
-					toBottom(".messNav");
-				});
+			function addPersonForm(){
+				$("#hidemssgsearch").val($(".personSearch").val());
 				$(".personSearch").val("");
+				document.messageAddForm.action = "MessageAddServlet";
+				document.messageAddForm.submit();
 			}
-			function personClick(){
-				localStorage.setItem("person"+x, $(".messNav").html());
-				$("#person"+x).css("borderColor", "black");
-				$("#person"+x).css("backgroundColor", "black");
-				$(".messNav").empty();
-				$(".messNav").append(localStorage.getItem($(this).attr("id")));
-				x = parseInt($(this).attr("id").replace( /^\D+/g, ''));
-				$(this).css("borderColor", "red");
-				$(this).css("backgroundColor", "grey");
-				toBottom(".messNav");
+			function refreshPNavForm(){
+				document.messageAddForm.action = "RefreshPNavServlet";
+				document.messageAddForm.submit();
 			}
-			function addPerson(){
-				$newPH = $("<div></div>");
-				$($newPH).addClass("personHolder");
-				$newP = $("<div></div>");
-				$($newP).addClass("person");
-				$($newP).html($(".personSearch").val());
-				$personDP = $("<div></div>");
-				$($personDP).addClass("who");
-				$($personDP).css("float", "left");
-				$($newPH).append($personDP);
-				$($newPH).append($newP);
-				$($newPH).attr("id", "person"+($( ".personNav .personHolder" ).last().index()+1));
-				$($newPH).css("borderColor", "red");
-				$($newPH).css("backgroundColor", "grey");
-				localStorage.setItem("person"+x, $(".messNav").html());
-				$("#person"+x).css("borderColor", "black");
-				$("#person"+x).css("backgroundColor", "black");
-				$(".messNav").empty();
-				$(".messNav").append(localStorage.getItem($(this).attr("id")));
-				x = $( ".personNav .personHolder" ).last().index()+1;
-				$(".personNav").prepend($newPH);
-				$($newPH).click(function(){
-					localStorage.setItem("person"+x, $(".messNav").html());
-					$("#person"+x).css("borderColor", "black");
-					$("#person"+x).css("backgroundColor", "black");
-					$(".messNav").empty();
-					$(".messNav").append(localStorage.getItem($(this).attr("id")));
-					x = parseInt($(this).attr("id").replace( /^\D+/g, ''));
-					$(this).css("borderColor", "red");
-					$(this).css("backgroundColor", "grey");
-				});
-				$(".personSearch").val("");
+			function refreshForm(){
+				window.location.href = "messages.jsp";
 			}
 			function send(){
-				if($("div[class = messNav] div").last()!=null)
-					justSent = $("div[class = messNav] div.pattern1").last().hasClass("sender");
-				else
-					justSent = false;
 				var message = $(".toSend").val();
-				//fix message
-				//fix /Ns here
-				message = message.replace("\n", "</br>");
-				$newMess = $("<div></div>");
-				$($newMess).addClass("sent");
-				$($newMess).addClass("messageDisplay");
-				$($newMess).html(message);
-				$container = $("<div style = 'width:100%;clear:both;'></div>");
-				$($container).addClass("pattern1");
-				$($container).addClass("sender");
-				$dp = $("<div></div>");
-				if(!justSent){
-					$($dp).addClass("who");
-					$name = $("<div></div>");
-					$($name).addClass("me");
-					$($name).html("me");
-					$($container).append($dp);
-					$($container).append($name);
-					$container2 = $("<div style = 'width:100%;clear:both;'></div>");
-					$($container2).addClass("pattern1");
-					$($container2).addClass("sender");
-					$dp2 = $("<div></div>");
-					$($dp2).addClass("whohide");
-					$($dp2).css("float", "left");
-					$($container2).append($dp2);
-					$($container2).append($newMess);
-					$(".messNav").append($container);
-					$(".messNav").append($container2);
-				}
-				else{
-					$($dp).addClass("whohide");
-					$($container).append($dp);
-					$($container).append($newMess);
-					$(".messNav").append($container);
-				}
-				if($($newMess).width()>($(".messNav").width()*0.85|0)){
-					$newMess.css("width", $(".messNav").width()*0.85|0+"px");
-					//$($message).css("width", $($newMess).width()*0.99|0+"px");
-				}
-				console.log($($newMess).width());
-				console.log($($newMess).width()*0.9|0);
-				//console.log($($message).width());
-				$($dp).css("float", "left");
 				$(".toSend").val("");
-				
-				var number = 1 + Math.floor(Math.random() * 2);
-				if(number == 1){
-					if($("div[class = messNav] div").last()!=null)
-						justReced = $("div[class = messNav] div.pattern1").last().hasClass("receiver");
-					else
-						justReced = false;
-					var message2 = "abhdnsiafmsjm";
-					//$message2 = $("<span></span>").html(message2.replace("\n", "</br>"));
-					message2 = message2.replace("\n", "</br>");
-					$newMess2 = $("<div></div>");
-					$($newMess2).addClass("received");
-					$($newMess2).addClass("messageDisplay");
-					$($newMess2).append(message2);
-					$container3 = $("<div style = 'width:100%;clear:both;'></div>");
-					$($container3).addClass("pattern1");
-					$($container3).addClass("receiver");
-					$dp3 = $("<div></div>");
-					if(!justReced){
-						$($dp3).addClass("who2");
-						$name2 = $("<div></div>");
-						$($name2).addClass("them");
-						$($name2).html("receiver");
-						$($container3).append($dp3);
-						$($container3).append($name2);
-						$container4 = $("<div style = 'width:100%;clear:both;'></div>");
-						$($container4).addClass("pattern1");
-						$($container4).addClass("receiver");
-						$dp4 = $("<div></div>");
-						$($dp4).addClass("whohide");
-						$($dp4).css("float", "left");
-						$($container4).append($dp4);
-						$($container4).append($newMess2);
-						$(".messNav").append($container3);
-						$(".messNav").append($container4);
-					}
-					else{
-						$($dp3).addClass("whohide");
-						$($container3).append($dp3);
-						$($container3).append($newMess2);
-						$(".messNav").append($container3);
-					}
-					if($($newMess2).width()>($(".messNav").width()*0.85|0)){
-						$newMess2.css("width", $(".messNav").width()*0.85|0+"px");
-						//$($message2).css("width", $($newMess2).width()*0.99|0+"px");
-					}
-					$($dp3).css("float", "left");
-				}
-				toBottom(".messNav");
+				message = message.replace("\n", "</br>");
+				$("#hidemssgsend").val(message);
+				document.messageSendForm.action = "AddMessageServlet";
+				document.messageSendForm.submit();
 			}
 			function toBottom(x){
 			  var parent = $(x);
@@ -268,11 +165,18 @@
 			}
 			function search(){
 			}
+			$( ".messageDisplay" ).each(function( index ) {
+				if($(this).width()>($(".messNav").width())){
+					$(this).css("width", $(".messNav").width()+"px");
+				}
+			});
 			$(window).load(function(){
 				$(".content").css("width", (screen.width*0.95|0)+"px");
 				$(".content").css("visibility", "visible");
-				//console.log(screen.width*0.95|0);
+				toBottom(".messNav");
 			});
 		</script>
+		<script src="loadDP.js"></script>
+		<%	out.println("<script> $(document).ready(function(){setDP(\""+myUser.getDp()+"\");}) </script>");%>
 	</body>
 </html>
