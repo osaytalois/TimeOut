@@ -1,8 +1,6 @@
 
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,42 +10,44 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import implementation.FriendService;
-import implementation.UserInfoService;
+import implementation.UserDAO;
 import logic.User;
-import logic.UserInfo;
 
 /**
- * Servlet implementation class AddFriendServlet
+ * Servlet implementation class PerformSearchProfile
  */
-@WebServlet("/AddFriendServlet")
-public class AddFriendServlet extends HttpServlet {
+@WebServlet("/PerformSearchProfile")
+public class PerformSearchProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public PerformSearchProfileServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		String username = request.getParameter("username");
+		FriendService friendservice = new FriendService();
 		User user = (User) request.getSession().getAttribute("user");
-		User notfriend = (User) request.getSession().getAttribute("friend");
-		String con = request.getParameter("con");
-		if(con.equals("acc")){
-			FriendService friendservice = new FriendService();
-			boolean success = friendservice.addFriend(user.getIdUser(), notfriend.getIdUser());
-			
-			List<User> friendslist = friendservice.getFriends(notfriend);
-			request.getSession().setAttribute("friendslist2", friendslist);
-			UserInfoService infoservice = new UserInfoService();
-			UserInfo friendinfo = new UserInfo();
-			friendinfo = infoservice.getUserInfo(notfriend.getIdUser());
-			
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/profilefriend.jsp");
+		
+		UserDAO d = new UserDAO();
+		
+		User friendaccount = d.getUserByUsername(username);
+		request.getSession().setAttribute("friend",friendaccount);
+		if(friendservice.checkIfFriend(user.getIdUser(), friendaccount.getIdUser()) == false){		
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/profilenotfriend.jsp");
 			rd.forward(request, response);
-			
 		}
 		else{
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/profilenotfriend.jsp");
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/profilefriend.jsp");
 			rd.forward(request, response);
 		}
 	}

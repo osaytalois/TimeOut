@@ -1,9 +1,6 @@
 
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,25 +8,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import implementation.PostService;
-import implementation.UserDAO;
-import logic.Post;
+import implementation.SearchService;
+import java.util.ArrayList;
 import logic.User;
-
+import logic.Event;
 
 /**
- * Servlet implementation class PostServlet
+ * Servlet implementation class SearchServlet
  */
-@WebServlet("/PostServlet")
-public class PostServlet extends HttpServlet {
+@WebServlet("/SearchServlet")
+public class SearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PostServlet() {
+    public SearchServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,7 +33,7 @@ public class PostServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -47,16 +41,23 @@ public class PostServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		PrintWriter pw = response.getWriter();
-		PostService p = new PostService();
-		UserDAO uD = new UserDAO();
-		HttpSession session = request.getSession();
-		String uname = ((User)session.getAttribute("user")).getUsername();
-		if(uD.getUserByUsername(uname)!=null){
-			p.addPost(new Post(new Date(), request.getParameter("toPost"), uD.getUserByUsername(uname).getIdUser()), uname);
-			//pw.println(uD.getUserByName(uname).getUsername()+" "+uD.getUserByName("loisO").getIdUser());
-		}
-		RequestDispatcher rd = getServletContext().getRequestDispatcher("/news.jsp");
+		//doGet(request, response);
+		
+		String query = request.getParameter("searchBox");
+		
+		SearchService search = new SearchService();
+		ArrayList<User> searchUsers = search.searchUser(query);
+		
+		System.out.println(searchUsers.size());
+		for(int i = 0; i<searchUsers.size(); i++)
+			System.out.println(searchUsers.get(i).getUsername()+" "+searchUsers.get(i).getDp());
+		System.out.println();
+		
+		if(searchUsers.size() > 0)
+			request.getSession().setAttribute("searchUsers",searchUsers);
+		
+				
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/searchResults.jsp");
 		rd.forward(request, response);
 	}
 

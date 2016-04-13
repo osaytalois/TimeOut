@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>${user.firstName} ${user.surName}</title>
 <script src = "jquery-2.2.0.js"></script>
 		<link href="jquery-ui.css" rel="stylesheet" type="text/css" />
 		<script src="jquery-ui.js"></script>
@@ -23,7 +23,7 @@
         <div id="left">
             <div id="userStats" class="clearfix">
                 <div class="pic">
-                    <a href="#"><img src="face.jpg" width="150" height="150" /></a>
+                    <a href="#"><img src="${user.dp}" width="150" height="150" /></a>
                 </div>
                  
                 <div class="data">
@@ -43,9 +43,9 @@
 					<div class = "head"><h1>About Me <a href = "info.html">Edit Profile</a></h1></div>
 					<div class = "boxy">
 						<div class = "tabname">
-							<a href="#" onclick="show('basicinfo')">Basic Information</a>
-							<a href="#" onclick="show('contact')">Contact Details</a>
-							<a href="#" onclick="show('education')">Work and Education</a>
+							<li><a href="#" onclick="show('basicinfo')">Basic Information</a></li>
+							<li><a href="#" onclick="show('contact')">Contact Details</a></li>
+							<li><a href="#" onclick="show('education')">Work and Education</a></li>
 						</div>
 						<div class = "tabs" id = "basicinfo" style = "visibility:visible">
 							<div class = "tabdetail"><c:out value="${myinfo.basicInfo}" /></div>
@@ -73,7 +73,7 @@
 					<div class="allfriendslist clearfix">
 						<c:forEach items="${friendslist}" var="afriend" begin="0" end="${fn:length(friendslist)}">
 							<div class = "friend">
-						   		<a href="#"><img src="" width="30" height="30"/></a><span class="friendly"><a href="FriendServlet?param1=${afriend.username}"><c:out value="${afriend.firstName}"/> 
+						   		<img src="${afriend.dp}" width="30" height="30"/><span class="friendly"><a href="FriendServlet?param1=${afriend.username}"><c:out value="${afriend.firstName}"/> 
 						   							<c:out value="${afriend.surName}" /></a></span>
 						    </div>			    	    
 						</c:forEach>	

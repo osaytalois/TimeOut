@@ -22,7 +22,7 @@ public class FriendDAO {
 				preparedStatement.setInt(1, IdUser);
 				preparedStatement.setInt(2, IdFriend);
 				preparedStatement.executeUpdate();
-				conn.close();
+				preparedStatement.close();
 			} catch(SQLException e){
 				e.printStackTrace();
 				return false;
@@ -36,7 +36,7 @@ public class FriendDAO {
 				preparedStatement.setInt(1, user1.getIdUser());
 				preparedStatement.setInt(2, user2.getIdUser());
 				preparedStatement.executeUpdate();
-				conn.close();
+				preparedStatement.close();
 			} catch(SQLException e){
 				e.printStackTrace();
 				return false;
@@ -55,6 +55,7 @@ public class FriendDAO {
 					 Friend friend = new Friend(resultSet.getInt("UserID1"),resultSet.getInt("UserID2"));
 					 friendslist.add(friend);
 				}
+				preparedStatement.close();
 			} catch(SQLException e){
 				e.printStackTrace();
 				return null;
@@ -74,6 +75,7 @@ public class FriendDAO {
 			if(resultSet.next()){
 				return true;
 			}
+			preparedStatement.close();
 		} catch(SQLException e){
 			e.printStackTrace();
 			return false;

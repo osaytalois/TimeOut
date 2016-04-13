@@ -3,11 +3,11 @@
 		//Top Toolbar
 		$hideTop = $("<div id = hideTop></div>");
 		$topTools = $("<div id = toolbartop ></div>");
-		$logo = $("<div id = 'logo'></div>");
+		$logo = $("<div id = 'logo' onclick = 'loadNews()'></div>");
 		$logout = $("<div id = 'logOut' class = 'toolButtons' onclick = 'loadLanding()'></div>").html("Logout");
 		$toolDiv = $("<div class = 'toolDiv'></div>");
-		$form = $("<form></form>");
-		$textBox = $("<input type='text' id = 'toolSearch' placeholder = 'Search Timeout'>");
+		$form = $("<form action='SearchServlet' method='POST'></form>");
+		$textBox = $("<input type='text' id = 'toolSearch' name = 'searchBox' placeholder = 'Search Timeout'>");
 		$($textBox).focus(function(){
 			$(this).attr('placeholder', '');
 		}).blur(function(){

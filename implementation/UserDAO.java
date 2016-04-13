@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import logic.User;
+import java.util.ArrayList;
 
 public class UserDAO {
 	private Connection conn;
@@ -32,7 +33,7 @@ public class UserDAO {
 	}
 	
 	public User getUserByID(int userID){
-		User u = null;
+		User u = new User("null");
 		try{
 			String query = "select * from user where idUser=?";
 			PreparedStatement preparedStatement = conn.prepareStatement( query );
@@ -51,7 +52,7 @@ public class UserDAO {
 	}
 	
 	public User getUserByUsername(String username){
-		User u = null;
+		User u = new User("null");
 		try{
 			String query = "select * from user where username=?";
 			PreparedStatement preparedStatement = conn.prepareStatement( query );
@@ -88,7 +89,52 @@ public class UserDAO {
 		//DbServices.closeConnection(conn);
 		return u;
 	}
-
+	
+	public ArrayList<User> getUsersByFirstNameAndLastName(String firstName, String lastName){
+		ArrayList<User> users = new ArrayList<User>();
+		users.add(new User("null"));
+		try{
+			String query = "select * from user where firstName=? AND surName=?";
+			PreparedStatement preparedStatement = conn.prepareStatement( query );
+			preparedStatement.setString(1,firstName);
+			preparedStatement.setString(2,lastName);
+			ResultSet resultSet = preparedStatement.executeQuery();
+				while(resultSet.next()){
+					if(users.get(0).getUsername().equals("null"))
+						users.remove(0);
+					users.add(new User(resultSet.getInt("idUser"),resultSet.getString("username"),resultSet.getString("password"),resultSet.getString("firstName"),resultSet.getString("middleName"),resultSet.getString("surName"),resultSet.getString("email"),resultSet.getDate("dob"),resultSet.getString("position"), resultSet.getString("dp")));
+				}
+			resultSet.close();
+			preparedStatement.close();
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
+		//DbServices.closeConnection(conn);
+		return users;
+	}
+	
+	public ArrayList<User> getUsersByEmail(String email){
+		ArrayList<User> users = new ArrayList<User>();
+		users.add(new User("null"));
+		try{
+			String query = "select * from user where email=?";
+			PreparedStatement preparedStatement = conn.prepareStatement( query );
+			preparedStatement.setString(1,email);
+			ResultSet resultSet = preparedStatement.executeQuery();
+				while(resultSet.next()){
+					if(users.get(0).getUsername().equals("null"))
+						users.remove(0);
+					users.add(new User(resultSet.getInt("idUser"),resultSet.getString("username"),resultSet.getString("password"),resultSet.getString("firstName"),resultSet.getString("middleName"),resultSet.getString("surName"),resultSet.getString("email"),resultSet.getDate("dob"),resultSet.getString("position"), resultSet.getString("dp")));
+				}
+			resultSet.close();
+			preparedStatement.close();
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
+		//DbServices.closeConnection(conn);
+		return users;
+	}
+	
 	public void addUser(User user) {
 		// TODO Auto-generated method stub
 		try{

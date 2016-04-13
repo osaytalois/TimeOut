@@ -33,7 +33,8 @@ public class NotificationDAO {
 				preparedStatement.setString(5, timeNow);
 				preparedStatement.setString(6, n.getNotifMessage());
 				preparedStatement.executeUpdate();
-				conn.close();
+				//conn.close();
+				preparedStatement.close();
 				return true;
 			} catch(SQLException e){
 				e.printStackTrace();
@@ -42,6 +43,19 @@ public class NotificationDAO {
 			
 	}
 	
+	public void removeNotification(int r, int s){
+		try{
+			String query = "delete from notifications where recipientID=? AND senderID=?";
+			PreparedStatement preparedStatement = conn.prepareStatement( query );
+			preparedStatement.setInt(1, r);
+			preparedStatement.setInt(2, s);
+			preparedStatement.executeUpdate();
+			preparedStatement.close();
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
+		
+	}
 
 	public List<Notification> getNotifications(int IdUser){
 			ArrayList<Notification> notifslist = new ArrayList<Notification>();
