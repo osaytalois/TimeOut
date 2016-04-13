@@ -54,7 +54,7 @@ User useraccount = (User)request.getSession().getAttribute("user");
 			request.getSession().setAttribute("notifslist", notifslist);
 		}
 		
-		RequestDispatcher rd = getServletContext().getRequestDispatcher("/FriendServlet");
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/news.jsp");
 		rd.forward(request, response);
 	}
 

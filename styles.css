@@ -86,6 +86,7 @@
     transition: all 1s;
 }#logo:hover{
 	background-color:black;
+	cursor:pointer;
 }
 .toolDiv{
 	margin:0px;

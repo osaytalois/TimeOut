@@ -27,8 +27,8 @@ public class FriendServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String username = "leeminho";
-		//String username = request.getParameter("param1");
+		//String username = "igiem";
+		String username = request.getParameter("param1");
 		FriendService friendservice = new FriendService();
 		User friendaccount = friendservice.getUserByUserName(username);
 		request.getSession().setAttribute("friend",friendaccount);
@@ -43,7 +43,11 @@ public class FriendServlet extends HttpServlet {
 		request.getSession().setAttribute("friendinfo", friendinfo);
 		
 		User user = (User) request.getSession().getAttribute("user");
-		if(friendservice.checkIfFriend(user.getIdUser(), friendaccount.getIdUser()) == false){		
+		if(friendaccount.getIdUser() == user.getIdUser()){
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/profile.jsp");
+			rd.forward(request, response);
+		}
+		else if(friendservice.checkIfFriend(user.getIdUser(), friendaccount.getIdUser()) == false){		
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/profilenotfriend.jsp");
 			rd.forward(request, response);
 		}

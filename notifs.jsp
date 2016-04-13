@@ -72,11 +72,13 @@ a{
 		<link href="jquery-ui.css" rel="stylesheet" type="text/css" />
 		<script src="jquery-ui.js"></script>
 		<link rel="stylesheet" type="text/css" href="styles.css">
+		<title>Your Notifications</title>
 </head>
 <body>    
 			<div id = "notifsec">
 			<div class = "head">Your Notifications</div>
 			
+		<c:if test="${fn:length(notifslist) != 0}">
 			<div class = "list">
 				<c:forEach items="${notifslist}" var="aNotif" begin="0" end="${fn:length(notifslist)}">
 					<a href = "PerformNotificationServlet?notifType=${aNotif.notifType}&recipientID=${aNotif.recipientID}&senderID=${aNotif.senderID}">
@@ -87,6 +89,11 @@ a{
 					</a>
 				</c:forEach>
 			</div>
+		</c:if>
+		<c:if test="${fn:length(notifslist) == 0}">
+			<p>&nbsp;&nbsp;You have no notifications.</p>
+		</c:if>
+			
 			</div>
 
 			

@@ -1,6 +1,7 @@
 
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
@@ -12,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import implementation.MessageService;
+import implementation.NotificationService;
 import implementation.UserDAO;
+import logic.Notification;
 import logic.User;
 
 /**
@@ -43,6 +46,7 @@ public class AddMessageServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		//String message = "try";
 		String message = request.getParameter("tempMessageSend");
 		UserDAO uD = new UserDAO();
 		MessageService mS = new MessageService();
@@ -53,8 +57,11 @@ public class AddMessageServlet extends HttpServlet {
 				User talking = (User)session.getAttribute("talkingWith");
 				mS.addMessage(user.getIdUser(), talking.getIdUser(), message, new java.sql.Date(new Date().getTime()));
 			}
+		
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/messages.jsp");
 		rd.forward(request, response);
+		//PrintWriter out = response.getWriter();
+		//out.println("puhlese");
 	}
 
 }
