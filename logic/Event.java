@@ -1,5 +1,6 @@
 package logic;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class Event {
@@ -7,10 +8,18 @@ public class Event {
 	private int userID;
 	private String location;
 	private String title;
-	private Date date;
+	private Calendar date;
 	private String desc;
 	private String imgPath;
-	public Event(int id, int userID, String location, String title, Date date, String desc, String imgPath) {
+	public Event(int userID, String location, String title, Calendar date, String desc, String imgPath) {
+		this.userID = userID;
+		this.location = location;
+		this.title = title;
+		this.date = date;
+		this.desc = desc;
+		this.imgPath = imgPath;
+	}
+	public Event(int id, int userID, String location, String title, Calendar date, String desc, String imgPath) {
 		this.id = id;
 		this.userID = userID;
 		this.location = location;
@@ -28,7 +37,7 @@ public class Event {
 	public Event(){
 		
 	}
-	public Event(int id, int userID, String location, String title, Date date, String desc) {
+	public Event(int id, int userID, String location, String title, Calendar date, String desc) {
 		this.id = id;
 		this.userID = userID;
 		this.location = location;
@@ -60,10 +69,10 @@ public class Event {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public Date getDate() {
+	public Calendar getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(Calendar date) {
 		this.date = date;
 	}
 	public String getDesc() {

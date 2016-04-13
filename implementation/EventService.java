@@ -19,6 +19,7 @@
 	import java.util.logging.Logger;
 	import logic.Post;
 	import logic.User;
+	import logic.Event;
 
 
 	/**
@@ -53,6 +54,10 @@ public class EventService {
 	            Logger.getLogger(PostService.class.getName()).log(Level.SEVERE, null, ex);
 	            return false;
 	        }
+	    }
+	    
+	    public Event getEventByUsername(String eventName){
+	    	
 	    }
 	    
 	    public ArrayList<Post> getAllMyPost(String uname) {
