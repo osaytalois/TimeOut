@@ -29,22 +29,22 @@
 				<br><br><br>
 				<div class="input_boxes">
 				<select name = "month" id="month">
-						<option value="month"> Month </option>
-						<option value="Jan"> January </option>
-						<option value="Feb"> February </option>
-						<option value="Mar"> March </option>
-						<option value="Apr"> April </option>
-						<option value="May"> May </option>
-						<option value="June"> June </option>
-						<option value="Jul"> July </option>
-						<option value="Aug"> Aug </option>
-						<option value="Sept"> September </option>
-						<option value="Oct"> October </option>
-						<option value="Nov"> November </option>
-						<option value="Dec"> December </option>
+						<option value="-1"> Month </option>
+						<option value="0"> January </option>
+						<option value="1"> February </option>
+						<option value="2"> March </option>
+						<option value="3"> April </option>
+						<option value="4"> May </option>
+						<option value="5"> June </option>
+						<option value="6"> July </option>
+						<option value="7"> Aug </option>
+						<option value="8"> September </option>
+						<option value="9"> October </option>
+						<option value="10"> November </option>
+						<option value="11"> December </option>
 				</select>
 				<select name = "day" id="day">
-						<option value="day"> Day </option>
+						<option value="0"> Day </option>
 						<option value="1"> 1 </option>
 						<option value="2"> 2 </option>
 						<option value="3"> 3 </option>
@@ -86,22 +86,21 @@
 						<option value="2020"> 2020 </option>
 				</select>
 				<br><br>
-				<select id="Hour">
+				<select name = "Hour" id="Hour">
 						<option value="Hour"> Hour </option>
-						<option value="00"> 00 </option>
-						<option value="01"> 01 </option>
-						<option value="02"> 02 </option>
-						<option value="03"> 03 </option>
-						<option value="04"> 04 </option>
-						<option value="05"> 05 </option>
-						<option value="06"> 06 </option>
-						<option value="07"> 07 </option>
-						<option value="08"> 08 </option>
-						<option value="09"> 09 </option>
+						<option value="0"> 00 </option>
+						<option value="1"> 01 </option>
+						<option value="2"> 02 </option>
+						<option value="3"> 03 </option>
+						<option value="4"> 04 </option>
+						<option value="5"> 05 </option>
+						<option value="6"> 06 </option>
+						<option value="7"> 07 </option>
+						<option value="8"> 08 </option>
+						<option value="9"> 09 </option>
 						<option value="10"> 10 </option>
 						<option value="11"> 11 </option>
 						<option value="12"> 12 </option>
-						<option value="00"> 00 </option>
 						<option value="13"> 13 </option>
 						<option value="14"> 14 </option>
 						<option value="15"> 15 </option>
@@ -113,10 +112,10 @@
 						<option value="21"> 21 </option>
 						<option value="22"> 22 </option>
 						<option value="23"> 23 </option>
-						<option value="24"> 24 </option>
 				</select>
-				<select id="Minutes">
-						<option value="day"> Minutes </option>
+				<select name = "Minutes" id="Minutes">
+						<option value="-1"> Minutes </option>
+						<option value="0"> 0 </option>
 						<option value="1"> 1 </option>
 						<option value="2"> 2 </option>
 						<option value="3"> 3 </option>
@@ -179,8 +178,8 @@
 				</select>
 				</div>
 				<br><br><br><br><br>
-					<div name = "desc" class="labels">Description: </div>
-					<span> <textarea id="description" type="text" class="input_boxes"></textarea></span>
+					<div class="labels">Description: </div>
+					<span> <textarea name = "desc" id="description" type="text" class="input_boxes"></textarea></span>
 				<br><br><br>
 					<div class="labels"> Invite Friends: </div>
 					<span> <textarea id="friends" type="text" class="input_boxes"></textarea></span>
@@ -195,7 +194,8 @@
 		</div>
 		<script>
 			function create_event(){
-				window.document.location.href = 'events.html';
+				document.addForm.action = "AddEventServlet";
+				document.addForm.submit();
 			}
 		</script>
 

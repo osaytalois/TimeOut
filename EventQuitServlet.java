@@ -1,0 +1,51 @@
+
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import implementation.EventService;
+import logic.User;
+
+/**
+ * Servlet implementation class EventQuitServlet
+ */
+@WebServlet("/EventQuitServlet")
+public class EventQuitServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public EventQuitServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		EventService eS = new EventService();
+		HttpSession session = request.getSession();
+		eS.deleteEventMember(Integer.parseInt(request.getParameter("eventHide").toString()), ((User)session.getAttribute("user")).getIdUser());
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/news.jsp");
+		rd.forward(request, response);
+	}
+
+}
