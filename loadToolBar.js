@@ -4,6 +4,7 @@
 		$hideTop = $("<div id = hideTop></div>");
 		$topTools = $("<div id = toolbartop ></div>");
 		$logo = $("<div id = 'logo' onclick = 'loadNews()'></div>");
+		$logoutForm = $("<form name = 'logoutForm' method='POST'></form>");
 		$logout = $("<div id = 'logOut' class = 'toolButtons' onclick = 'loadLanding()'></div>").html("Logout");
 		$toolDiv = $("<div class = 'toolDiv'></div>");
 		$form = $("<form action='SearchServlet' method='POST' name='searchForm'></form>");
@@ -19,7 +20,8 @@
 		$($form).append($searchButton);
 		$($toolDiv).append($form);
 		$($topTools).append($logo);
-		$($topTools).append($logout);
+		$($logoutForm).append($logout);
+		$($topTools).append($logoutForm);
 		$($topTools).append($toolDiv);
 		$($hideTop).append($topTools);
 		$("body").append($hideTop);

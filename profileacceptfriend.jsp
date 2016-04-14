@@ -26,7 +26,7 @@
                  
                 <div class="data">
                     <h1>${friend.firstName} ${friend.surName}</h1>
-                    <h3>Manila, Philippines</h3>
+                    <h3>${friend.location}</h3>
                     <h4>${friend.position}</h4>
 					 <div class="pm">
                         <a href = "SendNotificationServlet?con=acc&notif_type=3&recipientID=${friend.idUser}">Accept</a>
@@ -34,9 +34,9 @@
                     </div>
                     <div class="sep"></div>
                     <ul class="numbers clearfix">
-                        <li class = "withbrdr">Total Games<strong>30</strong></li>
-                        <li class = "withbrdr">Wins<strong>0</strong></li>
-                        <li>Losses<strong>30</strong></li>
+                        <li class = "withbrdr">Total Games<strong>${friend.games_played}</strong></li>
+                        <li class = "withbrdr">Wins<strong>${friend.games_won }</strong></li>
+                        <li>Losses<strong>${friend.games_lost}</strong></li>
                     </ul>
                 </div>
             </div>

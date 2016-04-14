@@ -88,7 +88,8 @@
 		window.location.href = "seefriends.jsp";
 	}
 	function loadLanding(){
-		window.document.location.href = "index.html";
+		document.logoutForm.action = "LogoutServlet";
+		document.logoutForm.submit();
 	}
 	function loadSettings(){
 		window.location.href = "settings.html";

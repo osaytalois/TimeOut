@@ -54,10 +54,15 @@ public class SignupServlet extends HttpServlet {
 		String lastName = request.getParameter("lastName");
 		String userName = request.getParameter("userName_signup");
 		String position = request.getParameter("position");
+		String location = request.getParameter("location");
 		String  password = request.getParameter("password_signup");
 		String password1 = request.getParameter("password1_signup");
 
 		User user = new User(-99 , userName, password, firstName, middleName, lastName, "null", position);
+		user.setGames_played(0);
+		user.setGames_lost(0);
+		user.setGames_won(0);
+		user.setLocation(location);
 		SignupService signupService = new SignupService();		
 		try{
 		Date dob = new SimpleDateFormat("MM/dd/yyyy").parse("01/01/01");

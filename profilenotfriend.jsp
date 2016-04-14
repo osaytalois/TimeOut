@@ -26,7 +26,7 @@
                  
                 <div class="data">
                     <h1>${friend.firstName} ${friend.surName}</h1>
-                    <h3>Manila, Philippines</h3>
+                    <h3>${friend.location}</h3>
                     <h4>${friend.position}</h4>
 					 <div class="pm">
                         <a href = "SendNotificationServlet?notif_type=1&recipientID=${friend.idUser}">Add as Friend</a>&nbsp;&nbsp;

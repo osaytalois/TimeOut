@@ -138,7 +138,7 @@ public class UserDAO {
 	public void addUser(User user) {
 		// TODO Auto-generated method stub
 		try{
-			String query = "insert into user(username, password, firstName, middleName, surName, email,position,dp) values (?,?,?,?,?,?,?,?)";
+			String query = "insert into user(username, password, firstName, middleName, surName, email,position,dp,games_played,games_lost,games_won) values (?,?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement preparedStatement = conn.prepareStatement( query );
 			preparedStatement.setString(1, user.getUsername());
 			preparedStatement.setString(2, user.getPassword());
@@ -149,6 +149,9 @@ public class UserDAO {
 			//preparedStatement.setDate(7, new java.sql.Date(user.getDob().getTime()));
 			preparedStatement.setString(7, user.getPosition());
 			preparedStatement.setString(8, "profile1.png");
+			preparedStatement.setInt(9, user.getGames_played());
+			preparedStatement.setInt(10, user.getGames_lost());
+			preparedStatement.setInt(11, user.getGames_won());
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
 			System.out.println("success adding dude");

@@ -28,13 +28,13 @@
                  
                 <div class="data">
                     <h1>${user.firstName} ${user.surName}</h1>
-                    <h3>London, England</h3>
+                    <h3>${user.location}</h3>
                     <h4>${user.position}</h4>
                     <div class="sep"></div>
                     <ul class="numbers clearfix">
-                        <li class = "withbrdr">Total Games<strong>50</strong></li>
-                        <li class = "withbrdr">Wins<strong>50</strong></li>
-                        <li>Losses<strong>0</strong></li>
+                        <li class = "withbrdr">Total Games<strong>${user.games_played}</strong></li>
+                        <li class = "withbrdr">Wins<strong>${user.games_won}</strong></li>
+                        <li>Losses<strong>${user.games_lost}</strong></li>
                     </ul>
                 </div>
             </div>

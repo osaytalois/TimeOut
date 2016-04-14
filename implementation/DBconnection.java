@@ -9,7 +9,7 @@ import java.sql.Connection;
 
 public abstract class DBconnection {
     private String driverName = "com.mysql.jdbc.Driver";
-    private String url = "jdbc:mysql://localhost:3306/timeout_schema3"; 
+    private String url = "jdbc:mysql://localhost:3306/timeout_schema"; 
     private String username = "root";
     private String password = "An!moid112";
     
