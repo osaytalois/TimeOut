@@ -11,6 +11,11 @@ public class NotificationService {
 		return success;
 	}
 	
+	public void removeNotification(int r, int s){
+		NotificationDAO f = new NotificationDAO();
+		f.removeNotification(r,s);
+	}
+	
 	public ArrayList<Notification> getNotifications(int IdUser){
 		NotificationDAO f = new NotificationDAO();
 		ArrayList<Notification> notiflist = new ArrayList<Notification>();

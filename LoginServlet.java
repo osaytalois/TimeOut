@@ -57,7 +57,7 @@ public class LoginServlet extends HttpServlet {
 			UserInfoService infoservice = new UserInfoService();
 			UserInfo myinfo = infoservice.getUserInfo(user.getIdUser());
 			if(myinfo == null){
-				myinfo = new UserInfo(user.getIdUser(), "You have not added any description.", "You have not added any contact details.", "", "You have not added any work information", "");
+				myinfo = new UserInfo(user.getIdUser(), "There is no description available", "There are no contact details available", "", "There are no work information available.", "");
 				infoservice.addInfo(myinfo);
 			}
 			request.getSession().setAttribute("myinfo", myinfo);

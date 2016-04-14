@@ -35,6 +35,7 @@ public class AddFriendServlet extends HttpServlet {
 		if(con.equals("acc")){
 			FriendService friendservice = new FriendService();
 			boolean success = friendservice.addFriend(user.getIdUser(), notfriend.getIdUser());
+			
 			List<User> friendslist = friendservice.getFriends(notfriend);
 			request.getSession().setAttribute("friendslist2", friendslist);
 			UserInfoService infoservice = new UserInfoService();
@@ -56,16 +57,7 @@ public class AddFriendServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//User user = (User) request.getSession().getAttribute("user");
-		
-		//User notfriend = (User) request.getSession().getAttribute("friend");
-		
-		
-		//FriendService friendservice = new FriendService();
-		//boolean success = friendservice.addFriend(user.getIdUser(), notfriend.getIdUser());
-		
-		//RequestDispatcher rd = getServletContext().getRequestDispatcher("/FriendServlet");
-		//rd.forward(request, response);
+		doGet(request, response);
 	}
 
 }

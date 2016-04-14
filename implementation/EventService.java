@@ -19,7 +19,7 @@
 	import java.util.logging.Logger;
 	import logic.Post;
 	import logic.User;
-
+	import logic.Event;
 
 	/**
 	 *
@@ -37,13 +37,13 @@ public class EventService {
 	            connection = dBConnection.getConnection();
 	            String query = "insert into events(location,date,id,hostid,myImage,description,title) values (?,?,?,?,?,?,?);";
 	            UserDAO b = new UserDAO();
-	            if(b.getUserByUsername(uname) == null)
-	            	return false;
+	           // if(b.getUserByUsername(uname) == null)
+	           // 	return false;
 	            java.text.SimpleDateFormat sDF = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	            String timeNow = sDF.format(a.getDate());
 	            PreparedStatement preparedStatement = connection.prepareStatement(query);
 	            preparedStatement.setInt(1, a.getUserID());
-	            preparedStatement.setString(2, a.getPost());
+	           // preparedStatement.setString(2, a.getPost());
 	            preparedStatement.setString(3, timeNow);
 	            preparedStatement.executeUpdate();
 	            connection.close();

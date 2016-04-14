@@ -111,6 +111,9 @@
 	function loadFriends(){
 		window.location.href = 'trials.jsp';
 	}
+	function loadNews(){
+		window.location.href = 'news.jsp';
+	}
 	
 
 

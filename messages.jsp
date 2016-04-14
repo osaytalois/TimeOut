@@ -10,7 +10,7 @@
 		<script src="loadToolBar.js"></script>
 	</head>
 	<body>
-		<%@ page import="java.util.ArrayList,logic.User,logic.Message,logic.Recent,implementation.MessageService,implementation.UserDAO" %>
+		<%@ page import="java.util.ArrayList,logic.User,logic.Recent, logic.Message,implementation.MessageService,implementation.UserDAO" %>
 		<%!	UserDAO uD = new UserDAO();
 			MessageService p = new MessageService();
 			ArrayList<Message> mssgs = new ArrayList<Message>();
@@ -114,10 +114,13 @@
 					}
 				%>
 			</div>
+			
+			<% int tW = ((User)session.getAttribute("talkingWith")).getIdUser(); %>
+			<% int u = ((User)session.getAttribute("user")).getIdUser();%>
 			<div id = "refresh" class = "addButton" style = "width:50px; height:50px; z-index:10; position:absolute; right:0;" onclick = "refreshForm()"></div>			
 			<form name = "messageSendForm" method = "POST" class = "message">
 				<textarea class = "toSend" value = "" placeholder = "Send a Message"></textarea>
-				<div class = "sendButton" onclick = "send()">Send</div>
+				<%out.println("<div class= 'sendButton' onclick = send("+tW+")>Send</div>"); %>
 				<input type = "hidden" name = "tempMessageSend" id = "hidemssgsend"></input>
 			</form>
 		</div>
@@ -150,12 +153,12 @@
 			function refreshForm(){
 				window.location.href = "messages.jsp";
 			}
-			function send(){
+			function send(tW){
 				var message = $(".toSend").val();
 				$(".toSend").val("");
 				message = message.replace("\n", "</br>");
 				$("#hidemssgsend").val(message);
-				document.messageSendForm.action = "AddMessageServlet";
+				document.messageSendForm.action = "SendNotificationServlet?notif_type=2&recipientID="+tW+"";
 				document.messageSendForm.submit();
 			}
 			function toBottom(x){

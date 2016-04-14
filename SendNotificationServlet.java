@@ -1,6 +1,7 @@
 
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
@@ -26,10 +27,7 @@ public class SendNotificationServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SendNotificationServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -46,7 +44,26 @@ public class SendNotificationServlet extends HttpServlet {
 			Notification notif = new Notification(notif_type, recipientID, sender.getIdUser(), -99, new Date(), message);
 			NotificationService d = new NotificationService();
 			d.addNotification(notif);
+	
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/profilenotfriend.jsp");
+			rd.forward(request, response);
+		}
+		else if(notif_type == 2){
+			message = sender.getFirstName()+" "+sender.getSurName()+" sent you a message.";
+			Notification notif = new Notification(notif_type, recipientID, sender.getIdUser(), -99, new Date(), message);
+			NotificationService d = new NotificationService();
+			d.addNotification(notif);
+			
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/AddMessageServlet");
+			rd.forward(request, response);
+		}
+		else if(notif_type == 3){
+			message = sender.getFirstName()+" "+sender.getSurName()+" accepted your friend request.";
+			Notification notif = new Notification(notif_type, recipientID, sender.getIdUser(), -99, new Date(), message);
+			NotificationService d = new NotificationService();
+			d.addNotification(notif);
+			
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/AddFriendServlet");
 			rd.forward(request, response);
 		}
 	}
@@ -56,7 +73,8 @@ public class SendNotificationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		doGet(request,response);
+		
 	}
 
 }
