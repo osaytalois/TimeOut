@@ -87,11 +87,30 @@ public class NotificationDAO {
 			if(resultSet.next()){
 				return true;
 			}
+			preparedStatement.close();
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
+		return false;		
+	}
+	
+	public boolean checkIfRequested(int IdUser1, int IdUser2){
+		try{
+			String query = "select * from notifications where recipientID=? and senderID=? and notifType=?";
+			PreparedStatement preparedStatement = conn.prepareStatement( query );
+			preparedStatement.setInt(1, IdUser1);
+			preparedStatement.setInt(2, IdUser2);
+			preparedStatement.setInt(3, 1);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			if(resultSet.next()){
+				return true;
+			}
+			preparedStatement.close();
 		} catch(SQLException e){
 			e.printStackTrace();
 			return false;
 		}
-		return false;		
+		return false;
 	}
 	
 }

@@ -27,4 +27,9 @@ public class NotificationService {
 		NotificationDAO f = new NotificationDAO();
 		return f.checkIfNotif(IdUser);
 	}
+	
+	public boolean checkIfRequested(int IdUser1, int IdUser2){
+		NotificationDAO f = new NotificationDAO();
+		return f.checkIfRequested(IdUser1, IdUser2);
+	}
 }

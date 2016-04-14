@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import implementation.FriendService;
+import implementation.NotificationService;
 import implementation.UserInfoService;
 import logic.User;
 import logic.UserInfo;
@@ -42,9 +43,15 @@ public class FriendServlet extends HttpServlet {
 		friendinfo = infoservice.getUserInfo(friendaccount.getIdUser());
 		request.getSession().setAttribute("friendinfo", friendinfo);
 		
+		NotificationService n = new NotificationService();
+		
 		User user = (User) request.getSession().getAttribute("user");
 		if(friendaccount.getIdUser() == user.getIdUser()){
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/profile.jsp");
+			rd.forward(request, response);
+		}
+		else if(n.checkIfRequested(friendaccount.getIdUser(), user.getIdUser()) == true){
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/profilesentfriendrequest.jsp");
 			rd.forward(request, response);
 		}
 		else if(friendservice.checkIfFriend(user.getIdUser(), friendaccount.getIdUser()) == false){		

@@ -45,7 +45,7 @@ public class SendNotificationServlet extends HttpServlet {
 			NotificationService d = new NotificationService();
 			d.addNotification(notif);
 	
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/profilenotfriend.jsp");
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/profilesentfriendrequest.jsp");
 			rd.forward(request, response);
 		}
 		else if(notif_type == 2){

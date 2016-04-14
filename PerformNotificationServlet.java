@@ -2,6 +2,7 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,6 +19,7 @@ import implementation.NotificationService;
 import implementation.ProfileService;
 import implementation.UserDAO;
 import implementation.UserInfoService;
+import logic.Notification;
 import logic.User;
 import logic.UserInfo;
 
@@ -40,6 +42,9 @@ public class PerformNotificationServlet extends HttpServlet {
 		if(notifType == 1){
 			NotificationService n = new NotificationService();
 			n.removeNotification(recipientID, senderID);
+			ArrayList<Notification> notifslist = new ArrayList<Notification>();
+			notifslist = n.getNotifications(recipientID);
+			request.getSession().setAttribute("notifslist", notifslist);
 			
 			FriendService friendservice = new FriendService();
 			User friendaccount = friendservice.getUserById(senderID);
