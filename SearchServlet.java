@@ -46,8 +46,21 @@ public class SearchServlet extends HttpServlet {
 		String query = request.getParameter("searchBox");
 		
 		SearchService search = new SearchService();
-		ArrayList<User> searchUsers = search.searchUser(query);
 		
+		User u = (User) request.getSession().getAttribute("user");
+		
+		ArrayList<User> searchUsers = search.searchUser(query);
+		ArrayList<Event> searchEvents = search.searchEvents(query);
+		
+		//check if the search query is the user
+		for(int i = 0; i <searchUsers.size();i++){
+			if(searchUsers.get(i).getUsername().equals(u.getUsername())){
+				searchUsers.remove(i);
+				searchUsers.add(new User("null"));
+			}
+		}
+		
+		//check the contents of the result of the query
 		System.out.println(searchUsers.size());
 		for(int i = 0; i<searchUsers.size(); i++)
 			System.out.println(searchUsers.get(i).getUsername()+" "+searchUsers.get(i).getDp());
@@ -56,6 +69,8 @@ public class SearchServlet extends HttpServlet {
 		if(searchUsers.size() > 0)
 			request.getSession().setAttribute("searchUsers",searchUsers);
 		
+		if(searchEvents.size() > 0)
+			request.getSession().setAttribute("searchEvents", searchEvents);
 				
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/searchResults.jsp");
 		rd.forward(request, response);

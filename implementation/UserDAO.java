@@ -157,4 +157,24 @@ public class UserDAO {
 		}
 		//DbServices.closeConnection(conn);
 	}
+	public void updateUser(User user) {
+		// TODO Auto-generated method stub
+		try{
+			String query = "update user set password=?, firstName=?, surName=?, dp=? where username=?";
+			PreparedStatement preparedStatement = conn.prepareStatement( query );
+			
+			preparedStatement.setString(1, user.getPassword());
+			preparedStatement.setString(2, user.getFirstName());
+			preparedStatement.setString(3, user.getSurName());
+			//preparedStatement.setDate(7, new java.sql.Date(user.getDob().getTime()));
+			preparedStatement.setString(4, user.getDp());
+			preparedStatement.setString(5, user.getUsername());
+			preparedStatement.executeUpdate();
+			preparedStatement.close();
+			System.out.println("success adding dude");
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
+		//DbServices.closeConnection(conn);
+	}
 }

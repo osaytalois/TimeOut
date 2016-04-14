@@ -37,6 +37,9 @@ public class Event {
 	public Event(){
 		
 	}
+	public Event(String title){
+		this.title = "null";
+	}
 	public Event(int id, int userID, String location, String title, Calendar date, String desc) {
 		this.id = id;
 		this.userID = userID;

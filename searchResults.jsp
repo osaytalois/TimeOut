@@ -103,26 +103,46 @@ a{
 	<div id = "container">
 			<div class = "head">Search Results</div>
 			<div class = "list">
-				<c:forEach items="${searchUsers}" var="searchResult" begin="0" end="${fn:length(searchUsers)}">
-						<c:choose>
-						<c:when test="${searchResult.username != 'null'}">
-							<a href = "PerformSearchProfile?username=${searchResult.username}">
+				<c:choose>
+				<c:when test="${searchUsers[0].username != 'null' || searchEvents[0].title != 'null' }">
+				<c:forEach items="${searchUsers}" var="searchUser" begin="0" end="${fn:length(searchUsers)}">
+						<c:if test="${searchUser.username != 'null' }">
+							<a href = "PerformSearchProfile?username=${searchUser.username}">
 								<div class = "row">
-									<div class = "dp" style="background-image: url('${searchResult.dp}');"></div>
-									<div class = "user_name">${searchResult.firstName} ${searchResult.surName} | ${searchResult.position}</div>
+									<div class = "dp" style="background-image: url('${searchUser.dp}');"></div>
+									<div class = "user_name">${searchUser.firstName} ${searchUser.surName} | ${searchUser.position}</div>
 								</div>
 							</a>
+						</c:if>
+				</c:forEach>
+				<form name = "eventsForm" method= 'POST'>
+					<c:forEach items="${searchEvents}" var="searchEvent" begin="0" end="${fn:length(searchEvents)}">
+								<c:if test="${searchEvent.title != 'null'}">
+										<div class = "row" onclick = "goToEvent(${searchEvent.id})">
+											<div class = "dp" style="background-image: url('${searchEvent.imgPath}');"></div>
+											<div class = "user_name">${searchEvent.title} | ${searchEvent.location}</div>
+										</div>
+									
+								</c:if>
+					</c:forEach>
+					<input id = "eventHide" name = "eventHide" type = "hidden"></input>
+				</form>
 						</c:when>
 						<c:otherwise>
 							<div class = "no_results">
-								loop! No Search Results found!
+								No Search Results found!
 							</div>
 						</c:otherwise>
 						</c:choose>
-				</c:forEach>
 			</div>
 			</div>
-
+<script>
+	function goToEvent(a){
+	$("#eventHide").val(a);
+	document.eventsForm.action = "EventServlet";
+	document.eventsForm.submit();
+	}
+</script>
 <script src="script.js"></script>	
 <script src="loadToolBar.js"></script>
 </body>

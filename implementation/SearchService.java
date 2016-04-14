@@ -35,7 +35,12 @@ public class SearchService {
 		return searched_users;
 	}
 	
-	
+	public ArrayList<Event> searchEvents(String eventName){
+		EventService service = new EventService();
+			this.searched_events = service.getEventsByName(eventName);
+				
+			return searched_events;
+	}
 }
 
 

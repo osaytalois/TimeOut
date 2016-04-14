@@ -9,7 +9,7 @@ public class SignupService {
 		
 		User user = dao.getUserByUsername(userName);
 		
-		if(user==null)
+		if(user.getUsername().equals("null"))
 			return true;
 		
 			return false;

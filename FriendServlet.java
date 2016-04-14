@@ -27,8 +27,8 @@ public class FriendServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//String username = "igiem";
-		String username = request.getParameter("param1");
+		String username = "leeminho";
+		//String username = request.getParameter("param1");
 		FriendService friendservice = new FriendService();
 		User friendaccount = friendservice.getUserByUserName(username);
 		request.getSession().setAttribute("friend",friendaccount);

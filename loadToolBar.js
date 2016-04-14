@@ -6,14 +6,14 @@
 		$logo = $("<div id = 'logo' onclick = 'loadNews()'></div>");
 		$logout = $("<div id = 'logOut' class = 'toolButtons' onclick = 'loadLanding()'></div>").html("Logout");
 		$toolDiv = $("<div class = 'toolDiv'></div>");
-		$form = $("<form action='SearchServlet' method='POST'></form>");
+		$form = $("<form action='SearchServlet' method='POST' name='searchForm'></form>");
 		$textBox = $("<input type='text' id = 'toolSearch' name = 'searchBox' placeholder = 'Search Timeout'>");
 		$($textBox).focus(function(){
 			$(this).attr('placeholder', '');
 		}).blur(function(){
 			$(this).attr('placeholder', 'Search Timeout');
 		});
-		$searchButton = $("<div></div>");
+		$searchButton = $("<div onclick='searchClicked()'></div>");
 		$($searchButton).attr("id", "searchButton");
 		$($form).append($textBox);
 		$($form).append($searchButton);
@@ -75,4 +75,8 @@
 		var windowWidth = $(window).width();
 		$($botDiv).css("marginLeft",((windowWidth/2|0)-(botDivWidth/2|0))+"px");
 		$($toolDivMid).css("marginLeft",((windowWidth/2|0)-(toolDivMidWidth/2|0))+"px");
+	}
+	function searchClicked(){
+		document.searchForm.action = "SearchServlet";
+		document.searchForm.submit();
 	}

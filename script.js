@@ -115,5 +115,6 @@
 		window.location.href = 'news.jsp';
 	}
 	
+	
 
 

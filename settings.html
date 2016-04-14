@@ -14,47 +14,46 @@
 		<div id="main_container">
 			<div id="settings_dialog">
 			<div id="settings_space"> </div>
+			<form name="mySettingsForm" action="UpdateUserServlet" method="post">
 			<div id="settings_form"> 
-					<div id="display_photo"> 
-						<img src="lois.jpg" id="pic_box"> </img>
-					</div>
-					<div id="change_dp_button">Change Photo</div>
 				<br>
+					<input type="file" id="file_upload" name="new_dp">
+				<br><br>
 					<div class="labels">First name: </div>
-					<span> <input id="fname" type="text" class="input_boxes"></input> </span>
+					<span> <input id="fname" type="text" class="input_boxes" name="firstname"></input> </span>
 				<br><br>
 					<div class="labels">Last name: </div>
-					<span> <input id="lname" type="text" class="input_boxes"></input> </span>
+					<span> <input id="lname" type="text" class="input_boxes" name="lastname"></input> </span>
 				<br><br>
-					<div class="labels">Username: </div>
-					<span> <input id="uname" type="text" class="input_boxes"></input> </span>
+					<!--  <div class="labels">Username: </div>
+					<span> <input id="uname" type="text" class="input_boxes" name="username"></input> </span>
+				<br><br>  -->
+					<div class="labels">Old Password: </div>
+					<span> <input type="password" class="input_boxes" name="old_password"></input> </span>
 				<br><br>
-					<div class="labels">Password: </div>
-					<span> <input id="pword" type="password" class="input_boxes"></input> </span>
+					<div class="labels">New Password: </div>
+					<span> <input id="pword" type="password" class="input_boxes" name="new_password"></input> </span>
 				<br><br>
 					<div class="labels">Re-type Password: </div>
-					<span> <input id="second_pword" type="password" class="input_boxes"></input> </span>
-				<br><br>
-					<div class="labels">Password: </div>
-					<span> <input id="pword" type="password" class="input_boxes"></input> </span>
-				<br><br>
-				<div class="input_boxes">
-				<select id="month">
+					<span> <input id="second_pword" type="password" class="input_boxes" name="new_password1"></input> </span>
+				<!--<br><br>
+				 <div class="input_boxes">
+				<select id="month" name="birthday_month">
 						<option value="month"> Month </option>
-						<option value="Jan"> January </option>
-						<option value="Feb"> February </option>
-						<option value="Mar"> March </option>
-						<option value="Apr"> April </option>
+						<option value="Jan"> Jan </option>
+						<option value="Feb"> Feb </option>
+						<option value="Mar"> Mar </option>
+						<option value="Apr"> Apr </option>
 						<option value="May"> May </option>
-						<option value="June"> June </option>
-						<option value="Jul"> July </option>
+						<option value="June"> Jun </option>
+						<option value="Jul"> Jul </option>
 						<option value="Aug"> Aug </option>
-						<option value="Sept"> September </option>
-						<option value="Oct"> October </option>
-						<option value="Nov"> November </option>
-						<option value="Dec"> December </option>
+						<option value="Sept"> Sept </option>
+						<option value="Oct"> Oct </option>
+						<option value="Nov"> Nov </option>
+						<option value="Dec"> Dec </option>
 				</select>
-				<select id="day">
+				<select id="day" name="birthday_day">
 						<option value="day"> Day </option>
 						<option value="1"> 1 </option>
 						<option value="2"> 2 </option>
@@ -88,20 +87,55 @@
 						<option value="30"> 30 </option>
 						<option value="31"> 31 </option>
 				</select>
-				<select id="year">
+				<select id="year" name="birthday_year">
 						<option value="year"> Year </option>
-				</select>
-				<br><br>
-				<input id="male" type="radio"> Male </input>
-				<input id="female" type="radio"> Female </input>
-			</div>
+						<option value="1977"> 77 </option>
+						<option value="1978"> 78 </option>
+						<option value="1979"> 79 </option>
+						<option value="1980"> 80 </option>
+						<option value="1981"> 81 </option>
+						<option value="1982"> 82 </option>
+						<option value="1983"> 83 </option>
+						<option value="1984"> 84 </option>
+						<option value="1985"> 85 </option>
+						<option value="1986"> 86 </option>
+						<option value="1987"> 87 </option>
+						<option value="1988"> 88 </option>
+						<option value="1989"> 1989 </option>
+						<option value="1990"> 90 </option>
+						<option value="1991"> 91 </option>
+						<option value="1992"> 92 </option>
+						<option value="1993"> 93 </option>
+						<option value="1994"> 94 </option>
+						<option value="1995"> 95 </option>
+						<option value="1996"> 96 </option>
+						<option value="1997"> 97 </option>
+						<option value="1998"> 98 </option>
+						<option value="1999"> 99 </option>
+						<option value="2000"> 00 </option>
+						<option value="2001"> 01 </option>
+						<option value="2002"> 02 </option>
+						<option value="2003"> 03 </option>
+						<option value="2004"> 04 </option>
+						<option value="2005"> 05 </option>
+						<option value="2006"> 06 </option>
+						<option value="2007"> 07 </option>
+						<option value="2008"> 08 </option>
+						<option value="2009"> 09 </option>
+						<option value="2010"> 10 </option>
+						<option value="2011"> 11 </option>
+						<option value="2012"> 12 </option>
+						<option value="2013"> 13 </option>
+						<option value="2014"> 14 </option>
+						<option value="2015"> 15 </option>
+						<option value="2016"> 16 </option>
+				</select>  -->
+				</div>
 				<br><br><br><br>
-					<div id="save_button" onclick="change_settings()">
-						<div id="button_space"></div>
-						Save Changes
-					</div>
+					<input type="submit" id="save_button" value="Save Changes">
 			</div>
-		</div>
+			</form>
+			</div>
 		</div>
 		<script>
 			function change_settings(){
