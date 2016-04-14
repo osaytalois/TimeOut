@@ -90,11 +90,13 @@
 	border:1px;
 	border-color:black;
 	border-style:solid;
-	float:left;
+	display:inline-block;
 	margin:20px;
 	margin-Top:40px;
 	margin-Left:26px;
 	font-size:13px;
+	display:inline;
+	float:left;
 }
 .smallDiv:hover{
 	cursor:pointer;
@@ -155,6 +157,15 @@
 .hidingContainer{
 	position:absolute;
 	margin-Left:37px;
+}
+.scrollContainer{
+	position:relative;
+	width: 500px;
+	height:150px;
+	border:1px;
+	border-style:solid;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 .containerA{
 }

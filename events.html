@@ -7,6 +7,31 @@
 		<link href = "styles.css" rel = "stylesheet" type = "text/css"/>
 		<link href = "stylesEvents.css" rel = "stylesheet" type = "text/css"/>
 		<style>
+		.scrollContainer{
+			position:relative;
+			width: 500px;
+			height:150px;
+			border:1px;
+			border-style:solid;
+			overflow: scroll;
+		}
+	.smallDiv{
+			position:relative;
+		height:100px;
+		width:100px;
+		border:1px;
+		border-color:black;
+		border-style:solid;
+		margin:20px;
+		margin-Top:10px;
+		margin-Left:26px;
+		font-size:13px;
+	}
+	.myDiv{
+			position:relative;
+		width:150px;
+		float:left;
+	}
 		</style>
 	</head>
 	<body>
@@ -67,27 +92,67 @@
 				</select> 
 				<span id = "applyDateHost" value = "Apply" class = "eventButt">Apply</span>
 			</form>
-			<div class = "simpleButton leftButton" onclick = "moveRight('sectionA', '#hosted')"><p><</p></div>
-			<div class = "simpleButton rightButton" onclick = "moveLeft('sectionA', '#hosted')"><p>></p></div>
-			<div id = "hosted1" class = "hidingContainer">
-				<div class = "sectionA1 containerA largeDiv shadowDiv">
-					<div id = "hosted1a" class = "smallDiv shadowDiv" onclick = "eventClicked()">
-					</div>
-					<div id = "hosted1b" class = "smallDiv shadowDiv" onclick = "eventClicked()"></div>
-					<div id = "hosted1c" class = "smallDiv shadowDiv" onclick = "eventClicked()"></div>
-					<div id = "hosted1d" class = "smallDiv shadowDiv" onclick = "eventClicked()"></div>
-					<div id = "hosted1e" class = "smallDiv shadowDiv" onclick = "eventClicked()"></div>
-				</div>
+	<div class = "scrollContainer">
+		<div class = 'my' >
+			<div class = myDiv>
+				<div class = "smallDiv"></div>
 			</div>
-			<div id = "hosted2" class = "hidingContainer">
-				<div class = "sectionA2 containerB largeDiv shadowDiv">
-					<div id = "hosted2a" class = "smallDiv shadowDiv" onclick = "eventClicked()"></div>
-					<div id = "hosted2b" class = "smallDiv shadowDiv" onclick = "eventClicked()"></div>
-					<div id = "hosted2c" class = "smallDiv shadowDiv" onclick = "eventClicked()"></div>
-					<div id = "hosted2d" class = "smallDiv shadowDiv" onclick = "eventClicked()"></div>
-					<div id = "hosted2e" class = "smallDiv shadowDiv" onclick = "eventClicked()"></div>
-				</div>
+			<div class = myDiv>
+				<div class = "smallDiv"></div>
 			</div>
+			<div class = myDiv>
+				<div class = "smallDiv"></div>
+			</div>
+			<div class = myDiv>
+				<div class = "smallDiv"></div>
+			</div>
+			<div class = myDiv>
+				<div class = "smallDiv"></div>
+			</div>
+			<div class = myDiv>
+				<div class = "smallDiv"></div>
+			</div>
+			<div class = myDiv>
+				<div class = "smallDiv"></div>
+			</div>
+			<div class = myDiv>
+				<div class = "smallDiv"></div>
+			</div>
+			<div class = myDiv>
+				<div class = "smallDiv"></div>
+			</div>
+			<div class = myDiv>
+				<div class = "smallDiv"></div>
+			</div>
+			<div class = myDiv>
+				<div class = "smallDiv"></div>
+			</div>
+			<div class = myDiv>
+				<div class = "smallDiv"></div>
+			</div>
+			<div class = myDiv>
+				<div class = "smallDiv"></div>
+			</div>
+			<div class = myDiv>
+				<div class = "smallDiv"></div>
+			</div>
+			<div class = myDiv>
+				<div class = "smallDiv"></div>
+			</div>
+			<div class = myDiv>
+				<div class = "smallDiv"></div>
+			</div>
+			<div class = myDiv>
+				<div class = "smallDiv"></div>
+			</div>
+			<div class = myDiv>
+				<div class = "smallDiv"></div>
+			</div>
+			<div class = myDiv>
+				<div class = "smallDiv"></div>
+			</div>
+		</div>
+	</div>
 		</div>
 		
 		<div class = "longDiv">
@@ -325,44 +390,11 @@
 		</div>
 		<div style = "height:90px;"></div>
 		<script>
-			function moveLeft(input, whatToRep){
-				if($("."+input+"1").is(":visible")){
-					replace("Right Clicked", "03/12/16", "eventicon.jpg", whatToRep+"2a");
-					replace("Right Clicked", "03/12/16", "eventicon.jpg", whatToRep+"2b");
-					replace("Right Clicked", "03/12/16", "eventicon.jpg", whatToRep+"2c");
-					replace("Right Clicked", "03/12/16", "eventicon.jpg", whatToRep+"2d");
-					replace("Right Clicked", "03/12/16", "eventicon.jpg", whatToRep+"2e");
-					$("."+input+"1").hide("slide", { direction: "left" }, 1000);
-					$("."+input+"2").show("slide", { direction: "right" }, 1000);
-				}else{
-					replace("Right Clicked", "03/12/16", "eventicon.jpg", whatToRep+"1a");
-					replace("Right Clicked", "03/12/16", "eventicon.jpg", whatToRep+"1b");
-					replace("Right Clicked", "03/12/16", "eventicon.jpg", whatToRep+"1c");
-					replace("Right Clicked", "03/12/16", "eventicon.jpg", whatToRep+"1d");
-					replace("Right Clicked", "03/12/16", "eventicon.jpg", whatToRep+"1e");
-					$("."+input+"2").hide("slide", { direction: "left" }, 1000);
-					$("."+input+"1").show("slide", { direction: "right" }, 1000);
-				}
-			}
-			function moveRight(input, whatToRep){
-				if($("."+input+"1").is(":visible")){
-					replace("Left Clicked", "03/12/16", "eventicon.jpg", whatToRep+"2a");
-					replace("Left Clicked", "03/12/16", "eventicon.jpg", whatToRep+"2b");
-					replace("Left Clicked", "03/12/16", "eventicon.jpg", whatToRep+"2c");
-					replace("Left Clicked", "03/12/16", "eventicon.jpg", whatToRep+"2d");
-					replace("Left Clicked", "03/12/16", "eventicon.jpg", whatToRep+"2e");
-					$("."+input+"1").hide("slide", { direction: "right" }, 1000);
-					$("."+input+"2").show("slide", { direction: "left" }, 1000);
-				}else{
-					replace("Left Clicked", "03/12/16", "eventicon.jpg", whatToRep+"1a");
-					replace("Left Clicked", "03/12/16", "eventicon.jpg", whatToRep+"1b");
-					replace("Left Clicked", "03/12/16", "eventicon.jpg", whatToRep+"1c");
-					replace("Left Clicked", "03/12/16", "eventicon.jpg", whatToRep+"1d");
-					replace("Left Clicked", "03/12/16", "eventicon.jpg", whatToRep+"1e");
-					$("."+input+"2").hide("slide", { direction: "right" }, 1000);
-					$("."+input+"1").show("slide", { direction: "left" }, 1000);
-				}
-			}
+	$(document).ready(function() {
+   var container_width = $(".myDiv").width() * $(".my > .myDiv").length;
+   console.log(container_width);
+   $(".my").css("width", container_width+"px");
+});
 			function replace(title, date, img, appendTo){
 				$(appendTo).html("");
 				addSmallEvent(title, date, img, appendTo);
