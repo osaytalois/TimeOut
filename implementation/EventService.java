@@ -259,6 +259,7 @@ public class EventService {
 	            return false;
 	        }
 	    }
+<<<<<<< HEAD
 	    
 	    public ArrayList<Event> getEventsByName(String eventName){
     		ArrayList<Event> events = new ArrayList<Event>();
@@ -283,4 +284,6 @@ public class EventService {
             return null;
         }
     }
+=======
+>>>>>>> origin/master
 	}

@@ -42,9 +42,11 @@ public class MessageService {
             connection.close();
             if(getRecent(sender.getIdUser(),recipient.getIdUser())==null){
             	addRecent(sender.getIdUser(), recipient.getIdUser(), timeNow);
+            	addRecent(recipient.getIdUser(), sender.getIdUser(), timeNow);
             }
             else{
             	updateRecent(sender.getIdUser(), recipient.getIdUser(), timeNow);
+            	updateRecent( recipient.getIdUser(),sender.getIdUser(), timeNow);
             }
             return true;
 
@@ -115,9 +117,14 @@ public class MessageService {
             dBConnection = DBconnection.getInstance();
             connection = dBConnection.getConnection();
             //String query = "select * from recentchat where user = ? order by date desc;";
-            String query = "select a.user, a.friend, if(b.date > a.date, b.date, a.date) as date from recentchat a, recentchat b where a.friend = b.user and a.user = b.friend and a.user = ? order by date desc;";
+            //String query = "select a.user, a.friend, max(if(b.date > a.date, b.date, a.date)) as mydate from recentchat a, recentchat b where (a.friend = b.user and a.user = b.friend and a.user = ?) or (a.user = b.user and a.friend = b.friend and b.user = ?) group by a.friend order by mydate desc ;";//"select a.user, a.friend, if(b.date > a.date, b.date, a.date) as date from recentchat a, recentchat b where a.friend = b.user and a.user = b.friend and a.user = ? order by date desc;";
+            //String query = "select a.user, a.friend, max(if(b.date > a.date, b.date, a.date)) as mydate from recentchat a, recentchat b  where (a.friend = b.user and a.user = b.friend and (a.user = ?)) or (a.user = b.user and a.friend = b.friend and (b.user = ? or b.friend = ?) and a.user not in (select c.friend from recentchat c, recentchat d where (c.friend = d.user and c.user = d.friend and (c.user = ?)) group by c.user, c.friend)) group by a.user, a.friend order by mydate desc;";
+			String query = "select user, friend, date from recentchat where user = ? order by date desc";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, user);
+            //preparedStatement.setInt(2, user);
+            //preparedStatement.setInt(3, user);
+            //preparedStatement.setInt(4, user);
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
             	Timestamp timestamp = rs.getTimestamp("date");

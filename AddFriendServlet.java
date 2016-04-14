@@ -2,6 +2,7 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -12,7 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import implementation.FriendService;
+import implementation.NotificationService;
 import implementation.UserInfoService;
+import logic.Notification;
 import logic.User;
 import logic.UserInfo;
 
@@ -47,6 +50,11 @@ public class AddFriendServlet extends HttpServlet {
 			
 		}
 		else{
+			NotificationService n = new NotificationService();
+			n.removeNotificationFriendRequest(user.getIdUser(), notfriend.getIdUser());
+			ArrayList<Notification> notifslist = new ArrayList<Notification>();
+			notifslist = n.getNotifications(user.getIdUser());
+			request.getSession().setAttribute("notifslist", notifslist);
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/profilenotfriend.jsp");
 			rd.forward(request, response);
 		}

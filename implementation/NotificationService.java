@@ -11,9 +11,19 @@ public class NotificationService {
 		return success;
 	}
 	
-	public void removeNotification(int r, int s){
+	public void removeNotificationFriendRequest(int r, int s){
 		NotificationDAO f = new NotificationDAO();
-		f.removeNotification(r,s);
+		f.removeNotificationFriendRequest(r,s);
+	}
+	
+	public void removeNotificationNewChat(int r, int s){
+		NotificationDAO f = new NotificationDAO();
+		f.removeNotificationNewChat(r,s);
+	}
+	
+	public void removeNotificationAcceptRequest(int r, int s){
+		NotificationDAO f = new NotificationDAO();
+		f.removeNotificationAcceptRequest(r,s);
 	}
 	
 	public ArrayList<Notification> getNotifications(int IdUser){
@@ -26,5 +36,10 @@ public class NotificationService {
 	public boolean checkIfNotif(int IdUser){
 		NotificationDAO f = new NotificationDAO();
 		return f.checkIfNotif(IdUser);
+	}
+	
+	public boolean checkIfRequested(int IdUser1, int IdUser2){
+		NotificationDAO f = new NotificationDAO();
+		return f.checkIfRequested(IdUser1, IdUser2);
 	}
 }

@@ -2,6 +2,7 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
@@ -45,7 +46,7 @@ public class SendNotificationServlet extends HttpServlet {
 			NotificationService d = new NotificationService();
 			d.addNotification(notif);
 	
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/profilenotfriend.jsp");
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/profilesentfriendrequest.jsp");
 			rd.forward(request, response);
 		}
 		else if(notif_type == 2){
@@ -62,6 +63,12 @@ public class SendNotificationServlet extends HttpServlet {
 			Notification notif = new Notification(notif_type, recipientID, sender.getIdUser(), -99, new Date(), message);
 			NotificationService d = new NotificationService();
 			d.addNotification(notif);
+			
+			NotificationService n = new NotificationService();
+			n.removeNotificationFriendRequest(sender.getIdUser(), recipientID);
+			ArrayList<Notification> notifslist = new ArrayList<Notification>();
+			notifslist = n.getNotifications(sender.getIdUser());
+			request.getSession().setAttribute("notifslist", notifslist);
 			
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/AddFriendServlet");
 			rd.forward(request, response);

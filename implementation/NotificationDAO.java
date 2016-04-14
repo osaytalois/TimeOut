@@ -43,12 +43,13 @@ public class NotificationDAO {
 			
 	}
 	
-	public void removeNotification(int r, int s){
+	public void removeNotificationFriendRequest(int r, int s){
 		try{
-			String query = "delete from notifications where recipientID=? AND senderID=?";
+			String query = "delete from notifications where recipientID=? AND senderID=? and notifType=?";
 			PreparedStatement preparedStatement = conn.prepareStatement( query );
 			preparedStatement.setInt(1, r);
 			preparedStatement.setInt(2, s);
+			preparedStatement.setInt(3, 1);
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
 		} catch(SQLException e){
@@ -56,6 +57,35 @@ public class NotificationDAO {
 		}
 		
 	}
+	
+	public void removeNotificationNewChat(int r, int s){
+		try{
+			String query = "delete from notifications where recipientID=? AND senderID=? and notifType=?";
+			PreparedStatement preparedStatement = conn.prepareStatement( query );
+			preparedStatement.setInt(1, r);
+			preparedStatement.setInt(2, s);
+			preparedStatement.setInt(3, 2);
+			preparedStatement.executeUpdate();
+			preparedStatement.close();
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
+	}
+	
+	public void removeNotificationAcceptRequest(int r, int s){
+		try{
+			String query = "delete from notifications where recipientID=? AND senderID=? and notifType=?";
+			PreparedStatement preparedStatement = conn.prepareStatement( query );
+			preparedStatement.setInt(1, r);
+			preparedStatement.setInt(2, s);
+			preparedStatement.setInt(3, 3);
+			preparedStatement.executeUpdate();
+			preparedStatement.close();
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
+	}
+
 
 	public List<Notification> getNotifications(int IdUser){
 			ArrayList<Notification> notifslist = new ArrayList<Notification>();
@@ -87,11 +117,30 @@ public class NotificationDAO {
 			if(resultSet.next()){
 				return true;
 			}
+			preparedStatement.close();
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
+		return false;		
+	}
+	
+	public boolean checkIfRequested(int IdUser1, int IdUser2){
+		try{
+			String query = "select * from notifications where recipientID=? and senderID=? and notifType=?";
+			PreparedStatement preparedStatement = conn.prepareStatement( query );
+			preparedStatement.setInt(1, IdUser1);
+			preparedStatement.setInt(2, IdUser2);
+			preparedStatement.setInt(3, 1);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			if(resultSet.next()){
+				return true;
+			}
+			preparedStatement.close();
 		} catch(SQLException e){
 			e.printStackTrace();
 			return false;
 		}
-		return false;		
+		return false;
 	}
 	
 }

@@ -48,6 +48,7 @@ public class MessageAddServlet extends HttpServlet {
             String timeNow = sDF.format(new Date().getTime());
 			if(mS.getRecent(user.getIdUser(), temp.getIdUser())==null){
 				mS.addRecent(user.getIdUser(), temp.getIdUser(), timeNow);
+				mS.addRecent(temp.getIdUser(), user.getIdUser(), timeNow);
 			} 
 			session.setAttribute("talkingWith", temp);
 		}
