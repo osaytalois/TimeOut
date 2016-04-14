@@ -76,6 +76,11 @@ public class SignupServlet extends HttpServlet {
 				user = uD.getUserByUsername(user.getUsername());
 				session.setAttribute("user",user);
 				
+				UserInfoService infoservice = new UserInfoService();
+				UserInfo myinfo = new UserInfo(user.getIdUser(), "There is no description available", "There are no contact details available", "", "There are no work information available.", "");
+				infoservice.addInfo(myinfo);
+				request.getSession().setAttribute("myinfo", myinfo);
+				
 				RequestDispatcher rd = getServletContext().getRequestDispatcher("/profile.jsp");
 				rd.forward(request, response);
 			}else{
