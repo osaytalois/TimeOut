@@ -43,12 +43,13 @@ public class NotificationDAO {
 			
 	}
 	
-	public void removeNotification(int r, int s){
+	public void removeNotificationFriendRequest(int r, int s){
 		try{
-			String query = "delete from notifications where recipientID=? AND senderID=?";
+			String query = "delete from notifications where recipientID=? AND senderID=? and notifType=?";
 			PreparedStatement preparedStatement = conn.prepareStatement( query );
 			preparedStatement.setInt(1, r);
 			preparedStatement.setInt(2, s);
+			preparedStatement.setInt(3, 1);
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
 		} catch(SQLException e){
@@ -56,6 +57,35 @@ public class NotificationDAO {
 		}
 		
 	}
+	
+	public void removeNotificationNewChat(int r, int s){
+		try{
+			String query = "delete from notifications where recipientID=? AND senderID=? and notifType=?";
+			PreparedStatement preparedStatement = conn.prepareStatement( query );
+			preparedStatement.setInt(1, r);
+			preparedStatement.setInt(2, s);
+			preparedStatement.setInt(3, 2);
+			preparedStatement.executeUpdate();
+			preparedStatement.close();
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
+	}
+	
+	public void removeNotificationAcceptRequest(int r, int s){
+		try{
+			String query = "delete from notifications where recipientID=? AND senderID=? and notifType=?";
+			PreparedStatement preparedStatement = conn.prepareStatement( query );
+			preparedStatement.setInt(1, r);
+			preparedStatement.setInt(2, s);
+			preparedStatement.setInt(3, 3);
+			preparedStatement.executeUpdate();
+			preparedStatement.close();
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
+	}
+
 
 	public List<Notification> getNotifications(int IdUser){
 			ArrayList<Notification> notifslist = new ArrayList<Notification>();

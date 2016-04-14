@@ -22,11 +22,7 @@ import java.util.logging.Level;
 import logic.Event;
 import logic.Post;
 	import logic.User;
-	import logic.Event;
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
 
 	/**
 	 *
@@ -121,16 +117,10 @@ public class EventService {
 	            connection = dBConnection.getConnection();
 	            String query = "insert into members(position, user_idUser, Events_id, team) values (?,?,?,?);";
 	            PreparedStatement preparedStatement = connection.prepareStatement(query);
-<<<<<<< HEAD
 	            preparedStatement.setString(1, position);
 	            preparedStatement.setInt(2, user);
 	            preparedStatement.setInt(3, eventId);
 	            preparedStatement.setInt(4, team);
-=======
-	            preparedStatement.setInt(1, a.getUserID());
-	           // preparedStatement.setString(2, a.getPost());
-	            preparedStatement.setString(3, timeNow);
->>>>>>> origin/master
 	            preparedStatement.executeUpdate();
 	            connection.close();
 	            return true;
@@ -141,15 +131,7 @@ public class EventService {
 	        }
 	    }
 	    
-<<<<<<< HEAD
 	    public ArrayList<Event> getAllEventsHost(int uname) {
-=======
-	    public Event getEventByUsername(String eventName){
-	    	
-	    }
-	    
-	    public ArrayList<Post> getAllMyPost(String uname) {
->>>>>>> origin/master
 	        try {
 	            dBConnection = DBconnection.getInstance();
 	            connection = dBConnection.getConnection();

@@ -91,7 +91,7 @@ a{
 			</div>
 		</c:if>
 		<c:if test="${fn:length(notifslist) == 0}">
-			<p>&nbsp;&nbsp;You have no notifications.</p>
+			<p>&nbsp;&nbsp;You have no new notifications.</p>
 		</c:if>
 			
 			</div>

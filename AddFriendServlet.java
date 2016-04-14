@@ -51,7 +51,7 @@ public class AddFriendServlet extends HttpServlet {
 		}
 		else{
 			NotificationService n = new NotificationService();
-			n.removeNotification(user.getIdUser(), notfriend.getIdUser());
+			n.removeNotificationFriendRequest(user.getIdUser(), notfriend.getIdUser());
 			ArrayList<Notification> notifslist = new ArrayList<Notification>();
 			notifslist = n.getNotifications(user.getIdUser());
 			request.getSession().setAttribute("notifslist", notifslist);
